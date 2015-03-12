@@ -1,0 +1,6 @@
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\bin\Debug\DLUProject.Core.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\bin\Debug\DLUProject.Core.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\obj\Debug\DLUProject.Core.csprojResolveAssemblyReference.cache
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\obj\Debug\DLUProject.Core.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\obj\Debug\DLUProject.Core.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Core\bin\Debug\DLUProject.Core.dll.config

@@ -1,0 +1,44 @@
+﻿@model DLUProjectMvc.ViewModels.MyOrderDetailViewModel
+@{
+    ViewBag.Title = "Chi tiết Hóa đơn #" + Model.OrderItem.OrderID;
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        <b>ID: </b>@Model.OrderItem.OrderID <br />
+        <b>Ngày mua: </b>@Model.OrderItem.DateCreated.ToString("dd/MM/yyyy") <br />
+        <b>Tổng tiền: </b>@Model.OrderItem.SubTotal.ToString("0,000") đ <br />
+        <b>Trạng thái đơn hàng: </b>@Model.OrderItem.GetOrderStatus <br />
+        <b>Nhân viên: </b>@if (Model.OrderItem.Account != null)
+        { <span>@Model.OrderItem.Account.FullName</span>}
+        <br />
+
+        @Html.ActionLink("Cập nhật", "Edit", "Order", new { id = Model.OrderItem.OrderID }, null)
+        <hr />
+        <h3>Chi tiết hóa đơn</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+
+                        <td>@item.Product.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Total.ToString("0,000") đ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

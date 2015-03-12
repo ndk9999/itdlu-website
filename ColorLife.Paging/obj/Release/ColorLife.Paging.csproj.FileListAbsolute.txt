@@ -1,0 +1,17 @@
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\ColorLife.Paging.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\ColorLife.Paging.pdb
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\Microsoft.Web.Infrastructure.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Helpers.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Mvc.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Razor.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.Deployment.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.Razor.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Helpers.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Mvc.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.Razor.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.Deployment.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\bin\Release\System.Web.WebPages.Razor.xml
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\obj\Release\ColorLife.Paging.dll
+E:\PROJECT\DLU\DLUProject\ColorLife.Paging\obj\Release\ColorLife.Paging.pdb

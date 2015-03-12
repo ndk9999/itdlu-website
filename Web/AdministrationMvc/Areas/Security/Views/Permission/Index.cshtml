@@ -1,0 +1,114 @@
+﻿@model DLUProject.Model.AccountGroupFunctionModel
+@{
+    ViewBag.Title = "Phân quyền";
+}
+
+@using ColorLife.Core.Mvc
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        <div>
+            @Html.Partial("_Notification")
+            <div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+                <div class="row">
+                    @using (Html.BeginForm("Index", "Permission", FormMethod.Get, htmlAttributes: new { @id = "form0" }))
+                    {
+                        <div class="col-xs-6">
+
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="sample-table-2_filter" class="dataTables_filter">
+                                <label>Nhóm Tài khoản</label>
+                                @Html.DropDownList("GroupID", new SelectList(ViewBag.AccountGroup, "GroupID", "Name"), "--ALL--", htmlAttributes: new { @style = "width:150px", @class = "form-control", data_placeholder = "Choose a category...", @onchange = "return doSubmit('#form0')" })
+                                <label>Hệ thống</label>
+                                @Html.DropDownList("SystemID", new SelectList(ViewBag.SystemID, "SystemID", "Name"), "--ALL--", htmlAttributes: new { @style = "width:150px", @class = "form-control", data_placeholder = "Choose a category...", @onchange = "return doSubmit('#form0')" })
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+        @{Html.RenderPartial("_PermissionPartial", Model);}
+
+
+
+        <hr>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function setCheckAll(id) {
+            // $(".check_all_" + id).bind('click',function () {
+            var boxes = $('.check_all_' + id + ':checked');
+            if (boxes.length > 0) {
+                $('.check_' + id).each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $('.check_' + id).each(function () {
+                    this.checked = false;
+                });
+            }
+        }
+        function setCheckAllRow(id) {
+            var boxes = $('.check_all_row_' + id + ':checked');
+            if (boxes.length > 0) {
+                $('.check_row_' + id).each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $('.check_row_' + id).each(function () {
+                    this.checked = false;
+                });
+            }
+        }
+        function selectOnlyCheck(obj) {
+            var arr = obj.split("_");
+            $.ColorLifeData.jsonGrantPermisstion(arr[0], arr[1]);
+        }
+
+        $(document).ready(function () {
+            $("#btnSave").click(function () {
+                var checked = $('input.check:checked');
+                if (checked.length == 0) {
+                    alert('Bạn chưa chọn dữ liệu.');
+                }
+                else {
+                    var arr = [];
+                    checked.each(function (i, val) {
+                        arr.push(val.value);
+                    });
+
+                    $.ColorLifeData.jsonGrantAllPermisstion(arr.toString());
+                }
+            });
+            $("#btnSave2").click(function () {
+                var checked = $('input.check:checked');
+                if (checked.length == 0) {
+                    alert('Bạn chưa chọn dữ liệu.');
+                }
+                else {
+                    var arr = [];
+                    checked.each(function (i, val) {
+                        arr.push(val.value);
+                    });
+
+                    $.ColorLifeData.jsonGrantAllPermisstion(arr.toString());
+                }
+            });
+        });
+
+    </script>
+
+}

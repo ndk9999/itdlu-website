@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{959AC489-7653-44F3-A167-5B494299F44B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColorLife.Core</RootNamespace>
+    <AssemblyName>ColorLife.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ColorLifeConfiguration.cs" />
+    <Compile Include="FileManager\FileItem.cs" />
+    <Compile Include="FileManager\FileManager.cs" />
+    <Compile Include="FileManager\FileRepository.cs" />
+    <Compile Include="FileManager\FileUploadHandler.cs" />
+    <Compile Include="FileManager\FTP\FTP.cs" />
+    <Compile Include="FileManager\FTP\FtpClient.cs" />
+    <Compile Include="FileManager\FileHelper.cs" />
+    <Compile Include="FileManager\IFileRepository.cs" />
+    <Compile Include="FileManager\JsTreeModel.cs" />
+    <Compile Include="FileManager\SortExtensions.cs" />
+    <Compile Include="FileManager\Toolkit\Imaging.cs" />
+    <Compile Include="FileManager\Uploader\FileUploadConfig.cs" />
+    <Compile Include="FileManager\Uploader\FileUploadService.cs" />
+    <Compile Include="FileManager\Uploader\IFileUploadService.cs" />
+    <Compile Include="Helper\AppConfig.cs" />
+    <Compile Include="Helper\ConvertListToDataTable.cs" />
+    <Compile Include="Helper\ConvertType.cs" />
+    <Compile Include="Helper\CurrencyHelper.cs" />
+    <Compile Include="Helper\MyEmailService.cs" />
+    <Compile Include="Helper\EncryptionHelper.cs" />
+    <Compile Include="Helper\EnumUtils.cs" />
+    <Compile Include="Helper\HtmlAgilityPackHelper.cs" />
+    <Compile Include="Helper\InstallerConfig.cs" />
+    <Compile Include="Helper\InstallerHelper.cs" />
+    <Compile Include="Helper\PagingHelper2.cs" />
+    <Compile Include="Helper\PagingHelper.cs" />
+    <Compile Include="Helper\SqlDataHelper.cs" />
+    <Compile Include="Helper\IWebHelper.cs" />
+    <Compile Include="Helper\MailService.cs" />
+    <Compile Include="Helper\RssHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="Helper\SyndicationFeedHelper.cs" />
+    <Compile Include="Helper\WebHelper.cs" />
+    <Compile Include="Mvc\MvcPager\IPagedList.cs" />
+    <Compile Include="Mvc\MvcPager\PagedList.cs" />
+    <Compile Include="Mvc\MvcPager\PageLinqExtensions.cs" />
+    <Compile Include="Mvc\MvcPager\PagerBuilder.cs" />
+    <Compile Include="Mvc\MvcPager\PagerHelper.cs" />
+    <Compile Include="Mvc\MvcPager\PagerItem.cs" />
+    <Compile Include="Mvc\MvcPager\PagerOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Controls\Captcha.cs" />
+    <Compile Include="Web\Controls\GoogleAPIChart.cs" />
+    <Compile Include="Web\Controls\CollectionPager.cs" />
+    <Compile Include="Web\Controls\ColorLifeButtonEx.cs" />
+    <Compile Include="Web\Controls\ColorLifeNumberTextBox.cs" />
+    <Compile Include="Web\Controls\ColorLifeEmailTextBox.cs" />
+    <Compile Include="Web\Controls\ColorLifeTextBoxEx.cs" />
+    <Compile Include="Web\Controls\ColorLifeEditor.cs" />
+    <Compile Include="Web\Controls\ColorLifeVideoPlayer.cs" />
+    <Compile Include="Web\Controls\FlashPlayer.cs" />
+    <Compile Include="Web\Controls\ColorLifeImageCheckBox.cs" />
+    <Compile Include="Web\Controls\Pager\AspNetPager.cs" />
+    <Compile Include="Web\Controls\Pager\CustomAttributes.cs" />
+    <Compile Include="Web\Controls\Pager\Enumerations.cs" />
+    <Compile Include="Web\Controls\Pager\Events.cs" />
+    <Compile Include="Web\Controls\Pager\Helper.cs" />
+    <Compile Include="Web\Controls\Pager\Methods.cs" />
+    <Compile Include="Web\Controls\Pager\PageChangingEventArgs.cs" />
+    <Compile Include="Web\Controls\Pager\PagerDesigner.cs" />
+    <Compile Include="Web\Controls\Pager\PostBack.cs" />
+    <Compile Include="Web\Controls\Pager\Properties.cs" />
+    <Compile Include="Web\Controls\PagingControl.cs" />
+    <Compile Include="Web\HttpHandler\BaseHttpHandler.cs" />
+    <Compile Include="Web\HttpHandler\DeleteHandler.cs" />
+    <Compile Include="Web\HttpHandler\DownloadHandler.cs" />
+    <Compile Include="Web\HttpHandler\FileUploadHandler.cs" />
+    <Compile Include="Web\HttpHandler\HttpImageHandler.cs" />
+    <Compile Include="Web\HttpHandler\RssHandler.cs" />
+    <Compile Include="Web\HttpHandler\TextOnImageHandler.cs" />
+    <Compile Include="Web\HttpHandler\ThumbnailHandler.cs" />
+    <Compile Include="Web\HttpModule\Class1.cs" />
+    <Compile Include="Web\HttpModule\WhitespaceModule.cs" />
+    <Compile Include="Web\JSON\JsonResponse.cs" />
+    <Compile Include="Web\WebService\PingService.cs" />
+    <Compile Include="Web\WebService\WeatherService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,29 @@
+﻿<!--
+	FileName: Create.cshtml
+	Project Name: DLUProject
+Date Created: 24/11/2014 12:48:10 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+@{
+    ViewBag.Title = "Thêm mới";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        @using (Html.BeginForm("Create", "AdvBanner", FormMethod.Post, htmlAttributes: new { @id = "create", @class = "form-horizontal form-bordered form-validate" }))
+        {
+            @Html.Partial("_CreateOrUpdate")
+        }
+    </div>
+</div>
+ 
+

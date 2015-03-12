@@ -1,0 +1,414 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 11/11/2014 3:02:47 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Model.ProductModel
+
+<div class="widget-box ui-sortable-handle" style="opacity: 1;">
+    <div class="widget-header widget-header-small">
+        <h5 class="widget-title smaller">Sản phẩm</h5>
+        <div class="widget-toolbar no-border">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#home" data-toggle="tab" aria-expanded="true">Thông tin</a>
+                </li>
+                <li class="">
+                    <a href="#profile" data-toggle="tab" aria-expanded="false">Hình ảnh</a>
+                </li>
+                <li>
+                    <a href="#info" data-toggle="tab">Nhập kho</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="widget-body">
+        <div class="widget-main padding-6">
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+                    @Html.HiddenFor(model => model.ProductID)
+                    @Html.HiddenFor(model => model.DateCreated)
+                    @Html.HiddenFor(model => model.DateModified)
+                    <div class="row clearfix">
+                        <div class="col-md-9">
+                            <div class="well">
+                                <div class="form-horizontal clearfix">
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Name", data_rule_required = "true", data_rule_minlength = "5" })
+                                            @Html.ValidationMessageFor(model => model.Name)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Alias, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.Alias, htmlAttributes: new { @class = "form-control", placeholder = "Alias" })
+                                            @Html.ValidationMessageFor(model => model.Alias)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Categories, "CategoryID", "Breadcrumb"), htmlAttributes: new { @class = "form-control", @required = "required", data_rule_required = "true" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", placeholder = "Description" })
+                                            @Html.ValidationMessageFor(model => model.Description)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.UnitID, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.DropDownListFor(model => model.UnitID, new SelectList(ViewBag.Units, "UnitID", "Name"), htmlAttributes: new { @class = "form-control", placeholder = "Units" })
+                                            @Html.ValidationMessageFor(model => model.UnitID)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Color, htmlAttributes: new { @class = "form-control", placeholder = "Màu sắc" })
+                                            @Html.ValidationMessageFor(model => model.Color)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Sizes, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Sizes, htmlAttributes: new { @class = "form-control", placeholder = "Kích thước" })
+                                            @Html.ValidationMessageFor(model => model.Sizes)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Status, htmlAttributes: new { @class = "form-control", placeholder = "Trạng thái" })
+                                            @Html.ValidationMessageFor(model => model.Status)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Price, htmlAttributes: new { @class = "form-control", placeholder = "Price", data_rule_number = "true", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                            @Html.ValidationMessageFor(model => model.Price)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PriceVAT, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.PriceVAT, htmlAttributes: new { @class = "form-control", placeholder = "PriceVAT", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.PriceVAT)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Discount, htmlAttributes: new { @class = "form-control", placeholder = "Giảm giá %", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.Discount)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Featured, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-6">
+                                            @Html.HiddenFor(model => model.Featured, htmlAttributes: new { @class = "spinner", placeholder = "Featured", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.Featured)
+                                            <br />
+                                            @foreach (var item in Enum.GetValues(typeof(DLUProject.Domain.ProductFeatured)))
+                                            {
+                                                var x = (DLUProject.Domain.ProductFeatured)Enum.Parse(typeof(DLUProject.Domain.ProductFeatured), item.ToString(), true);
+                                                <span class="inline">
+                                                    @if (Model.IsDisplayFlag(x))
+                                                    {
+
+                                                        @item.ToString()
+                                                        <input type="checkbox" class="checkbox-inline productFeatured" value="@((int)item)" checked />
+                                                        <label>&nbsp;&nbsp;</label>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.ToString()
+                                                        <input type="checkbox" class="checkbox-inline productFeatured" value="@((int)item)" />
+                                                        <label>&nbsp;&nbsp;</label>
+                                                    }
+                                                </span>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SortOrder, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.SortOrder, htmlAttributes: new { @class = "spinner", placeholder = "SortOrder", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.SortOrder)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsPublished, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.CheckBoxFor(model => model.IsPublished)
+                                            @Html.ValidationMessageFor(model => model.IsPublished)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Hits, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Hits, htmlAttributes: new { @class = "ace-spinner", placeholder = "Hits", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.Hits)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            @Html.TextAreaFor(model => model.FullText, htmlAttributes: new { @class = "form-control", placeholder = "FullText" })
+                                            @Html.ValidationMessageFor(model => model.FullText)
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SupplierID, htmlAttributes: new { @class = "col-sm-5 control-label" })
+                                <div class="col-sm-12">
+                                    @Html.DropDownListFor(model => model.SupplierID, new SelectList(ViewBag.Suppliers, "SupplierID", "Name"), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SupplierID)
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.Image, htmlAttributes: new { @class = "form-control", placeholder = "Image" })
+
+                                        <span class="input-group-btn">
+                                            <a href="/Admin/FileManager?returnId=Image" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                        </span>
+                                        @Html.ValidationMessageFor(model => model.Image)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="imgthumb">
+                                        <img id="imgthumb" src="@Model.Image" class="img-responsive" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MetaTitle, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-12">
+                                    @Html.TextBoxFor(model => model.MetaTitle, htmlAttributes: new { @class = "form-control", placeholder = "MetaTitle" })
+                                    @Html.ValidationMessageFor(model => model.MetaTitle)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MetaDescription, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-12">
+                                    @Html.TextAreaFor(model => model.MetaDescription, htmlAttributes: new { @class = "form-control", placeholder = "MetaDescription" })
+                                    @Html.ValidationMessageFor(model => model.MetaDescription)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-12">
+                                    @Html.TextAreaFor(model => model.MetaKeywords, htmlAttributes: new { @class = "form-control", placeholder = "MetaKeywords" })
+                                    @Html.ValidationMessageFor(model => model.MetaKeywords)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="tab-pane" id="profile">
+                    @if (Model.ProductID > 0)
+                    {
+
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+                                <div id="ProductImage">
+
+                                </div><!-- PAGE CONTENT ENDS -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr />
+                            <div class="col-sm-12">
+                                <div class="form-group">
+
+
+                                    <input id="ImageUrl" type="hidden" />
+
+
+                                    <div class="imgthumb">
+                                        <img id="imgthumb" src="~/content/images/noimage.png" width="150" height="200" />
+                                    </div>
+                                    <div class="btn-group">
+                                        &nbsp;
+                                        <button id="choosefile" class="btn btn-sm btn-danger" rel="tooltip" title="Upload new images">
+                                            <i class="fa fa-cloud-upload"></i>
+                                            Upload
+                                        </button>
+                                        <span class="input-group-btn">
+                                            <a href="/Admin/FileManager?returnId=ImageUrl" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                        </span>
+                                        <button id="removefile" class="btn btn-sm btn-warning" type="button" style="display:none">
+                                            <i class="fa fa-times"></i>
+                                            Xóa
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button id="btnAddProductImage" class="btn btn-primary btn-sm" type="button"><i class="fa fa-picture-o"></i> Add Product Image</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Bạn cần lưu thông tin sản phẩm trước khi thêm ảnh.</p>
+                    }
+                </div>
+                <div class="tab-pane" id="info">
+                    @if (Model.ProductID > 0)
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-9">
+                                <div class="well" id="formImport">
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="CustomerID" class="col-sm-2 control-label">Khách hàng</label>
+                                            <div class="col-sm-8">
+                                                @Html.DropDownList("CustomerID", new SelectList(ViewBag.Customers, "CustomerID", "FullName"), htmlAttributes: new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="SalerID" class="col-sm-2 control-label">Nhân viên</label>
+                                            <div class="col-sm-8">
+                                                @Html.DropDownList("SalerID", new SelectList(ViewBag.Accounts, "AccountID", "FullName"), htmlAttributes: new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="StoreID" class="col-sm-2 control-label">Chọn Kho</label>
+                                            <div class="col-sm-8">
+                                                @Html.DropDownList("StoreID", new SelectList(ViewBag.Stores, "StoreID", "Name"), htmlAttributes: new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="StoreID" class="col-sm-2 control-label">Ngày ký gửi</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" id="DateAdded" value="@DateTime.Now" class="form-control datepicker" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="Quantity" class="col-sm-2 control-label">Số lượng</label>
+                                            <div class="col-sm-4">
+                                                <input type="number" class="form-control" id="Quantity" value="1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="NumOfDate" class="col-sm-2 control-label">Số ngày ký gửi</label>
+                                            <div class="col-sm-4">
+                                                <input type="number" class="form-control" id="NumOfDate" value="1" />
+                                                <input type="text" class="form-control datepicker" id="DateEnded" value="@DateTime.Now.AddDays(30).ToString()" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-horizontal clearfix">
+                                        <div class="form-group">
+                                            <label for="StoreStatus" class="col-sm-2 control-label">Trạng thái</label>
+                                            <div class="col-sm-4">
+                                                @Html.DropDownList("StoreStatus", new SelectList(ViewBag.ProductStatus,"Value","Text"),htmlAttributes: new { @class = "form-control", @required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal clearfix">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            @if (ViewBag.ProductInStored != null)
+                                            {
+                                                <b style="color:red">Sản phẩm đã được lưu vào kho: @ViewBag.ProductInStored.Store.Name</b>
+                                                
+                                                @Html.ActionLink("Chuyển Kho", "Edit", "ProductStored", new { id = ViewBag.ProductInStored.ID }, null)
+                                            }
+                                            else
+                                            {
+                                                <button id="btnAccept" class="btn btn-primary btn-sm" type="button"><i class="fa fa-save"></i> Nhập kho</button>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Bạn cần lưu thông tin sản phẩm trước khi nhập kho </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-actions">
+    <a href="@Url.Action("Index")" class="btn btn-sm " rel="tooltip" title="Quay lại">
+        <i class="fa fa-undo"></i>
+        Hủy
+    </a>
+    <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"></i> Lưu lại</button>
+    &nbsp; &nbsp;
+</div>
+

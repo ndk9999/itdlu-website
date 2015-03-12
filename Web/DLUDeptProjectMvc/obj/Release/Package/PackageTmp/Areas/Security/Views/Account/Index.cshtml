@@ -1,0 +1,59 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Account>
+@using ColorLife.Core.Mvc
+@{
+    ViewBag.Title = "Quản lý Tài khoản";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+            @Html.ButtonCreateLink()
+
+        </h3>
+
+        <div>
+            @Html.Partial("_Notification")
+            <div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+                <div class="row">
+                    @using (Ajax.BeginForm("Index", new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "dvAjaxData",
+                        InsertionMode = InsertionMode.Replace,
+                        LoadingElementId = "Loader"
+                    }))
+                    {
+                        <div class="col-xs-6">
+                            <div class="dataTables_length" id="sample-table-2_length">
+                                <label>
+                                    Hiển thị
+                                    <select name="pagesize" id="pagesize" aria-controls="pagesize" class="form-control input-sm" onchange="return doSubmit('#form0')">
+                                        <option value="10">10</option>
+                                        <option value="25" selected>25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> Bản tin
+                                </label>
+                            </div>
+                        </div>
+    <div class="col-xs-6">
+        <div id="sample-table-2_filter" class="dataTables_filter">
+            <label>
+                Tìm kiếm:
+
+            </label>
+            @Html.DropDownList("GroupID", new SelectList(ViewBag.AccountGroups, "GroupID", "Name"), "-- ALL --", htmlAttributes: new { @style = "width:150px", @class = "form-control", data_placeholder = "Choose a category...", @onchange = "return doSubmit('#form0')" })
+            <input type="search" name="queryString" id="queryString" class="form-control input-sm" aria-controls="sample-table-2" onblur="return doSubmit('#form0')">
+
+        </div>
+    </div>
+                    }
+                </div>
+                <div id="dvAjaxData">
+                    @{Html.RenderPartial("_ListPartial", Model); }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

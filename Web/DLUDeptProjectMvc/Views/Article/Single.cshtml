@@ -1,0 +1,168 @@
+﻿@model DLUProjectMvc.ViewModels.SingleContentViewModel
+@using ColorLife.Core.Helper
+    @{
+
+    }
+  
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <div class="title">
+                        TIN TỨC &amp; SỰ KIỆN
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="title-cate">
+                    <ol class="breadcrumb" style="background:none; margin:0">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li>@Html.ActionLink("Tin tức", "Index", "Article")</li>
+                        <li>@Html.ActionLink(Model.Item.Category.Name, "Category", "Article", new { id = Model.Item.CategoryID, slug = Model.Item.Category.Alias }, null)</li>
+                        <li class="active">@Model.Item.Name</li>
+                    </ol>
+
+                </div>
+
+                <div class="conten_cate">
+
+                    <div class="td-news-title">
+                        @Model.Item.Name
+
+                    </div>
+
+                    <i class="fa fa-user"></i>
+                    Đăng bởi:
+                    <b>
+                        @Model.Item.Source
+                    </b>
+                    |
+                    <i class="fa fa-calendar"></i>
+                    Ngày đăng:
+                    @Model.Item.DateCreated.ToString("dd/MM/yyyy")
+                    <hr>
+                    <div class="td_short_news">
+                        @Model.Item.Description
+                    </div>
+                    <div class="td_content_news">
+                        @Html.Raw(Model.Item.FullText)
+                    </div>
+                    <div class="pull-right">
+                        <b>@Model.Item.Source</b>
+                        <br />
+                        &nbsp;<i class="fa fa-print"></i>&nbsp;
+                        <a href="javascript:print_preview('@Model.Item.ContentID')">In bài viết </a>&nbsp;&nbsp;
+                        <i class="fa fa-envelope"></i>&nbsp;<a href="mailto:?">Gửi cho bạn bè</a>
+                    </div>
+
+
+                </div>
+
+
+
+                <!--Tin mới hơn-->
+                <div class="col-md-12">
+                    <div class="tincu">
+                        <h4>
+                            Các bài mới hơn
+                        </h4>
+
+                        <ul>
+
+                            @foreach (var item in Model.LatestContent)
+                            {
+
+                                <li>
+                                    @Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)
+                                    <small>  <i class="fa fa-calendar"></i> @item.DateCreated.ToString("dd/MM/yyyy hh:mm:ss tt")</small>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+
+                 
+            </div>
+            <div class="col-md-4">
+                <h4 class=" title-video">TIN TỨC</h4>
+                <div class="widget">
+
+                    <div class="mytabsx">
+                        <ul class="tabs">
+                            <li data-tab="tab-21" class="tab-link">Tin mới đăng</li>
+                            <li data-tab="tab-9" class="tab-link">Tin xem nhiều</li>
+
+                        </ul>
+                        <div class="tab-content" id="tab-21">
+                            @foreach (var item in Model.ListTopNew)
+                            {
+
+                                <div class="media">
+                                    <a class="media-left" href="@Url.Action("Single", "Article", new { id=item.ContentID, slug=item.Alias})">
+                                        <img src="@item.Image" alt="@item.Name" width="120" style="text-align:left">
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID, slug=item.Alias }, null)</h5>
+                                            @item.Description.TruncateString(50)
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                        <div class="tab-content" id="tab-9">
+                            @foreach (var item in Model.ListTopViews)
+                            {
+
+                                <div class="media">
+                                    <a class="media-left" href="@Url.Action("Single", "Article", new { id=item.ContentID, slug=item.Alias})">
+                                        <img src="@item.Image" alt="@item.Name" width="48px">
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)</h5>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                 
+
+                @Html.Partial("_SidebarPartial")
+
+            </div>
+        </div>
+    </section>
+
+    @section scripts{
+ 
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $(".mytabsx ul.tabs li:first").addClass("current");
+                $(".mytabsx .tab-content:first").addClass("current");
+                $('.mytabsx ul.tabs li').click(function () {
+                    var tab_id = $(this).attr('data-tab');
+
+                    $('.mytabsx ul.tabs li').removeClass('current');
+                    $('.mytabsx .tab-content').removeClass('current');
+
+                    $(this).addClass('current');
+                    $("#" + tab_id).addClass('current');
+
+
+                })
+                $(".group1").colorbox({ rel: 'group1' });
+
+                $.ColorLife.jsonUpdateHitsData("Content",@Model.Item.ContentID);
+            });
+        </script>
+    }

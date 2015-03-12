@@ -1,0 +1,107 @@
+﻿@model  ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Files>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FilePopup</title>
+    <link href="@Url.Content("~/Content/ace/styles.css")" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="@Url.Content("~/Scripts/ace/app.js")"></script>
+    <script type="text/javascript">
+        function insertFile(fileName, id) { 
+            returnOpenerId = getQueryString('returnId');
+           
+            if (returnOpenerId != null && returnOpenerId != '') {
+                var html = '<tr><td>';
+                html += ' <input type="hidden" id="Files' + id + '" name="Files" value=' + id + ' />';
+                html += fileName;
+                html += '&nbsp;<a href="javascript:void(0)" class="btnRemove">X</a>';
+                html += '</td></tr>';
+                // getParentWin().document.getElementById(returnOpenerId).innerHTML = html;
+                getParentWin().$('#' + returnOpenerId).append(html);
+                parent.$.fn.colorbox.close();
+            }            
+        }
+        function getQueryString(key) {
+            key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + key + "=([^&#]*)", 'ig');
+            var qs = regex.exec(window.location.href);
+            if (qs == null)
+                return '';
+            else
+                return qs[1];
+        }
+        function getParentWin() {
+            var w = opener || parent;
+            return w != window ? w : null;
+        }
+        function isEnter(event) {
+            return ((event.which && event.which == 13) || (event.keyCode && event.keyCode == 13));
+        }
+       
+    </script>
+</head>
+<body>
+    <div class="row-fluid">
+        <div class="col-xs-12">
+            <h3 class="header smaller lighter blue">
+                @ViewBag.Title
+                @Html.ActionLink("Thêm mới", "CreatePopup", "Files", null, htmlAttributes: new { })
+
+            </h3>
+
+            <div>
+                @Html.Partial("_Notification")
+                <div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+                    <div class="row">
+                        @using (Ajax.BeginForm("FilePopup", new AjaxOptions
+                                                                  {
+                                                                      HttpMethod = "GET",
+                                                                      UpdateTargetId = "dvAjaxData",
+                                                                      InsertionMode = InsertionMode.Replace,
+                                                                      LoadingElementId = "Loader"
+                                                                  }))
+                        {
+                            <div class="col-xs-6">
+                                <div class="dataTables_length" id="sample-table-2_length">
+                                    <label>
+                                        Hiển thị
+                                        <select name="pagesize" id="pagesize" aria-controls="pagesize" class="form-control input-sm" onchange="return doSubmit('#form0')">
+                                            <option value="10">10</option>
+                                            <option value="25" selected>25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> Bản tin
+                                    </label>
+                                </div>
+                            </div><div class="col-xs-6">
+                                <div id="sample-table-2_filter" class="dataTables_filter">
+                                    <label>Tìm kiếm:<input type="search" name="queryString" id="queryString" class="form-control input-sm" aria-controls="sample-table-2" onblur="return doSubmit('#form0')"></label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+
+            <div id="dvAjaxData">
+                @{Html.RenderPartial("_ListPopupPartial", Model); }
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

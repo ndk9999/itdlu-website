@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @SettingOption.Get("SITE_NAME")</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/dlu2/style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+    <div class="container">
+        <header>
+            <div class="bgtop"></div>
+            <div class="myheader">
+                <div class="row ">
+
+                    <div class="col-md-7">
+
+                        <div class="media logo">
+                            <a href="/" class="pull-left">
+                                <img width="96" alt="." src="~/content/dlu2/Images/logo_itfac.jpg" class="media-object SITE_LOGO" id="SITE_LOGO">
+                            </a>
+                            <div class="logo-text">
+                                <h3><span id="SITE_NAME" class="SITE_NAME"></span></h3>
+                                <h4>TRƯỜNG ĐẠI HỌC ĐÀ LẠT</h4>
+                                <h5><span id="SITE_ADDRESS" class="SITE_ADDRESS"></span></h5>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-5">
+                       <div style="padding-top:10px">&nbsp;</div>
+                        <div class="diveng  hidden-sm hidden-xs">
+                            <div class="pull-right">
+                                <a href="#">&nbsp;English</a>
+                            </div>
+                        </div>
+                        <div class="mysearch">
+
+                            <div class="row">
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Nhập từ khóa cần tìm...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button">Tìm kiếm</button>
+                                        </span>
+                                    </div><!-- /input-group -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="theClock" class="theclock"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="topmenu pull-right">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-home"></i> Trang chủ</a></li>
+                            <li><a href="#">Elearning</a></li>
+                            <li><a href="#">Trung tâm IT</a></li>
+                            <li><a href="#">Tài nguyên</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="menu-title">
+
+                        <i class="fa fa-bars"></i>  DANH MỤC
+
+                    </h4>
+
+                    <div class="panel-group" id="accordion">
+                        Loading...
+
+
+                    </div>
+                    <div class="thongbaonhatruong">
+                        <h4 class="title-thongbao-nhatruong"><i class="fa fa-rss"></i> THÔNG BÁO NHÀ TRƯỜNG</h4>
+                        <div class="list-group" id="thongbaonhatruong">
+                           Loading...
+                        </div>
+
+                    </div>
+                    <div class="widget">
+
+                        <h4 class="title-video"><i class="fa fa-link"></i> LIÊN KẾT</h4>
+
+                        <div class="bannerlink"></div>
+                       
+
+                    </div>
+
+                   
+                </div>
+                <div class="col-md-9">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        
+        <footer>
+            <section>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="banner_980x60">
+                            <div class="width_common block_news_980 box_category">
+                                <div class="title_news_block_980 width_common">
+                                    &nbsp;
+                                    <div class="pull-right">
+                                        <div class="go_head">
+                                            <a style="" class="fancybox.iframe" id="aSetHomePage" href="http://vnexpress.net/sethomepage/firefox-us.html">
+                                                <i class="fa fa-home"></i>&nbsp;</span>Đặt DLU làm trang chủ
+                                            </a>
+                                            <a onclick="setHomepageIE();" id="aSetHomePageIE" href="javascript:;" style="display: none;"><span class="icon_responsive ico_respone_01">&nbsp;</span>Đặt VnExpress làm trang chủ</a>
+                                            <a href="#" id="scroll_to_top">
+
+                                                <i class="fa fa-angle-up"></i>
+                                                Về đầu trang
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="footer">
+
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+
+
+
+                                        <div class="inCounter">
+                                            Lượt truy cập:<br />123456789
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-8">
+
+                                        <label class="tdtilebq">Bản quyền thuộc về <span class="SITE_NAME"></span></label>
+                                        <br />
+                                        <span class="tdtilebq SITE_ADDRESS"></span>
+                                        <br />
+                                        <span class="tdtilebq">Chịu trách nhiệm: Ông Nguyễn Văn A</span>
+                                        <br />
+                                        <span class="tdtilebq">
+                                            Powered by <a href="http://it.dlu.edu.vn/" target='_blank' style='text-decoration:none ; color : #006699'>Khoa Công nghệ Thông tin - ĐHĐL</a>
+                                        </span>
+                                        <br />
+                                        Website đang trong quá trình thử nghiệm
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 hidden-xs">
+                                        <div class="divmenu" id="Footer1">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </footer>
+
+    </div>
+
+    <div class="scroll-to-top" id="toTop"><i class="fa fa-angle-up"></i></div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/pace.min.js"></script>
+
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/jquery.colorbox-min.js"></script>
+    <script src="~/Scripts/dlu2/jquery.bxslider.min.js"></script>
+    <script src="~/Scripts/dlu2/jquery.pages.js"></script>
+    <script src="~/Scripts/dlu2/colorlife.src.js"></script>
+
+    <script src="~/Scripts/dlu2/responsive-nav.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/dlu2/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

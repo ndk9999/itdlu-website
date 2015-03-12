@@ -1,0 +1,46 @@
+﻿@model DLUProjectMvc.ViewModels.ContentCategoryViewModel
+@using ColorLife.Core.Helper
+@using ColorLife.Core.Mvc
+<div class="conten_cate">
+    @foreach (var item in Model.PagedListContent)
+    {
+        <div class="media">
+            <a href="@Url.Action("Single", "Article", new { id = item.ContentID, slug=item.Alias})" class="media-left ">
+                <img width="160" class="thumbnail" alt="@item.Name" src="@item.Image">
+            </a> <div class="media-body">
+                <h4 class="media-heading">
+                    @Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID,slug=item.Alias }, htmlAttributes: new { @class = "home-title-a" })
+
+                </h4>
+                @item.Description.TruncateString(350)
+            </div>
+            <hr />
+        </div>
+    }
+
+
+    
+    
+    
+ 
+        @Html.AjaxPager(
+                         Model.PagedListContent, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true,
+                   ShowFirstLast=false,
+                    NextPageText = "&rarr;",
+                    PrevPageText = "&larr;"
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+ 
+  
+        Hiển thị @Model.PagedListContent.StartRecordIndex đến @Model.PagedListContent.EndRecordIndex của @Model.PagedListContent.TotalItemCount bản tin
+     
+
+</div>

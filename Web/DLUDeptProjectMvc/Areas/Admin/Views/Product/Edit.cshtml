@@ -1,0 +1,101 @@
+﻿<!--
+    FileName: Edit.cshtml
+    Project Name: DLUProject
+Date Created: 11/11/2014 3:02:47 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@{
+    //ViewBag.Title = "Cập nhật";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        @Html.Partial("_Notification")
+        @using (Html.BeginForm("Edit", "Product", FormMethod.Post, htmlAttributes: new { @id = "edit", @class = "form-horizontal form-bordered form-validate" }))
+        {
+            @Html.Partial("_CreateOrUpdate")
+        }
+    </div>
+</div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SupplierID").prepend("<option value=\"0\" >-- Không chọn --</option>");
+        $("#CustomerID").prepend("<option value=\"0\" >-- Không chọn --</option>");
+    });
+</script>
+    <script type="text/javascript" src="@Url.Content("/Content/editors/tinymce4/tinymce.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/editors/tinymce4/config.js")"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var productId = parseInt(jQuery("#ProductID").val());
+            $.ColorLifeData.jsonGetProductImageById(productId);
+
+            
+
+            var thumb = jQuery("img#imgthumb");
+            var txtPicture = jQuery("#ImageUrl");
+            var act = jQuery("#choosefile");
+            var ok = jQuery.ColorLife.doUpload(act, thumb, '/uploads/', txtPicture);
+            var a = $("#ImageUrl");
+            $(a).change(function () {
+                $("#imgthumb").attr('src', a.val());
+            });
+            var btnRemove = jQuery("#removefile");
+            btnRemove.click(function () {
+                var datafile = jQuery("#removefile").attr('data-file');
+                jQuery.ColorLife.removeUpload(datafile);
+                jQuery("#ImageUrl").val('');
+                thumb.attr('src', '/Content/Images/noimage.png');
+                $(this).hide();
+            });
+            var btnAddPicture = jQuery("#btnAddProductImage");
+            btnAddPicture.click(function () {
+               
+                var imageUrl = jQuery("#ImageUrl").val();
+                if (productId > 0 && imageUrl.length > 0) {
+                    $.ColorLifeData.jsonInsertProductImage(productId, imageUrl);
+                    jQuery("#ImageUrl").val('');
+                    thumb.attr('src', '/Content/Images/noimage.png');
+                }
+                else {
+                    if (imageUrl.length === 0) {
+                        alert('Bạn cần upload hình ảnh trước');
+                    }
+                }
+            });
+            
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var numOfDate = $("#NumOfDate");
+            var dateAdded = $("#DateAdded").val();
+            numOfDate.change(function () {
+                
+                var dateEnded = $("#DateEnded");
+                var t = new Date(dateAdded);
+                var tomorrow = new Date();
+                tomorrow.setDate(t.getDate() + parseInt(numOfDate.val()));
+                var output = tomorrow.getMonth() + 1 + "/" + tomorrow.getDate() + "/" + tomorrow.getFullYear();
+                dateEnded.val(output);
+            });
+            $("#btnAccept").click(function () {
+                $.ColorLifeData.jsonInsertProductStore("#formImport");
+                
+            });
+        });
+       
+    </script>
+}

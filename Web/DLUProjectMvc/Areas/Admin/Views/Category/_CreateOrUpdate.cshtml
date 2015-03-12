@@ -1,0 +1,111 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 10/11/2014 10:17:43 AM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Model.CategoryModel
+
+
+            <div class="editor admin-editor">
+
+                <div id="overlay-editor">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+                    @Html.HiddenFor(model => model.CategoryID)
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <div class="well">
+                                <div class="form-horizontal clearfix">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Name" })
+                                            @Html.ValidationMessageFor(model => model.Name)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Alias, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.Alias, htmlAttributes: new { @class = "form-control", placeholder = "Alias" })
+                                            @Html.ValidationMessageFor(model => model.Alias)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Image, "Image", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(model => model.Image, htmlAttributes: new { @class = "form-control", placeholder = "Image" })
+
+                                                <span class="input-group-btn">
+                                                    <a href="/Admin/FileManager?returnId=Image" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                                </span>
+                                                @Html.ValidationMessageFor(model => model.Image)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="imgthumb">
+                                                <img id="imgthumb" src="@Model.Image" class="img-responsive" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", placeholder = "Description" })
+                                            @Html.ValidationMessageFor(model => model.Description)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.DropDownListFor(model => model.ParentID, new SelectList(ViewBag.Categories, "CategoryID", "Breadcrumb"), htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SortOrder, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.TextBoxFor(model => model.SortOrder, htmlAttributes: new { @class = "spinner", placeholder = "SortOrder", data_rule_number = "true" })
+                                            @Html.ValidationMessageFor(model => model.SortOrder)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsPublished, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-4">
+                                            @Html.CheckBoxFor(model => model.IsPublished)
+                                            @Html.ValidationMessageFor(model => model.IsPublished)
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+                        &nbsp; &nbsp;
+                        <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                            <i class="fa fa-undo"></i>
+                            Hủy
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+

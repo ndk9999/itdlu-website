@@ -1,0 +1,62 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 30/11/2014 2:35:06 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Domain.DocType
+
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+        @Html.HiddenFor(model=>model.DocTypeID)
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix">
+                      
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Loại văn bản", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Name", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, "Mô tả", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", placeholder = "Description" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp;
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+
+    </div>
+</div>
+
+

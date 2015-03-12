@@ -1,0 +1,116 @@
+﻿@model DLUProjectMvc.ViewModels.ContentCategoryViewModel
+@using ColorLife.Core.Helper
+@{
+    ViewBag.Title = "Tin tức & Sự kiện";
+}
+
+<link href="~/Content/dlu/colorbox.css" rel="stylesheet" />
+<section>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    TIN TỨC &amp; SỰ KIỆN
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="title-cate">
+                <ol class="breadcrumb" style="background:none; margin:0">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="active">Tin tức</li>
+                    </ol>
+
+            </div>
+            <div id="dvAjaxData">
+                @{Html.RenderPartial("_ListPartial", Model);}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h4 class="title-thongbao "><a href="/thong-bao">THÔNG BÁO</a></h4>
+
+
+            <div class="divthongbao">
+            </div>
+            <div class="widget">
+
+                <h4 class="title-tintuc ">&nbsp;</h4>
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                                <b>Tin mới đăng</b>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                                <b>Tin xem nhiều </b>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                             
+                            @foreach (var item in Model.ListTopNew)
+                            {
+
+                                <div class="media">
+                                    <a class="media-left" href="#">
+                                        <img src="@item.Image" alt="@item.Name" width="90">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)</h5>
+                                        @item.Description.TruncateString(50)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+
+                            @foreach (var item in Model.ListTopViews)
+                            {
+
+                                <div class="media">
+                                    <a class="media-left" href="#">
+                                        <img src="@item.Image" alt="@item.Name" width="90px">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)</h5>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            @Html.Partial("_SidebarPartial")
+
+        </div>
+
+    </div>
+
+</section>
+
+@section scripts{
+    <script src="~/Scripts/dlu/jquery.timeago.js"></script>
+    <script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".group1").colorbox({ rel: 'group1' });
+
+
+        });
+    </script>
+}

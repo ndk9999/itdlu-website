@@ -1,0 +1,122 @@
+﻿@model DLUProjectMvc.ViewModels.SingleNoticeViewModel
+@using ColorLife.Core.Helper
+@{
+
+}
+<link href="~/Content/dlu/colorbox.css" rel="stylesheet" />
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    THÔNG BÁO
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      
+            <div class="col-md-8">
+                <div class="title-cate">
+                    <ol class="breadcrumb" style="background:none; margin:0">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li>@Html.ActionLink("Thông báo", "Index", "Notice")</li>
+                        <li>@Html.ActionLink(Model.Item.Category.Name, "Category", "Notice", new { id = Model.Item.CategoryID, slug = Model.Item.Category.Alias }, null)</li>
+                        <li class="active">@Model.Item.Name</li>
+                    </ol>
+
+                </div>
+
+                <div class="conten_cate">
+
+                    <div class="td-news-title">
+                        @Model.Item.Name
+
+                    </div>
+
+                    <i class="fa fa-user"></i>Đăng bởi:<b>@Model.Item.CreatedByID</b> |  <i class="fa fa-calendar"></i>       Ngày đăng:          @Model.Item.DateCreated.ToString("dd/MM/yyyy hh:mm:ss tt")   |    <i class="fa fa-eye"></i> @Model.Item.Hits lượt xem
+                    <hr>
+                    <div class="td_short_news">
+                        @Model.Item.Description
+                    </div>
+
+                    @Html.Raw(Model.Item.FullText)
+
+                    <div style="border-top:solid 1px #ccc; margin-top:10px; margin-bottom:10px; width:100px"></div>
+                    <div class="pull-left">
+                        @if (Model.Item.CountFileAttachment > 0)
+                        {
+                            <button id="btnDownload" class="btn btn-default btn-sm">
+                                <b><i class="fa fa-download"></i> Tải về @Model.Item.CountFileAttachment file đính kèm</b>
+                            </button><br />
+                            foreach (var item in Model.ListFiles)
+                            {
+                                <b>  @Html.ActionLink(item.Name, "Download", "Notice", new { id = item.FileId }, htmlAttributes: null)</b>
+                                <span>(@item.Size)</span><br />
+                            }
+                        }
+                    </div>
+                    <div class="pull-right">
+                        <b>@Model.Item.CreatedByID</b>
+                        <br />
+
+                    </div>
+                </div>
+
+
+
+                <!--Tin mới hơn-->
+                <div class="col-md-12">
+                    <div class="tincu" style="margin-top:30px">
+                        <h4>
+                            Các thông báo khác
+                        </h4>
+
+                        <ol>
+
+                            @foreach (var item in Model.ListRelated)
+                            {
+                                <li>
+
+                                    <h5 class="media-heading">
+                                        @Html.ActionLink(item.Name, "Single", "Notice", new { id = item.NoticeID }, null)
+                                        <small><i class="fa fa-calendar"></i> @item.DateCreated.ToString("dd/MM/yyyy hh:mm:ss tt")</small>
+                                    </h5>
+
+                                </li>
+
+
+                            }
+
+                        </ol>
+                    </div>
+                </div>
+
+
+            </div>
+           
+        
+        <div class="col-md-4">
+
+            <h4 class="title-thongbao ">@Html.ActionLink("THÔNG BÁO MỚI", "Index", "Notice")</h4>
+
+
+            <div class="divthongbao"></div>
+
+            @Html.Partial("_SidebarPartial")
+
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/dlu/jquery.timeago.js"></script>
+    <script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".group1").colorbox({ rel: 'group1' });
+
+            $.ColorLife.jsonUpdateHitsData("Notice",@Model.Item.NoticeID);
+        });
+    </script>
+}

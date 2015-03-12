@@ -1,0 +1,11 @@
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\DLUProject.Data.dll.config
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\DLUProject.Data.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\DLUProject.Data.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\BLToolkit.4.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\EntityFramework.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\EntityFramework.xml
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\obj\Debug\DLUProject.Data.csprojResolveAssemblyReference.cache
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\obj\Debug\DLUProject.Data.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Data\obj\Debug\DLUProject.Data.pdb

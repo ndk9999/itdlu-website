@@ -1,0 +1,44 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.ProductStored>
+@using ColorLife.Core.Mvc
+
+<table id="Product" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+    <thead>
+        <tr>
+            <th><i class="fa fa-picture-o"></i></th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Ngày gửi/Hết hạn</th>
+            <th>Trạng thái</th>
+            <th>Kho</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    
+                            <img src="@item.Product.Image" alt="..." width="48" />
+                       
+                           
+                           
+                        
+
+                </td>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.Product.Price.ToString("0,000") đ
+                </td>
+                <td>
+                    @item.DateAdded.ToString("dd/MM/yyyy")<br />
+                    @item.DateEnded.ToString("dd/MM/yyyy")
+                </td>
+
+                <td>@item.Status</td>
+                <td>@item.Store.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

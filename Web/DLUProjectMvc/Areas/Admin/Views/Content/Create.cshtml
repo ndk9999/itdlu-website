@@ -1,0 +1,48 @@
+﻿<!--
+    FileName: Create.cshtml
+    Project Name: DLUProject
+Date Created: 18/11/2014 10:53:57 AM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@{
+    ViewBag.Title = "Thêm mới";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        @using (Html.BeginForm("Create", "Content", FormMethod.Post, htmlAttributes: new { @id = "create", @class = "form-horizontal form-bordered form-validate" }))
+        {
+            @Html.Partial("_CreateOrUpdate")
+        }
+    </div>
+</div>
+<input id="txtImage" />
+<input type="button" id="btnImage" name="btnImage" value="Brower" />
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("/Content/editors/tinymce4/tinymce.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/editors/tinymce4/config.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/editors/ckfinder/ckfinder.js")"></script>
+    <script>
+        $(function () {
+            $("#btnImage").click(function () {
+                var finder = new CKFinder();
+                finder.selectt
+                finder.selectActionFunction = function (fileUrl) {
+                    $('#txtImage').val(fileUrl);
+                };
+                finder.popup();
+
+            });
+        });
+    </script>
+}

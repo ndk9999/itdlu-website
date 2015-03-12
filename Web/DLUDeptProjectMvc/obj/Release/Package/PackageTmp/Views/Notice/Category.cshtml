@@ -1,0 +1,56 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Notice>
+           @using ColorLife.Core.Helper
+@{
+
+}
+<link href="~/Content/dlu/colorbox.css" rel="stylesheet" />
+<section>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    THÔNG BÁO
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="title-cate">
+                <ol class="breadcrumb" style="background:none; margin:0">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li>@Html.ActionLink("Thông báo", "Index", "Notice")</li>
+                    <li class="active">@ViewBag.Title</li>
+                </ol>
+
+            </div>
+            <div id="dvAjaxData">
+                @{Html.RenderPartial("_ListPartial", Model);}
+            </div>
+        </div>
+       
+            <div class="col-md-4">
+                <div style="margin-top: 40px;">&nbsp;</div>
+
+
+                <div class="divthongbao">
+                </div>
+                @Html.Partial("_SidebarPartial")
+            </div>
+        
+    </div>
+
+</section>
+
+@section scripts{
+    <script src="~/Scripts/dlu/jquery.timeago.js"></script>
+    <script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $(".group1").colorbox({ rel: 'group1' });
+
+                
+            });
+    </script>
+}

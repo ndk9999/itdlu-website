@@ -1,0 +1,16 @@
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\AutoMapper.Net4.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\DLUProject.Domain.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\DLUProject.Domain.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\AutoMapper.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\BLToolkit.4.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\ColorLife.Core.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\HtmlAgilityPack.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\ColorLife.Core.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\AutoMapper.xml
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\obj\Debug\DLUProject.Domain.csprojResolveAssemblyReference.cache
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\obj\Debug\DLUProject.Domain.dll
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\obj\Debug\DLUProject.Domain.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\AutoMapper.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\AutoMapper.Net4.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\HtmlAgilityPack.pdb
+E:\PROJECT\DLU\DLUProject\DLUProject.Domain\bin\Debug\HtmlAgilityPack.xml

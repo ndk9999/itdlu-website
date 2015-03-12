@@ -1,0 +1,114 @@
+﻿<!--
+	FileName: _ListPartial.cshtml
+	Project Name: DLUProject
+Date Created: 26/11/2014 9:17:20 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+
+ 
+
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.OrderDetail>
+    @using ColorLife.Core.Mvc
+
+    <table id="OrderDetail" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+        <thead>
+            <tr class='thefilter'>
+                <th>
+                    <input type="checkbox" name="check_all" id="check_all" title="Chọn / Bỏ chọn" rel="tooltip">
+                </th>
+                 <th class="table-item-title">DetailID</th>
+ <th class="table-item-title">OrderID</th>
+ <th class="table-item-title">ProductID</th>
+ <th class="table-item-title">Quantity</th>
+ <th class="table-item-title">Price</th>
+ <th class="table-item-title">Total</th>
+ <th class="table-item-title">SalerID</th>
+ <th class="table-item-title">StoreID</th>
+ <th class="table-item-title">CustomerID</th>
+
+
+                <th class="table-item-title" style="width: 100px"><i class="fa fa-cogs"></i></th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr id="@item.DetailID" data-ispublish="@item.DetailID">
+                <td class="with-checkbox">
+                    <input type="checkbox" name="check" class="check" value="@item.DetailID">
+                </td>
+                   <td class="table-item-title">@item.DetailID</td>
+ <td class="table-item-title">@item.OrderID</td>
+ <td class="table-item-title">@item.ProductID</td>
+ <td class="table-item-title">@item.Quantity</td>
+ <td class="table-item-title">@item.Price</td>
+ <td class="table-item-title">@item.Total</td>
+ <td class="table-item-title">@item.SalerID</td>
+ <td class="table-item-title">@item.StoreID</td>
+ <td class="table-item-title">@item.CustomerID</td>
+
+                <td class="td-actions ">
+                    <div class="hidden-phone visible-desktop action-buttons">
+
+                        @Html.EditLink(item.DetailID)
+						 
+                        
+                       @Html.DeleteLink(item.DetailID)
+                         
+                    </div>
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline position-relative">
+                            <button data-position="auto" data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
+                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                <li>
+                                    @Html.EditLink(item.DetailID)
+                                </li>
+                                <li>
+                                    @Html.DeleteLink(item.DetailID)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+                Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+            </div>
+        </div><div class="col-xs-6">
+            <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+                @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                PageIndexParameterName = "page",
+                ShowDisabledPagerItems = false,
+                AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                UpdateTargetId = "dvAjaxData",
+                LoadingElementId = "Loader"
+                })
+            </div>
+        </div>
+    </div>
+
+

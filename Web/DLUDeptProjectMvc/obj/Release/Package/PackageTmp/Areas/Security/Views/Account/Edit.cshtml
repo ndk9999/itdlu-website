@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Cập nhật";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        @using (Html.BeginForm("Edit", "Account", FormMethod.Post, htmlAttributes: new { @id = "edit", @class = "form-horizontal form-bordered form-validate" }))
+        {
+            @Html.Partial("_CreateOrUpdate")
+        }
+    </div>
+</div>
+
+ 
+

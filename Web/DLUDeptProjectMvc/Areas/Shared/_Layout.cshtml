@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DLU Portal</title>
+
+    <link href="@Url.Content("~/Content/Portal/styles.css")" rel="stylesheet" />     
+    <script src="@Url.Content("~/Scripts/Portal/modernizr-2.8.3.js")"></script>
+   
+    
+    <script src="@Url.Content("~/Scripts/Portal/jquery-2.1.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Portal/app.js")"></script>
+
+
+   
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.bootstrap.min.js")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.js")" rel="stylesheet" />
+
+
+    
+
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.all.min.js")"></script>
+  
+</head>
+<body>
+    <div class="app-wrapper" id="container">
+         
+
+        <nav role="navigation" class="navbar navbar-default ">
+
+            <div class="navbar-header">
+                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand hide">
+                    <a href="/Admin/Account/Logoff" class="btn btn-xs btn-default"><i class="fa fa-power-off"></i></a>
+                    <a target="_blank" href="/" class="btn btn-xs btn-default"><i class="fa fa-home"></i></a>
+                </span>
+                <span class="navbar-brand" rel="tooltip" title="TRƯỜNG ĐẠI HỌC ĐÀ LẠT">
+                    DLU PORTAL
+                </span>
+            </div>
+            <div data-ng-controller="NavController" class="collapse navbar-collapse navbar-ex1-collapse ng-scope">
+                <span class="navbar-brand hide"></span>
+                <ul class="nav navbar-nav">
+
+                    <li class=''>
+                        <a href="http://localhost/Portal/System/Systems" title='Quản lý Hệ thống' data-toggle='dropdown' class='dropdown-toggle'><span>Quản lý Hệ thống</span><span class='caret'></span></a><ul class='dropdown-menu'>
+                            <li class='dropdown-submenu '>
+                                <a href='http://localhost/Portal/System/WorkGroup'>Work group</a><ul class='dropdown-menu'>
+                                    <li><a href='http://localhost/Portal/System/WorkGroup/Default.aspx?controller=Create' title='Thêm mới'>Thêm mới</a></li>
+                                    <li><a href='http://localhost/Portal/System/WorkGroup/Default.aspx?controller=Import' title='Nhập từ File'>Nhập từ File</a></li>
+                                    <li><a href='http://localhost/Portal/System/WorkGroup/Default.aspx?controller=List' title='Danh sách'>Danh sách</a></li>
+                                </ul>
+                            </li>
+                            <li class='dropdown-submenu '>
+                                <a href='http://localhost/Portal/System/Function'>Function</a><ul class='dropdown-menu'>
+                                    <li><a href='http://localhost/Portal/System/Function/Default.aspx?controller=Create' title='Thêm mới'>Thêm mới</a></li>
+                                    <li><a href='http://localhost/Portal/System/Function/Default.aspx?controller=Import' title='Nhập từ File'>Nhập từ File</a></li>
+                                    <li><a href='http://localhost/Portal/System/Function/Default.aspx?controller=Install' title='Install'>Install</a></li>
+                                    <li><a href='http://localhost/Portal/System/Function/Default.aspx?controller=List' title='Danh sách'>Danh sách</a></li>
+                                </ul>
+                            </li>
+                            <li class='dropdown-submenu '>
+                                <a href='http://localhost/Portal/System/Systems'>Hệ thống</a><ul class='dropdown-menu'>
+                                    <li><a href='http://localhost/Portal/System/Systems/Default.aspx?controller=List' title='Danh sách'>Danh sách</a></li>
+                                    <li><a href='http://localhost/Portal/System/Systems/Default.aspx?controller=SystemInfo' title='Thông tin Hệ thống'>Thông tin Hệ thống</a></li>
+                                    <li><a href='http://localhost/Portal/System/Systems/Default.aspx?controller=Backup' title='Backup'>Backup</a></li>
+                                    <li><a href='http://localhost/Portal/System/Systems/Default.aspx?controller=Create' title='Thêm mới'>Thêm mới</a></li>
+                                    <li><a href='http://localhost/Portal/System/Systems/Default.aspx?controller=Import' title='Nhập từ File'>Nhập từ File</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle ng-binding" href="#"><i class="fa fa-user"></i>LÊ THANH TUẤN <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="/" class="ng-binding"><i class="fa fa-home"></i>Về trang chủ</a></li>
+                            <li><a href="http://localhost/Portal/System/Profile/Default.aspx?controller=Info"><i class="fa fa-user"></i>Hồ sơ</a></li>
+                            <li><a href="http://localhost/Portal/System/Profile/Default.aspx?controller=changepassword"><i class="fa fa-key"></i>Đổi mật khẩu</a></li>
+
+                            <li class="divider"></li>
+                            <li><a id="btnLogOff" class="text-danger logoff" href="javascript:__doPostBack(&#39;ctl00$AccountInfo$btnLogOff&#39;,&#39;&#39;)"><i class="fa fa-power-off"></i>Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cog"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-question"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Color Life</h4>
+                        </div>
+                        <div class="modal-body">
+                            Phiên bản: 1.0.0.0<br />
+                            Phát triển bởi Lê Thanh Tuấn<br />
+                            Khoa CNTT- Trường Đại Học Đà Lạt<br />
+                            Đc: 01 – Phù Đổng Thiên Vương - Phường 8 - TP Đà Lạt<br />
+                            Email: tuanitpro@@gmail.com Tel:0976060432
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </nav>
+
+        <div id="wrapper" class="active">
+
+            <!-- Sidebar -->
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                
+                <ul class="sidebar-nav" id="sidebar">
+                    <li><a>Link1<i class="sub_icon fa fa-link"></i></a></li>
+                    <li><a>link2<i class="sub_icon fa fa-link"></i></a></li>
+                    <li><a id="menu-toggle" href="#"><i class="sub_icon fa fa-align-justify"></i> Thu gọn</a></li>
+                </ul>
+            </div>
+
+            <!-- Page content -->
+            <div id="page-content-wrapper">
+                <!-- Keep all page content within the page-content inset div! -->
+                <div class="page-content inset">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="well lead">An Experiment using the sidebar template from startbootstrap.com which I integrated in my website (<a href="http://animeshmanglik.name">animeshmanglik.name</a>)</p>
+                            <p class="well lead">Click on the Menu to Toggle Sidebar . Hope you enjoy it!</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+                <div id="main-container" class="main-container">
+
+                    <!--PAGE CONTENT BEGINS-->
+                    <div class="admin-views-dashboard ng-scope main-content">
+
+                        @RenderBody()
+
+                    </div>
+
+                </div>
+            </div>
+            <footer>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="pull-left col-xs-8">
+
+                            &copy; 2014 - Phát triển bởi ITDLU - Khoa CNTT - Trường Đại Học Đà Lạt - Email: it@dlu.edu.vn -  Điện thoại:  (063) 3552540
+
+
+                        </div>
+                        <div class="pull-right hidden-xs hidden-sm">
+                            <a href="#" class="scroll_to_top" rel="tooltip" title="Về đầu trang">
+                                Top&nbsp;<i class="fa fa-angle-double-up"></i>
+                            </a>
+                        </div>
+                        <div class="pull-right hidden-md hidden-lg">
+                            <a href="#" class="scroll_to_top" rel="tooltip" title="Top">
+                                <i class="fa fa-angle-double-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            @RenderSection("scripts", required: false)
+</body>
+</html>

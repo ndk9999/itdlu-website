@@ -1,0 +1,46 @@
+﻿@model DLUProject.Model.AccountGroupFunctionModel
+ 
+    <table id="Permission" class="table table-hover table-nomargin dataTable table-bordered">
+        <thead>
+            <tr class='thefilter'>
+                <th style="width:35px">
+                    <input type="checkbox" id="check_all" />
+                </th>
+                <th class="table-item-title">Function</th>
+                @foreach (var item in Model.AccountGroups)
+                {
+
+                    <th class="table-item-title" style="width: 120px">
+                        <input type="checkbox" class="check_all_@item.GroupID" onchange="return setCheckAll('@item.GroupID');" />@item.Name
+                    </th>
+
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Functions)
+            {
+
+                <tr>
+                    <td>
+                        <input type="checkbox" class="check_all_row_@item.FunctionID" onchange="return setCheckAllRow('@item.FunctionID');" />
+                    </td>
+                    <td class="table-item-title">
+                        <b><i class="fa fa-desktop"></i>@item.WorkGroup.Name</b> <i class="fa fa-angle-double-right"></i><span class="label label-primary">@item.Name</span>
+                    </td>
+                    @foreach (var item2 in Model.AccountGroups)
+                    {
+                        var check = Model.HasPermission(item2.GroupID, item.FunctionID) ? " checked=checked" : "";
+
+                        <td class="table-item-title">
+                            <input type="checkbox" name="groupfunction" value="@item2.GroupID.ToString()_@item.FunctionID.ToString()" class="check_@item2.GroupID.ToString() check_row_@item.FunctionID.ToString() check" @check onclick="return selectOnlyCheck(this.value)" />
+                        </td>
+
+                    }
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+ 

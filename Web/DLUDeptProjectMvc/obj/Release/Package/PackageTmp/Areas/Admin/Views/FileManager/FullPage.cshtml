@@ -1,0 +1,55 @@
+﻿@{ViewBag.Title = "File Manager";
+
+  Layout = null;
+  }
+
+<link href="@Url.Content("~/Content/filemanager/css/layout-default.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/filemanager/js/jquery-1.9.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/jquery-ui-1.9.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/bootstrap.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/filemanager/js/jquery.layout.js")" type="text/javascript"></script>
+   
+
+<script src="@Url.Content("~/Content/filemanager/js/jquery.layout.js")" type="text/javascript"></script>
+
+<div class="row-fluid">
+    <h3 class="header smaller lighter blue">
+   File Manager
+    </h3>
+    
+    <div class="widget-box">
+        <div class="table-header">
+            <i class="icon-table"></i> DANH MỤC
+      
+        </div>
+
+        <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+            <div class="row-fluid">
+                
+<div id="maincontainer">
+	<div class="pane ui-layout-center">
+		Center
+		<p><a href="http://layout.jquery-dev.net/demos.html"><b>Go to the Demos page</b></a></p>
+	</div>
+	<div class="pane ui-layout-north">North</div>
+	<div class="pane ui-layout-south">South</div>
+	<div class="pane ui-layout-east">East</div>
+	<div class="pane ui-layout-west">West</div>
+</div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script type="text/javascript">
+
+	$(document).ready(function () {
+		$('#maincontainer').layout();
+	});
+
+	</script>
+    

@@ -1,0 +1,154 @@
+﻿@model DLUProject.Domain.Files
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FilePopup</title>
+    
+    <link href="@Url.Content("~/Content/ace/styles.css")" rel="stylesheet" />
+    <link href="~/Scripts/ace/fineuploader/fineuploader-4.2.2.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="@Url.Content("~/Scripts/ace/app.js")"></script>
+    <script src="~/Scripts/ace/fineuploader/jquery.fineuploader-4.2.2.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="header smaller lighter blue">
+                    @ViewBag.Title
+                </h3>
+
+            </div>
+            <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+                <div class="widget-box ui-sortable-handle">
+                    <div class="widget-header">
+                        <h5 class="widget-title">Upload</h5>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="picture156038114image"></div>
+                            <div id="thumbnail-fine-uploader"></div>
+                            <button id="btnRemove" class="btn btn-warning btn-sm hidden"><i class="fa fa-trash-o"></i> Xóa File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @using (Html.BeginForm("CreatePopup", "Files", FormMethod.Post, htmlAttributes: new { @id = "create", @class = "form-horizontal form-bordered form-validate" }))
+            {
+                    @Html.Partial("_CreateOrUpdate")
+            }
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="qq-simple-thumbnails-template">
+        <div class="qq-uploader-selector qq-uploader">
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span>Drop files here to upload</span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Upload a file</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                    <span class="qq-edit-filename-icon-selector qq-edit-filename-icon"></span>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+                    <a class="qq-upload-retry-selector qq-upload-retry" href="#">Retry</a>
+                    <a class="qq-upload-delete-selector qq-upload-delete" href="#">Delete</a>
+                    <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+        </div>
+    </script>
+    
+        <script>
+            $(document).ready(function () {
+                var folder = '';
+                $('#FolderID').change(function () {
+                    folder = $('#FolderID option:selected').text();
+                    alert(folder);
+                });
+                $('#thumbnail-fine-uploader').fineUploader({
+                    template: "qq-simple-thumbnails-template",
+                    request: {
+                        endpoint: '/Admin/FileUploader/AsyncUpload2?folder=' + folder
+                    },
+                    validation: {
+                        allowedExtensions: ['jpeg', 'jpg', 'gif', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'txt', 'rar','zip']
+                    },
+                }).on("complete", function (event, id, name, responseJSON, xhr) {
+                    if (responseJSON.success) {
+                        if (responseJSON.data.IsImage) {
+                            $("#picture156038114image").html("<img src='" + responseJSON.data.FullName + "' class='img-responsive'/>");
+                        }
+                        $("#Name").val(responseJSON.data.Name);
+                        $("#FileName").val(responseJSON.data.Name);
+                        $("#Extension").val(responseJSON.data.Extension);
+                        $("#Size").val(responseJSON.data.Size);
+                        $("#Width").val(responseJSON.data.Width);
+                        $("#Height").val(responseJSON.data.Height);
+                        $("#ContentType").val(responseJSON.data.ContentType);
+                        $("#FileUrl").val(responseJSON.data.FullName);
+                        $("#MD5Hash").val(responseJSON.data.MD5Hash);
+                        $("#btnRemove").removeClass('hidden');
+                    }
+                }).on("delete", function (event, id) {
+                    // ...
+                }).on('error', function (event, id, name, errorReason, xhrOrXdr) {
+                    alert(qq.format("Error on file number {} - {}.  Reason: {}", id, name, errorReason));
+                });
+
+                $("#btnRemove").click(function () {
+                    var file = $("#FileUrl").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/FileUploader/DeleteFile?file=" + file,
+
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        beforeSend: function () {
+                        },
+                        success: function Success(result) {
+                            $("#picture156038114image").html('');
+                            $("#Title").val('');
+                            $("#FileName").val('');
+                            $("#Extension").val('');
+                            $("#Size").val('');
+
+                            $("#ContentType").val('');
+                            $("#FileUrl").val('');
+                            $("#MD5Hash").val('');
+                            $.ColorLife.notifySuccess(result.data);
+                        },
+                        error: function Error(request, status, error) {
+                            $.ColorLife.notifyError(request.statusText);
+                        }
+                    });
+                })
+            });
+        </script>
+ 
+
+</body>
+</html>

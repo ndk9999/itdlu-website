@@ -1,0 +1,311 @@
+﻿@model DLUProject.Domain.Customer
+@{
+
+}
+
+<div class="page-content-area">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="clearfix" style="display:none">
+                <div class="alert alert-success no-margin">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+
+                    <i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
+                    Click on the image below or on profile fields to edit them ...
+                </div>
+
+
+            </div>
+            @Html.Partial("_Notification")
+
+
+            <div id="user-profile-2" class="user-profile">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs padding-18">
+                        <li class="active">
+                            <a data-toggle="tab" href="#home">
+                                <i class="green ace-icon fa fa-user bigger-120"></i>
+                                Thông tin cá nhân
+                            </a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#feed">
+                                <i class="orange ace-icon fa fa-rss bigger-120"></i>
+                                Mật khẩu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#product">
+                                <i class="red ace-icon fa fa-beer bigger-120"></i>
+                                Sản phẩm
+                            </a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#order">
+                                <i class="blue ace-icon fa fa-shopping-cart bigger-120"></i>
+                                Hóa đơn
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content no-border padding-24">
+                        <div id="home" class="tab-pane in active">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 center">
+                                    <span class="profile-picture">
+                                        <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="@Url.Content("~/content/images/photologin.png")" />
+                                    </span>
+
+                                    <div class="space space-4"></div>
+
+                                    <a href="#" class="btn btn-sm btn-block btn-success" style="display:none">
+                                        <i class="ace-icon fa fa-plus-circle bigger-120"></i>
+                                        <span class="bigger-110">Add as a friend</span>
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-block btn-primary" style="display:none">
+                                        <i class="ace-icon fa fa-envelope-o bigger-110"></i>
+                                        <span class="bigger-110">Send a message</span>
+                                    </a>
+                                </div><!-- /.col -->
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <h4 class="blue">
+                                        <span class="middle">@Model.FullName</span>
+
+                                        <span class="label label-purple arrowed-in-right">
+                                            <i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+                                            online
+                                        </span>
+                                    </h4>
+                                    @using (Html.BeginForm("CustomerInfo", "Customer", FormMethod.Post, htmlAttributes: new { @class = "form-validate" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        <input type="hidden" value="@Model.CustomerID" name="id" />
+                                        @Html.HiddenFor(model => model.CustomerID)
+                                        @Html.HiddenFor(model => model.Username)
+                                        @Html.HiddenFor(model => model.Email)
+                                        @Html.HiddenFor(model => model.DateCreated)
+                                        @Html.HiddenFor(model => model.Password)
+                                        @Html.HiddenFor(model => model.IsPublished)
+                                        @Html.HiddenFor(model => model.IsDeleted)
+                                        <div class="profile-info-row">
+
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.FirstName, "Họ tên lót", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+
+                                            <div class="profile-info-value">
+
+                                                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control col-xs-12 col-sm-10" })
+
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.LastName, "Tên", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.PINCode, "Số CMND", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.PINCode)
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.Company, "Công ty", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.Company)
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.Phone, "Điện thoại", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.Phone)
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.Address1, "Địa chỉ", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.Address1)
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.Address2, "Địa chỉ 2", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.Address2)
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.City, "City", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Html.TextBoxFor(model => model.City)
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                @Html.LabelFor(model => model.SupplierId, "Mã NCC", htmlAttributes: new { @class = "control-label" })
+                                            </div>
+                                            <div class="profile-info-value">
+                                                @Model.SupplierId
+                                            </div>
+                                        </div>
+                                        <div class="profile-user-info">
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Username </div>
+
+                                                <div class="profile-info-value">
+                                                    <i class="fa fa-user light-blue bigger-110"></i>
+                                                    <span>@Model.Username</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Email </div>
+
+                                                <div class="profile-info-value">
+                                                    <i class="fa fa-envelope light-orange bigger-110"></i>
+                                                    <span>@Model.Email</span>
+
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Ngày khởi tạo </div>
+
+                                                <div class="profile-info-value">
+                                                    <span>@Model.DateCreated.ToString("dd/MM/yyyy")</span>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <button class="btn btn-sm btn-danger" type="submit">
+                                                Lưu thay đổi
+                                                <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                            </button>
+
+                                        </div>
+                                    }
+                                    <div class="hr hr-8 dotted"></div>
+
+                                    <div class="profile-user-info" style="display:none">
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> Website </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#" target="_blank">www.alexdoe.com</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
+                                            </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#">Find me on Facebook</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
+                                            </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#">Follow me on Twitter</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+
+                            <div class="space-20"></div>
+
+
+                        </div><!-- /#home -->
+
+                        <div id="feed" class="tab-pane">
+                            <div class="profile-feed row">
+                                <div class="col-sm-6">
+                                    <div class="widget-box">
+                                        <div class="widget-header">
+                                            <h4 class="widget-title">Đổi mật khẩu</h4>
+                                        </div>
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <div class="widget-body">
+                                                    <div class="widget-main">
+                                                        @using (Html.BeginForm("ChangePassword", "Customer", FormMethod.Post, htmlAttributes: new { @class = "form-validate" }))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+                                                            @Html.ValidationSummary(true)
+                                                            <input type="hidden" value="@Model.CustomerID" name="id" />
+                                                            <label for="PasswordNew">Mật khẩu mới</label>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12">
+                                                                    <input type="password" name="PasswordNew" id="PasswordNew" class="form-control col-md-12" data-val="true" data-rule-required="true" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions center">
+                                                                <button class="btn btn-sm btn-success" type="submit">
+                                                                    Đổi mật khẩu
+                                                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                                </button>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /#feed -->
+                        <div id="product" class="tab-pane">
+                            @Html.ActionLink("Xem tất cả Sản phẩm", "CustomerProduct", "Customer", new { id = Model.CustomerID }, null)
+                        </div><!-- /#friends -->
+                        <!-- /#pictures -->
+                        <div id="order" class="tab-pane">
+                            @Html.ActionLink("Xem tất cả hóa đơn", "CustomerOrder", "Customer", new {id=Model.CustomerID },null)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content-area -->

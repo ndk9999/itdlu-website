@@ -1,0 +1,145 @@
+﻿<!--
+    FileName: _ListPartial.cshtml
+    Project Name: DLUProject
+Date Created: 11/11/2014 3:02:46 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.ProductInStoreModel>
+@using ColorLife.Core.Mvc
+
+<table id="Product" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+    <thead>
+        <tr class='thefilter'>
+            <th>
+                <input type="checkbox" name="check_all" id="check_all" title="Chọn / Bỏ chọn" rel="tooltip">
+            </th>
+            <th class="table-item-title"><i class="fa fa-picture-o"></i></th>
+
+
+            <th class="table-item-title">Tên sản phẩm</th>
+
+
+            <th class="table-item-title">ĐVT</th>
+            <th class="table-item-title">Màu sắc/Size</th>
+            <th class="table-item-title">Giá</th>
+            <th class="table-item-title">Giảm giá</th>
+            <th class="table-item-title">Featured</th>
+            <th class="table-item-title">Sắp xếp</th> 
+            <th class="table-item-title">Nhập kho</th>
+
+            <th class="table-item-title">Nhà CC</th> 
+            <th class="table-item-title" style="width: 100px"><i class="fa fa-cogs"></i></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="@item.Product.ProductID" data-ispublish="@item.Product.IsPublished">
+                <td class="with-checkbox">
+                    <input type="checkbox" name="check" class="check" value="@item.Product.ProductID">
+                </td>
+                <td class="table-item-title"><img src="/ThumbnailHandler.axd?img=@item.Product.Image" alt="" /></td>
+
+
+                <td class="table-item-title">@item.Product.Name</td>
+
+
+                <td class="table-item-title">@item.Product.Unit</td>
+                <td class="table-item-title">
+                   
+                    @item.Product.Color<br />@item.Product.Sizes
+                </td>
+                <td class="table-item-title">@item.Product.Price</td>
+                <td class="table-item-title">@item.Product.Discount %</td>
+                <td class="table-item-title">
+                    @foreach (var x in item.Product.DisplayFeaturedString())
+                    {
+                        <label class="label label-warning" style="margin-bottom:0.2em">@x</label>
+                    }
+                </td>
+                <td class="table-item-title">
+                    @item.Product.SortOrder
+                    <span class="sort-up" rel="tooltip" title="Sắp xếp tăng" onclick="return $.ColorLifeData.jsonSortOrderData(this, 1)"></span>
+                    <span class="sort-down" rel="tooltip" title="Sắp xếp giảm" onclick="return $.ColorLifeData.jsonSortOrderData(this, -1)"></span>
+                    <span id="ispublished" class="published-@item.Product.IsPublished.ToString() " rel="tooltip" title="Trạng thái Kích hoạt" onclick="$.ColorLifeData.jsonIsPublishedData(this)"></span>
+                </td>
+
+
+                <td class="table-item-title">
+                    <label title="Date Created">
+                        @item.DataAdded.ToString("dd/MM/yyyy")
+                    </label>
+                    <br />
+                    <label title="Date Modified">
+                        @item.DateEnded.ToString("dd/MM/yyyy")
+                    </label>
+                </td>
+                <td class="table-item-title">
+                    
+                    @item.Product.SupplierID
+                </td>
+
+
+                <td class="td-actions ">
+                    <div class="hidden-phone visible-desktop action-buttons">
+
+                        @Html.EditLink(item.Product.ProductID)
+
+
+                        @Html.DeleteLink(item.Product.ProductID)
+
+                    </div>
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline position-relative">
+                            <button data-position="auto" data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
+                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                <li>
+                                    @Html.EditLink(item.Product.ProductID)
+                                </li>
+                                <li>
+                                    @Html.DeleteLink(item.Product.ProductID)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+            Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+        </div>
+    </div><div class="col-xs-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+            @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+        </div>
+    </div>
+</div>

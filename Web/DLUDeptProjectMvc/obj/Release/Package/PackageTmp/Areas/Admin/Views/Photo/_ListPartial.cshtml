@@ -1,0 +1,76 @@
+﻿<!--
+	FileName: _ListPartial.cshtml
+	Project Name: DLUProject
+Date Created: 28/11/2014 2:03:06 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+
+ 
+
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Photo>
+    @using ColorLife.Core.Mvc
+
+     
+
+<div class="row">
+     
+        <!-- PAGE CONTENT BEGINS -->
+        <div>
+            <ul class="ace-thumbnails clearfix">
+                @foreach (var item in Model)
+            {
+                <li>
+                    <a data-rel="colorbox" href="@item.Image" class="cboxElement">
+                        <img width="150" height="150" src="@item.Image" alt="150x150">
+                        <div class="text">
+                            <div class="inner">@item.Description</div>
+                        </div>
+                    </a>
+                    <div class="tools tools-bottom">
+                        <a href="#">
+                            <i class="ace-icon fa fa-link"></i>
+                        </a>
+                        <a href="#">
+                            <i class="ace-icon fa fa-paperclip"></i>
+                        </a>
+                        @Html.EditLink(item.PhotoID)
+                        @Html.DeleteLink(item.PhotoID)
+                    </div>
+                </li>
+                }
+            </ul>
+        </div><!-- PAGE CONTENT ENDS -->
+     
+</div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+                Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+            </div>
+        </div><div class="col-xs-6">
+            <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+                @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                PageIndexParameterName = "page",
+                ShowDisabledPagerItems = false,
+                AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                UpdateTargetId = "dvAjaxData",
+                LoadingElementId = "Loader"
+                })
+            </div>
+        </div>
+    </div>
+
+

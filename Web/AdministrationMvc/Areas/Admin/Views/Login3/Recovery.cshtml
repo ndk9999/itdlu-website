@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Quên mật khẩu";
+    Layout = "~/Areas/Shared/_LayoutLogin.cshtml";
+}
+@model DLUProject.Model.LoginModel
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Quên mật khẩu</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="@Url.Content("~/content/images/photologin.png")" alt="Đăng nhập">
+
+                @using (Html.BeginForm("Recovery", "Login", new { ReturnUrl = ViewBag.ReturnUrl },
+                                                                FormMethod.Post, htmlAttributes: new
+                                                            {
+                                                                @id = "admin_login",
+                                                                @class = "form-signin form-validate"
+                                                            }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new
+               {
+                   @placeholder = "Email",
+                   @class = "form-control",
+                   data_rule_required = "true",
+                   data_rule_email = "true",
+                   @rel = "tooltip",
+                   @title = "Nhập email để khôi phục mật khẩu.",
+                   @required = "required"
+               })
+                                 @Html.ValidationMessageFor(model => model.Email )
+                    <label class="error">@Html.ValidationSummary(true)</label>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnLogin" id="btnLogin">
+                        Gửi email
+                    </button>
+                    
+                    <a href="@Url.Action("Index","Login")" class="pull-right need-help">Đăng nhập? </a>
+                    <span class="clearfix"></span>
+                }
+            </div>
+            <a href="http://tuanitpro.com" class="text-center new-account" >Thiết kế website Đà Lạt</a>
+        </div>
+    </div>
+</div>

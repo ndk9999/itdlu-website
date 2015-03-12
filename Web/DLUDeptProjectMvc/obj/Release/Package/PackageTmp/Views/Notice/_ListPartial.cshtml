@@ -1,0 +1,47 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Notice>
+@using ColorLife.Core.Mvc
+<div class="conten_cate">
+    @foreach (var item in Model)
+    {
+        <div class="media">
+            <a href="@Url.Action("Single", "Notice", new { id = item.NoticeID,slug=item.Alias })" class="media-left ">
+                <img width="160" class="thumbnail" alt="@item.Name" src="@item.Image">
+            </a> <div class="media-body">
+                <h4 class="media-heading">
+                    @Html.ActionLink(item.Name, "Single", "Notice", new { id = item.NoticeID,slug=item.Alias }, htmlAttributes: new { @class = "home-title-a" })
+
+                </h4>
+                     <b><i class="fa fa-user"></i> @item.CreatedByID | <i class="fa fa-clock-o"></i> @item.DateCreated.ToString("dd/MM/yy hh:mm:ss tt") | <i class="fa fa-eye"></i> @item.Hits</b>
+                <br /> 
+                @item.Description
+            </div>
+            <hr />
+        </div>
+    }
+
+
+
+
+
+
+    @Html.AjaxPager(
+                         Model, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true,
+                    ShowFirstLast = false,
+                    NextPageText = "&rarr;",
+                    PrevPageText = "&larr;"
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+
+
+    Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+
+
+</div>

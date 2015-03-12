@@ -1,0 +1,69 @@
+﻿<!--
+    FileName: Index.cshtml
+    Project Name: DLUProject
+Date Created: 28/11/2014 2:03:13 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model  ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Gallery>
+@using ColorLife.Core.Mvc
+@{
+    ViewBag.Title = "Quản lý Gallery";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+            @Html.ButtonCreateLink()
+
+        </h3>
+
+        <div>
+            @Html.Partial("_Notification")
+            <div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+                <div class="row">
+                    @using (Ajax.BeginForm("Index", new AjaxOptions
+                                                                  {
+                                                                      HttpMethod = "GET",
+                                                                      UpdateTargetId = "dvAjaxData",
+                                                                      InsertionMode = InsertionMode.Replace,
+                                                                      LoadingElementId = "Loader"
+                                                                  }))
+                    {
+                        <div class="col-xs-6">
+                            <div class="dataTables_length" id="sample-table-2_length">
+                                <label>
+                                    Hiển thị
+                                    <select name="pagesize" id="pagesize" aria-controls="pagesize" class="form-control input-sm" onchange="return doSubmit('#form0')">
+                                        <option value="10">10</option>
+                                        <option value="25" selected>25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> Bản tin
+                                </label>
+                            </div>
+                        </div><div class="col-xs-6">
+                            <div id="sample-table-2_filter" class="dataTables_filter">                                
+                                @Html.DropDownList("CategoryID", new SelectList(ViewBag.Categories, "CategoryID", "Breadcrumb"), "--ALL--", htmlAttributes: new { @style = "", @class = "form-control", data_placeholder = "Choose a category...", @onchange = "return doSubmit('#form0')" })
+                                <label>Tìm kiếm:<input type="search" name="queryString" id="queryString" class="form-control input-sm" aria-controls="sample-table-2" onblur="return doSubmit('#form0')"></label>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div id="dvAjaxData">
+                    @{Html.RenderPartial("_ListPartial", Model); }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{168EA099-9E9A-4E22-B8CA-5B83AD14D995}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdministrationMvc</RootNamespace>
+    <AssemblyName>AdministrationMvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccessDenyController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdvBannerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocFileAttachmentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FileManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FilesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FileUploaderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FoldersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ResourceCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ResourceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ResourceFileAttachmentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VideoCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GalleryCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GalleryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GallerySliderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Login2Controller.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MediaAlbumController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MediaCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MediaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NoticeCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NoticeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhotoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UnitController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VideoController.cs" />
+    <Compile Include="Areas\DLUOffice\DLUOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\Security\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Security\Controllers\AccountGroupController.cs" />
+    <Compile Include="Areas\Security\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Security\Controllers\FunctionController.cs" />
+    <Compile Include="Areas\Security\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Security\Controllers\PermissionController.cs" />
+    <Compile Include="Areas\Security\Controllers\PortalController.cs" />
+    <Compile Include="Areas\Security\Controllers\SettingController.cs" />
+    <Compile Include="Areas\Security\Controllers\SystemsController.cs" />
+    <Compile Include="Areas\Security\Controllers\WorkGroupController.cs" />
+    <Compile Include="Areas\Security\Models\AccountListModel.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvBanner\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\DemoUpload.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\FullPage.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\TinyMce.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\Upload.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Folders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\GallerySlider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login3\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login3\Recovery.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Recovery.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Demo.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Media\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaAlbum\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\MediaCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Notice\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\NoticeCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Unit\Index.cshtml" />
+    <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Security\Views\Account\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Account\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Detail.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Account2\Index - Copy.cshtml" />
+    <Content Include="Areas\Security\Views\Account2\Index.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\_PermissionPartial.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Create.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Import.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Index.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\Permission.cshtml" />
+    <Content Include="Areas\Security\Views\AccountGroup\PermissionAll.cshtml" />
+    <Content Include="Areas\Security\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Function\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Function\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Function\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Function\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Function\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Function\Import.cshtml" />
+    <Content Include="Areas\Security\Views\Function\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\Import.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\Import.cshtml" />
+    <Content Include="Areas\Security\Views\Portal\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Basic.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Import.cshtml" />
+    <Content Include="Areas\Security\Views\Setting\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\Create.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\Import.cshtml" />
+    <Content Include="Areas\Security\Views\Systems\Index.cshtml" />
+    <Content Include="Areas\Security\Views\web.config" />
+    <Content Include="Areas\Security\Views\WorkGroup\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\Create.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\Delete.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\Edit.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\Import.cshtml" />
+    <Content Include="Areas\Security\Views\WorkGroup\Index.cshtml" />
+    <Content Include="Areas\DLUOffice\Views\web.config" />
+    <Content Include="Areas\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Shared\_Head.cshtml" />
+    <Content Include="Areas\Shared\_ImportModalPartial.cshtml" />
+    <Content Include="Areas\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Shared\_LayoutAce.cshtml" />
+    <Content Include="Areas\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Shared\_LayoutLogin2.cshtml" />
+    <Content Include="Areas\Shared\_Notification.cshtml" />
+    <Content Include="Areas\web.config" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\_ListPartial.cshtml" />
+    <Content Include="Areas\Security\Views\Menus\MenuPopup.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\DocCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\DocFileAttachment\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\DocType\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\_ListPopupPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\FilePopup.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Video\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Files\CreatePopup.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index2.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessDeny\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Permission\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Permission\Permission.cshtml" />
+    <Content Include="Areas\Security\Views\Permission\_PermissionPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\FineUpload.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceCategory\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\ResourceFileAttachment\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\Import.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\Resource\_ListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\JsTree.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\FileUploader\" />
+    <Folder Include="Areas\DLUOffice\Controllers\" />
+    <Folder Include="Areas\DLUOffice\Models\" />
+    <Folder Include="Areas\DLUOffice\Views\Shared\" />
+    <Folder Include="Areas\Security\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ColorLife.Core\ColorLife.Core.csproj">
+      <Project>{959ac489-7653-44f3-a167-5b494299f44b}</Project>
+      <Name>ColorLife.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DLUProject.Data\DLUProject.Data.csproj">
+      <Project>{48903326-1971-472a-8cce-0c9643675e2e}</Project>
+      <Name>DLUProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DLUProject.Domain\DLUProject.Domain.csproj">
+      <Project>{2b401807-d79e-44d8-b612-215bd5ea434f}</Project>
+      <Name>DLUProject.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DLUProject.Services\DLUProject.Services.csproj">
+      <Project>{2835dba9-feb5-4687-a7d2-8cdcf1d091a1}</Project>
+      <Name>DLUProject.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLUProjectAPI\DLUProjectAPI.csproj">
+      <Project>{c93dc4cb-7beb-4597-af5e-638eaed6915a}</Project>
+      <Name>DLUProjectAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLUProjectFramework\DLUProjectFramework.csproj">
+      <Project>{00028112-48a4-4018-b68b-c0115e59d579}</Project>
+      <Name>DLUProjectFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1133</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1133/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)Areas\Admin\Views\*.*" "$(SolutionDir)Web\DLUProjectMvc\Areas\Admin\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Security\Views\*.*" "$(SolutionDir)Web\DLUProjectMvc\Areas\Security\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Shared\*.*" "$(SolutionDir)Web\DLUProjectMvc\Areas\Shared" /Y /I /E
+xcopy "$(ProjectDir)Areas\web.config" "$(SolutionDir)Web\DLUProjectMvc\Areas" /Y /I /E
+xcopy "$(ProjectDir)Areas\Admin\Views\*.*" "$(SolutionDir)Web\DLUDeptProjectMvc\Areas\Admin\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Security\Views\*.*" "$(SolutionDir)Web\DLUDeptProjectMvc\Areas\Security\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Shared\*.*" "$(SolutionDir)Web\DLUDeptProjectMvc\Areas\Shared" /Y /I /E
+xcopy "$(ProjectDir)Areas\web.config" "$(SolutionDir)Web\DLUDeptProjectMvc\Areas" /Y /I /E</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

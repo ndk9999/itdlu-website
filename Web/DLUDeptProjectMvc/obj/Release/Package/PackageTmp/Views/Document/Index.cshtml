@@ -1,0 +1,56 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Document>
+@{
+    ViewBag.Title = "Văn bản";
+}
+<section>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    VĂN BẢN
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="title-cate">
+                <ol class="breadcrumb" style="background:none; margin:0">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li>@Html.ActionLink("Văn bản", "Index", "Document")</li>
+                    <li class="active">Tất cả văn bản</li>
+                </ol>
+
+            </div>
+            <div class="form-timkiem">
+
+            </div>
+            <div id="dvAjaxData">
+                @{Html.RenderPartial("_ListPartial", Model);}
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="widget">
+                <div class="panel panel-primary mypanel">
+                    <div class="panel-heading">
+                      <i class="fa fa-puzzle-piece"></i>  THÔNG BÁO NỔI BẬT
+                    </div>
+                    <div class="panel-body">
+                        <div class="divthongbaonoibat"></div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="widget">
+                <h4 class="title-thongbao ">THÔNG BÁO MỚI</h4>
+                <div class="divthongbao">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+

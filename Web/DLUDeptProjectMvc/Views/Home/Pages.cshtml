@@ -1,0 +1,67 @@
+﻿@model DLUProject.Domain.Pages
+@{
+
+}
+<div class="pageboth">
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cattitle">
+                    <span>GIỚI THIỆU</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        
+        <div class="col-md-3">
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-plus"></span> Giới thiệu</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">Giới thiệu trường</a></li>
+                            <li class="list-group-item">
+                                <a href="#">Tổng quan</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><a>Lịch sử</a></li>
+                                    <li class="list-group-item"><a>Sứ mệnh - Tầm nhìn</a></li>
+                                    <li class="list-group-item"><a>Chiến lược Phát triển</a></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Cơ cấu Tổ chức</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><a>Sơ đồ Tổ chức</a></li>
+                                    <li class="list-group-item"><a>Ban giám hiệu</a></li>
+                                    <li class="list-group-item"><a>Đảng ủy</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li>Trang chủ</li>
+                    <li>Giới thiệu</li>
+                    <li class="active">@Model.Name</li>
+                </ol>
+            </div>
+            <div class="news-show ">
+                <div class="news-title">@Model.Name</div>
+                @Html.Raw(Model.FullText)
+            </div>
+            
+        </div>
+    </section>
+</div>

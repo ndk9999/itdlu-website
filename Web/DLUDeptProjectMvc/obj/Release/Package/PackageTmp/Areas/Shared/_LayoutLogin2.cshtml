@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        footer {
+            background-color: #428bca;
+            color: #EFEFEF;
+            height: 150px;
+            margin-top: 30px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+        }
+        .field-validation-error{
+            color:red;
+        }
+        .validation-summary-errors ul{
+            list-style:none;
+            font-weight:normal;
+            margin-left:0;
+        }
+        .validation-summary-errors ul li{
+             margin-left:0;
+        }
+    </style>
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $('[rel="tooltip"]').tooltip();
+        });
+    </script>
+</head>
+<body>
+    <header class="bg-primary">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>
+                        <img src="~/Content/Images/dlubanner.png" />
+                    </h1>
+
+                </div>
+                <div class="col-md-6 pull-right">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 hidden-sm hidden-xs">
+                    <h3>Hệ thống Portal  Trường Đại học Đà Lạt</h3><div class="media ">
+    <a class="pull-left" href="#">
+        <img class="media-object thumbnail" src="/Content/icons/promotion.png" alt="..." width="64">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">Hệ thống CMS</h4>
+        Cổng thông tin trường Đại học Đà Lạt
+    </div>
+</div>
+
+                </div>
+                <div class="col-md-4 col-xs-12 col-sm-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    Hệ thống Portal Trường Đại học Đà Lạt<br>
+                    Phát triển bởi ITDLU
+                    <br>
+                    Khoa CNTT- Trường Đại Học Đà Lạt<br>
+                    Địa chỉ: Phù Đổng Thiên Vương - Phường 8 - TP Đà Lạt.<br>
+                    Email: it@dlu.edu.vn -  Điện thoại:  (063) 3552540
+                    <br>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

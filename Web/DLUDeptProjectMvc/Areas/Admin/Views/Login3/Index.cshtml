@@ -1,0 +1,65 @@
+﻿@model DLUProject.Model.LoginModel
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Areas/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Đăng nhập</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="@Url.Content("~/content/images/photologin.png")" alt="Đăng nhập">
+
+                @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl },
+                                                                FormMethod.Post, htmlAttributes: new
+                                                            {
+                                                                @id = "admin_login",
+                                                                @class = "form-signin form-validate"
+                                                            }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new
+               {
+                   @placeholder = "Email / Tên đăng nhập",
+                   @class = "form-control",
+                   data_rule_required = "true",
+                   data_rule_email = "true",
+                   @rel = "tooltip",
+                   @title = "Nhập email hoặc tên đăng nhập.",
+                   @required = "required"
+               })
+                    @Html.ValidationMessageFor(model => model.Email)
+                    @Html.PasswordFor(model => model.Password, htmlAttributes: new
+                                                           {
+                                                               @placeholder = "Mật khẩu",
+                                                               @class = "form-control",
+                                                               data_rule_required = "true",
+                                                               @rel = "tooltip",
+                                                               @title = "Nhập mật khẩu sai quá 10 lần sẽ bị khóa tài khoản."
+                                                           })
+                    @Html.ValidationMessageFor(model => model.Password)
+
+
+
+                    <label class="error">@Html.ValidationSummary(true)</label>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnLogin" id="btnLogin">
+                        Đăng nhập
+                    </button>
+                    <label class="checkbox pull-left" style="margin-left:20px">
+                        <input type="checkbox" value="remember-me">
+                        Ghi nhớ tôi
+                    </label>
+                    <a href="@Url.Action("Recovery","Login")" class="pull-right need-help">Quên mật khẩu? </a>
+                    <span class="clearfix"></span>
+                }
+            </div>
+            <a href="http://tuanitpro.com" class="text-center new-account" >Thiết kế website Đà Lạt</a>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,407 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>File Manager [Lê Thanh Tuấn - 0976060432]</title>
+    <link href="@Url.Content("~/Content/filemanager/css/layout.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/filemanager/js/jstree/themes/default/style.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/filemanager/js/fine-uploader/fine-uploader.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Content/filemanager/js/jquery-2.1.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/jquery-ui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/bootstrap.min.js")" type="text/javascript"></script>
+
+
+    <script src="@Url.Content("~/Content/filemanager/js/jquery.layout.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/jstree/jstree.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/jquery.editable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/jquery.hotkeys.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/bootstrap-contextmenu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/toastr.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/colorlife.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/filemanager.js")" type="text/javascript"></script>
+     
+    <script src="@Url.Content("~/Content/filemanager/js/fine-uploader/jquery.fine-uploader.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/filemanager/js/tinymcepopup.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="_loading" class="loading">
+    </div>
+    <div class="ui-layout-north">
+        <!--<div class="row" data-toggle="context" data-target="#context-menu">-->
+
+        <div class="row">
+            <div class="header-toolbar ">
+                <div class="col1">
+
+                    <button onclick="return $.ColorLife.loadFileFolder($.ColorLife.rootFolder);" class="btn btn-link home"><i class="fa fa-home fa-2x"></i></button>
+                    <div class="btn-group">
+
+
+                        <button type="button" class="btn btn-success"><i class="fa fa-file" title="File" rel="tooltip"></i> File</button>
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#myModalNewFolder" data-toggle="modal" data-target="#myModalNewFolder"><i class="fa fa-folder"></i> New Folder</a></li>
+                            <li><a href="#myModalNewFolder" data-toggle="modal" data-target="#myModalNewFolder"><i class="fa fa-folder"></i> New Image Folder</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-file-text"></i> Normal File</a></li>
+                            <li><a href="#"><i class="fa fa-file-code-o"></i> HTML File</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <button onclick="return $.ColorLife.uploadCommand()" class="btn btn-danger"><i class="fa fa-cloud-upload"></i>&nbsp;Upload</button>
+
+                    <div class="btn-group menumanage">
+                        <button type="button" class="btn btn-warning"><i class="fa fa-cogs"></i> Manager</button>
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" onclick="return $.ColorLife.clipboardItems('cut');"><i class="fa fa-cut"></i> Cut</a></li>
+                            <li><a href="#" onclick="return $.ColorLife.clipboardItems('copy');"><i class="fa fa-copy"></i> Copy</a></li>
+                            <li><a href="#" onclick="return $.ColorLife.pasteItems();"><i class="fa fa-paste"></i> Past</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" onclick="return $.ColorLife.previewCommand();"><i class="fa fa-eye"></i> View</a></li>
+                            <li><a href="#"><i class="fa fa-pencil"></i> Edit</a></li>
+                            <li><a href="#"><i class="fa fa-text-width"></i> Rename</a></li>
+                            <li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-archive"></i> Zip</a></li>
+                            <li><a href="#"><i class="fa fa-archive"></i> UnZip</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" onclick="return $.ColorLife.deleteCommand();"><i class="fa fa-trash"></i> Remove</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col2 hidden-sm hidden-xs">
+                <div class="form-address">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning" type="button" id="_back" onclick="return $.ColorLife.prevFolder();"><i class="fa fa-long-arrow-up"></i></button>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Folder" id="txtPath" data-desc="FileFolderPath">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" onclick="return $.ColorLife.refresh();"><i class="fa fa-repeat"></i></button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+
+            </div>
+            <div class="col3">
+                <div class="form-address">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default btn-viewtype-icons" onclick="return $.ColorLife.viewTypeCommand('icons')"><i class="fa fa-th"></i></button>
+                        <button type="button" class="btn btn-default btn-viewtype-detail" onclick="return $.ColorLife.viewTypeCommand('detail')"><i class="fa fa-th-list"></i></button>
+                        <button type="button" class="btn btn-default btn-viewtype-list" onclick="return $.ColorLife.viewTypeCommand('list')"><i class="fa fa-columns"></i></button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-filter"></i> Filter
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" class="filterby-0" onclick="return $.ColorLife.viewFilterCommand('0')"><i class="fa fa-file-o"></i> All</a></li>
+                                
+                                <li><a href="#" class="filterby-1" onclick="return $.ColorLife.viewFilterCommand('1')"><i class="fa fa-picture-o"></i> Images</a></li>
+                                <li><a href="#" class="filterby-2" onclick="return $.ColorLife.viewFilterCommand('2')"><i class="fa fa-file"></i> File</a></li>
+                                <li><a href="#" class="filterby-3" onclick="return $.ColorLife.viewFilterCommand('3')"><i class="fa fa-archive"></i> Archives</a></li>                                
+                                <li><a href="#" class="filterby-4" onclick="return $.ColorLife.viewFilterCommand('4')"><i class="fa fa-music"></i> Music</a></li>
+                                <li><a href="#" class="filterby-5" onclick="return $.ColorLife.viewFilterCommand('5')"><i class="fa fa-file-video-o"></i> Videos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col4">
+                <div class="form-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for..." id="txtSearch">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" onclick="return $.ColorLife.searchCommand();"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+
+    </div>
+    <div class="ui-layout-west">
+        <div class="ui-layout-header">
+            <span class="ui-layout-header-txt">Folder(s)</span>
+        </div>
+        <div id="tree">
+        </div>
+    </div>
+    <div class="ui-layout-south">
+        <div id="_itemInfo" class="item-info">
+            Hình ảnh
+        </div>
+    </div>
+    <div class="ui-layout-east">
+        <div class="ui-layout-header">
+            <span class="ui-layout-header-txt">Preview</span>
+        </div>
+        <div id="_preview">
+        </div>
+    </div>
+    <div class="ui-layout-center">
+        <div class="ui-layout-header">
+            <div class="toolbar">
+                <ul>
+
+
+                    <li class="pull-right">
+                        <a href="#myModalHelp" data-toggle="modal" data-target="#myModalHelp" data-backdrop="false"><i class="fa fa-info-circle"></i>&nbsp;Help</a>
+                    </li>
+                    <li class="pull-right">
+                        <a href="javascript:void(0)" onclick="return $.ColorLife.refresh();" class=""><i class="fa fa-refresh"></i>&nbsp;Refresh</a>
+                    </li>
+
+                    <li class="pull-right">
+                        <div class="btn-group">
+                            <a href="javascript:void(0)" class="gradient_14 dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <i class="fa fa-sort-alpha-asc"></i>&nbsp;Sort
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" class="sortby-name" onclick="return $.ColorLife.viewSortCommand('name')">Name</a></li>
+                                <li><a href="#" class="sortby-size" onclick="return $.ColorLife.viewSortCommand('size')">Size</a></li> 
+                                <li><a href="#" class="sortby-type" onclick="return $.ColorLife.viewSortCommand('type')">Type</a></li>
+                                <li><a href="#" class="sortby-date" onclick="return $.ColorLife.viewSortCommand('date')">Date</a></li> 
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+
+            </div>
+        </div>
+        <div id="_fileContainer" class="ui-layout-content">
+        </div>
+    </div>
+
+    <div id="myModalNewFolder" class="modal   fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <strong>Create New Folder</strong>
+                </div>
+                <div class="modal-body">
+
+                    <label for="txtFolderName">Name:</label>
+                    <input type="text" name="txtFolderName" id="txtFolderName" value="NewFolder" class="form-control" required="required" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" aria-hidden="true" id="btnCreateFolder"><i class="fa fa-check"></i> Create</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i> Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalHelp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>COLOR LIFE File Manager</strong>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="media">
+                        <a class="media-left" href="http://tuanitpro.com">
+                            <img src="http://tuanitpro.com/logo.png" class="fa-align-left" />
+                        </a>
+
+                        <div class="media-body">
+                            <h4 class="media-heading">Author</h4>
+
+                            Lê Thanh Tuấn
+                            <br />
+                            <i class="fa fa-globe"></i>
+                            <a href="http://tuanitpro.com" target="_blank">http://tuanitpro.com</a><br />
+
+
+
+
+                            <a target="_blank" href="mailto:tuanitpro@gmail.com" class="btn btn-primary">
+                                <i style="font-size:13px;color:#FFFFFF" class="fa fa-envelope"></i> tuanitpro@gmail.com
+                            </a>
+
+                            <a target="_self" href="tel:84976060432" class="btn btn-primary">
+                                <i style="font-size:13px;color:#FFFFFF" class="fa fa-mobile"></i> 097 6060 432
+                            </a>
+                            <br />
+                            <i class="fa fa-skype"></i>   Skype: tuan.itpro
+                            <br />
+                            <i class="fa fa-facebook"></i>   Facebook: <a target="_blank" href="https://facebook.com/tuanitpro">fb.com/tuanitpro</a>
+                            <br />
+                            <i class="fa fa-google-plus"></i>   G+: <a target="_blank" href="https://plus.google.com/+L%C3%AAThanhTu%E1%BA%A5nDL/posts"> tuanitpro</a>
+
+                        </div>
+                    </div>
+
+
+                    <p>
+                        <b>Shortcut Key</b><br />
+                        H: Help | F5: Refresh | Backspace: Back | Del: Delete | Ctrl + U: Upload
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check"></i>OK</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+
+                    <div id="deleteConfirm"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnDelete" class="btn btn-primary" aria-hidden="true"><i class="fa fa-check"></i>OK</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <strong>Upload File(s)</strong>
+                </div>
+                <div class="modal-body">
+
+                    <div id="pictureImageOutput" style="width:100px"></div>
+                    <div id="thumbnail-fine-uploader"></div>
+                    <br />
+                    <div id="uploadMsg">
+
+                    </div>
+
+
+                    <label>Enter file web address</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter file web address" id="txtSaveFileToServer">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" onclick="$.ColorLife.saveFileToServer()"><i class="fa fa-save"></i></button>
+                        </span>
+                    </div><!-- /input-group -->
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="btnUpload" aria-hidden="true"><i class="fa fa-check"></i> Upload</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModalPreviewFile" class="modal   fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <span id="previewFileName"> Preview</span>
+                </div>
+                <div class="modal-body">
+                    <img id="previewImage" src="" class="img-responsive" />
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-warning" id="btnEdit" aria-hidden="true">
+                        <i class="fa fa-pencil"></i> Edit
+                    </button>
+                    <button class="btn btn-primary" id="btnInsert" aria-hidden="true">Insert</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- CONTEXT MENU -->
+            <div id="context-menu">
+                <ul class="dropdown-menu" role="menu">
+
+
+                    <li><a href="#" onclick="return $.ColorLife.clipboardItems('cut');"><i class="fa fa-cut"></i> Cut</a></li>
+                    <li><a href="#" onclick="return $.ColorLife.clipboardItems('copy');"><i class="fa fa-copy"></i> Copy</a></li>
+                    <li><a href="#" onclick="return $.ColorLife.pasteItems();"><i class="fa fa-paste"></i> Past</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" onclick="return $.ColorLife.previewCommand();"><i class="fa fa-eye"></i> View</a></li>
+                    <li><a href="#"><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li><a href="#"><i class="fa fa-text-width"></i> Rename</a></li>
+                    <li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-archive"></i> Zip</a></li>
+                    <li><a href="#"><i class="fa fa-archive"></i> UnZip</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" onclick="return $.ColorLife.deleteCommand();"><i class="fa fa-trash"></i> Remove</a></li>
+                </ul>
+            </div>
+
+            <!-- END -->
+
+
+            <script type="text/template" id="qq-simple-thumbnails-template">
+                <div class="qq-uploader-selector qq-uploader">
+                    <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                        <span>Drop files here to upload</span>
+                    </div>
+                    <div class="qq-upload-button-selector qq-upload-button" style="width:100%;">
+
+                        <div><i class="fa fa-cloud-upload fa-5x"></i></div>
+                        Choose file(s) to upload
+                    </div>
+                    <span class="qq-drop-processing-selector qq-drop-processing">
+                        <span>Processing dropped files...</span>
+                        <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+                    </span>
+                    <ul class="qq-upload-list-selector qq-upload-list">
+                        <li>
+                            <div class="qq-progress-bar-container-selector">
+                                <div class="qq-progress-bar-selector qq-progress-bar"></div>
+                            </div>
+                            <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                            <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                            <span class="qq-edit-filename-icon-selector qq-edit-filename-icon"></span>
+                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                            <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                            <span class="qq-upload-size-selector qq-upload-size"></span>
+                            <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+                            <a class="qq-upload-retry-selector qq-upload-retry" href="#">Retry</a>
+                            <a class="qq-upload-delete-selector qq-upload-delete" href="#">Delete</a>
+                            <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                        </li>
+                    </ul>
+                </div>
+            </script>
+</body>
+</html>

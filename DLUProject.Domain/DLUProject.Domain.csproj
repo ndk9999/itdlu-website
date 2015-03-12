@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B401807-D79E-44D8-B612-215BD5EA434F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLUProject.Domain</RootNamespace>
+    <AssemblyName>DLUProject.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BLToolkit.4">
+      <HintPath>..\packages\BLToolkit.4.2.0\lib\net40-full\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DLUPortal\Domain\Account.cs" />
+    <Compile Include="DLUPortal\Domain\AccountGroup.cs" />
+    <Compile Include="DLUPortal\Domain\AccountGroupFunction.cs" />
+    <Compile Include="DLUPortal\Domain\AccountInGroup.cs" />
+    <Compile Include="DLUPortal\Domain\AccountLog.cs" />
+    <Compile Include="DLUPortal\Domain\AdvBanner.cs" />
+    <Compile Include="DLUPortal\Domain\Category.cs" />
+    <Compile Include="DLUPortal\Domain\Contact.cs" />
+    <Compile Include="DLUPortal\Domain\Content.cs" />
+    <Compile Include="DLUPortal\Domain\Department.cs" />
+    <Compile Include="DLUPortal\Domain\DocCategory.cs" />
+    <Compile Include="DLUPortal\Domain\NoticeFileAttachment.cs" />
+    <Compile Include="DLUPortal\Domain\DocFileAttachment.cs" />
+    <Compile Include="DLUPortal\Domain\DocType.cs" />
+    <Compile Include="DLUPortal\Domain\Document.cs" />
+    <Compile Include="DLUPortal\Domain\Files.cs" />
+    <Compile Include="DLUPortal\Domain\Folders.cs" />
+    <Compile Include="DLUPortal\Domain\Function.cs" />
+    <Compile Include="DLUPortal\Domain\Resource.cs" />
+    <Compile Include="DLUPortal\Domain\ResourceCategory.cs" />
+    <Compile Include="DLUPortal\Domain\ResourceFileAttachment.cs" />
+    <Compile Include="DLUPortal\Domain\Video.cs" />
+    <Compile Include="DLUPortal\Domain\VideoGallery.cs" />
+    <Compile Include="DLUPortal\Domain\Gallery.cs" />
+    <Compile Include="DLUPortal\Domain\VideoCategory.cs" />
+    <Compile Include="DLUPortal\Domain\GalleryCategory.cs" />
+    <Compile Include="DLUPortal\Domain\GallerySlider.cs" />
+    <Compile Include="DLUPortal\Domain\Media.cs" />
+    <Compile Include="DLUPortal\Domain\MediaAlbum.cs" />
+    <Compile Include="DLUPortal\Domain\Menus.cs" />
+    <Compile Include="DLUPortal\Domain\Notice.cs" />
+    <Compile Include="DLUPortal\Domain\MediaCategory.cs" />
+    <Compile Include="DLUPortal\Domain\NoticeCategory.cs" />
+    <Compile Include="DLUPortal\Domain\Pages.cs" />
+    <Compile Include="DLUPortal\Domain\Photo.cs" />
+    <Compile Include="DLUPortal\Domain\Portal.cs" />
+    <Compile Include="DLUPortal\Domain\Setting.cs" />
+    <Compile Include="DLUPortal\Domain\Staff.cs" />
+    <Compile Include="DLUPortal\Domain\StaffDepartment.cs" />
+    <Compile Include="DLUPortal\Domain\Systems.cs" />
+    <Compile Include="DLUPortal\Domain\Unit.cs" />
+    <Compile Include="DLUPortal\Domain\WorkGroup.cs" />
+    <Compile Include="DLUPortal\Model\AccountGroupFunctionModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountGroupModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountInGroupModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountLogModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountRoleModel.cs" />
+    <Compile Include="DLUPortal\Model\AccountSessionModel.cs" />
+    <Compile Include="DLUPortal\Model\AdvBannerModel.cs" />
+    <Compile Include="DLUPortal\Model\CategoryModel.cs" />
+    <Compile Include="DLUPortal\Model\ContactModel.cs" />
+    <Compile Include="DLUPortal\Model\ContentModel.cs" />
+    <Compile Include="DLUPortal\Model\DepartmentModel.cs" />
+    <Compile Include="DLUPortal\Model\DocCategoryModel.cs" />
+    <Compile Include="DLUPortal\Model\NoticeFileAttachmentModel.cs" />
+    <Compile Include="DLUPortal\Model\DocFileAttachmentModel.cs" />
+    <Compile Include="DLUPortal\Model\DocTypeModel.cs" />
+    <Compile Include="DLUPortal\Model\DocumentModel.cs" />
+    <Compile Include="DLUPortal\Model\FilesModel.cs" />
+    <Compile Include="DLUPortal\Model\FoldersModel.cs" />
+    <Compile Include="DLUPortal\Model\FunctionModel.cs" />
+    <Compile Include="DLUPortal\Model\GalleryCategoryModel.cs" />
+    <Compile Include="DLUPortal\Model\GalleryModel.cs" />
+    <Compile Include="DLUPortal\Model\GallerySliderModel.cs" />
+    <Compile Include="DLUPortal\Model\GroupFunctionModel.cs" />
+    <Compile Include="DLUPortal\Model\LoginModel.cs" />
+    <Compile Include="DLUPortal\Model\MediaAlbumModel.cs" />
+    <Compile Include="DLUPortal\Model\MediaModel.cs" />
+    <Compile Include="DLUPortal\Model\MenuPopupModel.cs" />
+    <Compile Include="DLUPortal\Model\MenusModel.cs" />
+    <Compile Include="DLUPortal\Model\NoticeModel.cs" />
+    <Compile Include="DLUPortal\Model\PagesModel.cs" />
+    <Compile Include="DLUPortal\Model\PermissionModel.cs" />
+    <Compile Include="DLUPortal\Model\PhotoModel.cs" />
+    <Compile Include="DLUPortal\Model\PortalModel.cs" />
+    <Compile Include="DLUPortal\Model\ResourceCategoryModel.cs" />
+    <Compile Include="DLUPortal\Model\ResourceFileAttachmentModel.cs" />
+    <Compile Include="DLUPortal\Model\ResourceModel.cs" />
+    <Compile Include="DLUPortal\Model\SettingModel.cs" />
+    <Compile Include="DLUPortal\Model\SingleOrganizationModel.cs" />
+    <Compile Include="DLUPortal\Model\StaffDepartmentModel.cs" />
+    <Compile Include="DLUPortal\Model\StaffModel.cs" />
+    <Compile Include="DLUPortal\Model\SystemInfoModel.cs" />
+    <Compile Include="DLUPortal\Model\SystemsModel.cs" />
+    <Compile Include="DLUPortal\Model\UnitModel.cs" />
+    <Compile Include="DLUPortal\Model\VideoCategoryModel.cs" />
+    <Compile Include="DLUPortal\Model\VideoModel.cs" />
+    <Compile Include="DLUPortal\Model\WorkGroupModel.cs" />
+    <Compile Include="DLUPortal\Profile\AccountGroupProfile.cs" />
+    <Compile Include="DLUPortal\Profile\AccountInGroupProfile.cs" />
+    <Compile Include="DLUPortal\Profile\AccountLogProfile.cs" />
+    <Compile Include="DLUPortal\Profile\AccountProfile.cs" />
+    <Compile Include="DLUPortal\Profile\AdvBannerProfile.cs" />
+    <Compile Include="DLUPortal\Profile\CategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\ContactProfile.cs" />
+    <Compile Include="DLUPortal\Profile\ContentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\DepartmentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\DocCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\NoticeFileAttachmentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\DocFileAttachmentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\DocTypeProfile.cs" />
+    <Compile Include="DLUPortal\Profile\DocumentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\FilesProfile.cs" />
+    <Compile Include="DLUPortal\Profile\FoldersProfile.cs" />
+    <Compile Include="DLUPortal\Profile\FunctionProfile.cs" />
+    <Compile Include="DLUPortal\Profile\GalleryCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\GalleryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\GallerySliderProfile.cs" />
+    <Compile Include="DLUPortal\Profile\GroupFunctionProfile.cs" />
+    <Compile Include="DLUPortal\Profile\MediaAlbumProfile.cs" />
+    <Compile Include="DLUPortal\Profile\MediaProfile.cs" />
+    <Compile Include="DLUPortal\Profile\MenusProfile.cs" />
+    <Compile Include="DLUPortal\Profile\MediaCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\NoticeCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\NoticeProfile.cs" />
+    <Compile Include="DLUPortal\Profile\PagesProfile.cs" />
+    <Compile Include="DLUPortal\Profile\PhotoProfile.cs" />
+    <Compile Include="DLUPortal\Profile\PortalProfile.cs" />
+    <Compile Include="DLUPortal\Profile\ResourceCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\ResourceFileAttachmentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\ResourceProfile.cs" />
+    <Compile Include="DLUPortal\Profile\SettingProfile.cs" />
+    <Compile Include="DLUPortal\Profile\StaffDepartmentProfile.cs" />
+    <Compile Include="DLUPortal\Profile\StaffProfile.cs" />
+    <Compile Include="DLUPortal\Profile\SystemsProfile.cs" />
+    <Compile Include="DLUPortal\Profile\UnitProfile.cs" />
+    <Compile Include="DLUPortal\Profile\VideoCategoryProfile.cs" />
+    <Compile Include="DLUPortal\Profile\VideoProfile.cs" />
+    <Compile Include="DLUPortal\Profile\WorkGroupProfile.cs" />
+    <Compile Include="Enums\AccessFlag.cs" />
+    <Compile Include="Enums\AccountResult.cs" />
+    <Compile Include="Enums\DisplayFlagEnum.cs" />
+    <Compile Include="Enums\ModulePosition.cs" />
+    <Compile Include="Enums\OrderSatusEnum.cs" />
+    <Compile Include="Enums\PasswordFormat.cs" />
+    <Compile Include="Enums\ProductStatusEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorLife.Core\ColorLife.Core.csproj">
+      <Project>{959ac489-7653-44f3-a167-5b494299f44b}</Project>
+      <Name>ColorLife.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

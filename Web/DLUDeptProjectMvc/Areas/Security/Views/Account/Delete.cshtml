@@ -1,0 +1,30 @@
+﻿@model DLUProject.Domain.Account
+@{
+    ViewBag.Title = "Xóa";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">
+            @ViewBag.Title
+        </h3>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div>
+                Bạn có muốn xóa mục này?  <span class="label label-info">
+                    @Model.FullName
+                </span>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-sm btn-warning"><i class="fa fa-check"></i> Đồng ý</button>
+                &nbsp; &nbsp; <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                    <i class="fa fa-undo"></i>
+                    Hủy
+                </a>
+            </div>
+        }
+    </div>
+</div>

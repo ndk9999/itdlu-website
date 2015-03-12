@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2835DBA9-FEB5-4687-A7D2-8CDCF1D091A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLUProject.Services</RootNamespace>
+    <AssemblyName>DLUProject.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BLToolkit.4, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b1d3f6ab3aadaca3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BLToolkit.4.2.0\lib\net40-full\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EPPlus.4.0.2\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DLUPortal\AccountGroupFunction\AccountGroupFunctionExtension.cs" />
+    <Compile Include="DLUPortal\AccountGroupFunction\AccountGroupFunctionService.cs" />
+    <Compile Include="DLUPortal\AccountGroup\AccountGroupExtension.cs" />
+    <Compile Include="DLUPortal\AccountGroup\AccountGroupService.cs" />
+    <Compile Include="DLUPortal\AccountInGroup\AccountInGroupExtension.cs" />
+    <Compile Include="DLUPortal\AccountInGroup\AccountInGroupService.cs" />
+    <Compile Include="DLUPortal\AccountLog\AccountLogExtension.cs" />
+    <Compile Include="DLUPortal\AccountLog\AccountLogService.cs" />
+    <Compile Include="DLUPortal\Account\AccountExtension.cs" />
+    <Compile Include="DLUPortal\Account\AccountService.cs" />
+    <Compile Include="DLUPortal\Account\AccountSession.cs" />
+    <Compile Include="DLUPortal\AdvBanner\AdvBannerExtension.cs" />
+    <Compile Include="DLUPortal\AdvBanner\AdvBannerService.cs" />
+    <Compile Include="DLUPortal\Category\CategoryExtension.cs" />
+    <Compile Include="DLUPortal\Category\CategoryService.cs" />
+    <Compile Include="DLUPortal\Contact\ContactExtension.cs" />
+    <Compile Include="DLUPortal\Contact\ContactService.cs" />
+    <Compile Include="DLUPortal\Content\ContentExtension.cs" />
+    <Compile Include="DLUPortal\Content\ContentService.cs" />
+    <Compile Include="DLUPortal\Department\DepartmentExtension.cs" />
+    <Compile Include="DLUPortal\Department\DepartmentService.cs" />
+    <Compile Include="DLUPortal\DocCategory\DocCategoryExtension.cs" />
+    <Compile Include="DLUPortal\DocCategory\DocCategoryService.cs" />
+    <Compile Include="DLUPortal\NoticeFileAttachment\NoticeFileAttachmentExtension.cs" />
+    <Compile Include="DLUPortal\NoticeFileAttachment\NoticeFileAttachmentService.cs" />
+    <Compile Include="DLUPortal\DocFileAttachment\DocFileAttachmentExtension.cs" />
+    <Compile Include="DLUPortal\DocFileAttachment\DocFileAttachmentService.cs" />
+    <Compile Include="DLUPortal\DocType\DocTypeExtension.cs" />
+    <Compile Include="DLUPortal\DocType\DocTypeService.cs" />
+    <Compile Include="DLUPortal\Document\DocumentExtension.cs" />
+    <Compile Include="DLUPortal\Document\DocumentService.cs" />
+    <Compile Include="DLUPortal\Files\FilesExtension.cs" />
+    <Compile Include="DLUPortal\Files\FilesService.cs" />
+    <Compile Include="DLUPortal\Folders\FoldersExtension.cs" />
+    <Compile Include="DLUPortal\Folders\FoldersService.cs" />
+    <Compile Include="DLUPortal\Function\FunctionExtension.cs" />
+    <Compile Include="DLUPortal\Function\FunctionService.cs" />
+    <Compile Include="DLUPortal\GalleryCategory\GalleryCategoryExtension.cs" />
+    <Compile Include="DLUPortal\GalleryCategory\GalleryCategoryService.cs" />
+    <Compile Include="DLUPortal\GallerySlider\GallerySliderExtension.cs" />
+    <Compile Include="DLUPortal\GallerySlider\GallerySliderService.cs" />
+    <Compile Include="DLUPortal\Gallery\GalleryExtension.cs" />
+    <Compile Include="DLUPortal\Gallery\GalleryService.cs" />
+    <Compile Include="DLUPortal\MediaAlbum\MediaAlbumExtension.cs" />
+    <Compile Include="DLUPortal\MediaAlbum\MediaAlbumService.cs" />
+    <Compile Include="DLUPortal\Media\MediaExtension.cs" />
+    <Compile Include="DLUPortal\Media\MediaService.cs" />
+    <Compile Include="DLUPortal\Menus\MenusExtension.cs" />
+    <Compile Include="DLUPortal\Menus\MenusService.cs" />
+    <Compile Include="DLUPortal\MediaCategory\MediaCategoryExtension.cs" />
+    <Compile Include="DLUPortal\MediaCategory\MediaCategoryService.cs" />
+    <Compile Include="DLUPortal\NoticeCategory\NoticeCategoryExtension.cs" />
+    <Compile Include="DLUPortal\NoticeCategory\NoticeCategoryService.cs" />
+    <Compile Include="DLUPortal\Notice\NoticeExtension.cs" />
+    <Compile Include="DLUPortal\Notice\NoticeService.cs" />
+    <Compile Include="DLUPortal\Pages\PagesExtension.cs" />
+    <Compile Include="DLUPortal\Pages\PagesService.cs" />
+    <Compile Include="DLUPortal\Photo\PhotoExtension.cs" />
+    <Compile Include="DLUPortal\Photo\PhotoService.cs" />
+    <Compile Include="DLUPortal\Portal\PortalExtension.cs" />
+    <Compile Include="DLUPortal\Portal\PortalService.cs" />
+    <Compile Include="DLUPortal\ResourceCategory\ResourceCategoryExtension.cs" />
+    <Compile Include="DLUPortal\ResourceCategory\ResourceCategoryService.cs" />
+    <Compile Include="DLUPortal\ResourceFileAttachment\ResourceFileAttachmentExtension.cs" />
+    <Compile Include="DLUPortal\ResourceFileAttachment\ResourceFileAttachmentService.cs" />
+    <Compile Include="DLUPortal\Resource\ResourceExtension.cs" />
+    <Compile Include="DLUPortal\Resource\ResourceService.cs" />
+    <Compile Include="DLUPortal\Setting\SettingExtension.cs" />
+    <Compile Include="DLUPortal\Setting\SettingService.cs" />
+    <Compile Include="DLUPortal\StaffDepartment\StaffDepartmentExtension.cs" />
+    <Compile Include="DLUPortal\StaffDepartment\StaffDepartmentService.cs" />
+    <Compile Include="DLUPortal\Staff\StaffExtension.cs" />
+    <Compile Include="DLUPortal\Staff\StaffService.cs" />
+    <Compile Include="DLUPortal\Unit\UnitExtension.cs" />
+    <Compile Include="DLUPortal\Unit\UnitService.cs" />
+    <Compile Include="DLUPortal\VideoCategory\VideoCategoryExtension.cs" />
+    <Compile Include="DLUPortal\VideoCategory\VideoCategoryService.cs" />
+    <Compile Include="DLUPortal\Video\VideoExtension.cs" />
+    <Compile Include="DLUPortal\Video\VideoService.cs" />
+    <Compile Include="IServices.cs" />
+    <Compile Include="DLUPortal\Systems\SystemsExtension.cs" />
+    <Compile Include="DLUPortal\Systems\SystemsService.cs" />
+    <Compile Include="DLUPortal\WorkGroup\WorkGroupExtension.cs" />
+    <Compile Include="DLUPortal\WorkGroup\WorkGroupService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorLife.Core\ColorLife.Core.csproj">
+      <Project>{959ac489-7653-44f3-a167-5b494299f44b}</Project>
+      <Name>ColorLife.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLUProject.Data\DLUProject.Data.csproj">
+      <Project>{48903326-1971-472a-8cce-0c9643675e2e}</Project>
+      <Name>DLUProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLUProject.Domain\DLUProject.Domain.csproj">
+      <Project>{2b401807-d79e-44d8-b612-215bd5ea434f}</Project>
+      <Name>DLUProject.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

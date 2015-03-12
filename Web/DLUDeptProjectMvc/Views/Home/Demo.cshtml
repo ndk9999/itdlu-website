@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Demo</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <h3>Javascript Popup Window to return value to parent Window</h3>
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    Họ tên:&nbsp;
+                </td>
+
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Chọn nhân viên..." id="txtName">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" onclick="SelectName()">Chọn...</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </td>
+            </tr>
+        </table>
+        <br />
+        <p>            
+            <a href="http://tuanitpro.comjavascript-popup-window-to-return-value-to-parent-window">Hướng dẫn lấy dữ liệu từ Popup Javascript.</a>
+        </p>
+        <script type="text/javascript">
+            var popup;
+            function SelectName() {
+                popup = window.open("/Home/Popup", "Popup", "width=400,height=300"); // Thay dường dẫn file bạn muốn mở
+                popup.focus();
+            }
+        </script>
+    </div>
+</body>
+
+</html>

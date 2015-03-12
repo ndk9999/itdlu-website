@@ -1,0 +1,477 @@
+﻿@{
+    ViewBag.Title = "Cài đặt Cơ bản";
+}
+<div class="page-content-area">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="clearfix" style="display:none">
+                <div class="alert alert-success no-margin">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+
+                    <i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
+                    Click on the image below or on profile fields to edit them ...
+                </div>
+
+
+            </div>
+            @Html.Partial("_Notification")
+
+
+            <div id="user-profile-2" class="user-profile">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs padding-18">
+                        <li class="active">
+                            <a data-toggle="tab" href="#home">
+                                <i class="green ace-icon fa fa-user bigger-120"></i>
+                                Cơ bản
+                            </a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#feed">
+                                <i class="orange ace-icon fa fa-rss bigger-120"></i>
+                                SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#social">
+                                <i class="green ace-icon fa fa-umbrella bigger-120"></i>
+                                Social
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="tab-content no-border padding-24">
+                        <div id="home" class="tab-pane in active">
+                             <!-- /.row -->
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 class="header smaller lighter blue">
+                                        @ViewBag.Title
+                                    </h3>
+                                    <div class="editor admin-editor">
+
+                                        <div id="overlay-editor">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12">
+                                                    <div class="well">
+                                                        <form id="Setting" class="form-horizontal form-bordered form-validate">
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Tên website</label>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_NAME")" id="SITE_NAME" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Site Url</label>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_URL")" id="SITE_URL" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                @Html.Label("Logo", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                                                <div class="col-sm-6">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_LOGO")" id="SITE_LOGO" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                        <span class="input-group-btn">
+                                                                            <a href="/Admin/FileManager?returnId=SITE_LOGO" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                                                        </span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                    &nbsp;
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="imgthumb">
+                                                                        <img id="imgthumb" src="@SettingOption.Get("SITE_LOGO")" class="img-responsive" />
+                                                                    </div>
+                                                                    <div class="btn-group">
+                                                                        &nbsp;
+                                                                        <a href="#" id="choosefile" class="btn btn-sm btn-danger" rel="tooltip" title="Upload new images">
+                                                                            <i class="fa fa-upload"></i>
+                                                                            Upload
+                                                                        </a>
+                                                                        <a id="removefile" class=" btn btn-sm pl_add" style="display: none">
+                                                                            <i class="fa fa-times"></i>
+                                                                            Xóa
+                                                                        </a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.Label("Banner", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                                                <div class="col-sm-6">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_BANNER")" id="SITE_BANNER" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                        <span class="input-group-btn">
+                                                                            <a href="/Admin/FileManager?returnId=SITE_BANNER" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                                                        </span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.Label("Video Youtube", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_YOUTUBE_VIDEO")" id="SITE_YOUTUBE_VIDEO" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Tên công ty</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("COMPANY_NAME")" id="COMPANY_NAME" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Địa chỉ</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_ADDRESS")" id="SITE_ADDRESS" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Email</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_EMAIL")" id="SITE_EMAIL" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Hotline</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_HOTLINE")" id="SITE_HOTLINE" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Điện thoại</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_PHONE")" id="SITE_PHONE" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Yahoo</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_YM")" id="SITE_YM" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Skype</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input type="text" class="form-control" value="@SettingOption.Get("SITE_SKYPE")" id="SITE_SKYPE" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Mô tả</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <textarea class="form-control" id="SITE_DESCRIPTION" rows="5" onblur="$.ColorLifeData.jsonSettingUpdate(this);">@SettingOption.Get("SITE_DESCRIPTION")</textarea>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="textfield" class="control-label col-sm-2">Mô tả SEO</label>
+                                                                <div class="col-sm-6">
+
+                                                                    <textarea class="form-control" id="SITE_KEYWORDS" rows="5" onblur="$.ColorLifeData.jsonSettingUpdate(this);">@SettingOption.Get("SITE_KEYWORDS")</textarea>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="space-20"></div>
+
+
+                        </div><!-- /#home -->
+
+                        <div id="feed" class="tab-pane">
+                            <div class="profile-feed row">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3 class="header smaller lighter blue">
+                                            Webmaster Tools
+                                        </h3>
+                                        <div class="editor admin-editor">
+
+                                            <div id="overlay-editor">
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12">
+                                                        <div class="well">
+                                                            <form id="Setting2" class="form-horizontal form-bordered form-validate">
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Alexa Verification ID</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_ALEXA_ID")" id="SITE_ALEXA_ID" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Bing Webmaster Tools</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_BING_WEBMASTER_ID")" id="SITE_BING_WEBMASTER_ID" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Google Webmaster Tools</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_GOOGLE_WEBMASTER_ID")" id="SITE_GOOGLE_WEBMASTER_ID" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Pinterest</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_PINTERREST_ID")" id="SITE_PINTERREST_ID" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Yandex Webmaster Tools:</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_GOOGLEPLUS")" id="SITE_GOOGLEPLUS" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+ 
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Google Analytics</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <textarea class="form-control" id="SITE_GOOGLE_ANALYSTICS" rows="5" onblur="$.ColorLifeData.jsonSettingUpdate(this);">@SettingOption.Get("SITE_GOOGLE_ANALYSTICS")</textarea>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /#feed -->
+                        <!-- /#friends -->
+                        <div id="social" class="tab-pane">
+                            <div class="profile-feed row">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3 class="header smaller lighter blue">
+                                            Social
+                                        </h3>
+                                        <div class="editor admin-editor">
+
+                                            <div id="overlay-editor">
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12">
+                                                        <div class="well">
+                                                            <form id="Setting2" class="form-horizontal form-bordered form-validate">
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">RSS</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_RSS")" id="SITE_RSS" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Facebook</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_FACEBOOK")" id="SITE_FACEBOOK" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+                                                                    </div>
+                                                                </div>
+
+                                                                
+                                                              
+                                                                
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Youtube</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_YOUTUBE")" id="SITE_YOUTUBE" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Twitter</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_TWITTER")" id="SITE_TWITTER" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Google Plus</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_GOOGLEPLUS")" id="SITE_GOOGLEPLUS" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Flickr</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_FLICKR")" id="SITE_FLICKR" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Linked In</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_LINKEDIN")" id="SITE_LINKEDIN" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Video</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_VIMEO")" id="SITE_VIMEO" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+     
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">Pinterest</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_PINTEREST")" id="SITE_PINTEREST" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">INSTAGRAM</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_INSTAGRAM")" id="SITE_INSTAGRAM" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="textfield" class="control-label col-sm-2">FOUR SQUARE</label>
+                                                                    <div class="col-sm-6">
+
+                                                                        <input type="text" class="form-control" value="@SettingOption.Get("SITE_FOURSQUARE")" id="SITE_FOURSQUARE" onblur="$.ColorLifeData.jsonSettingUpdate(this);" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /#feed -->
+                        <!-- /#pictures -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div>
+
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        var thumb = jQuery("img#imgthumb");
+        var txtPicture = jQuery("#SITE_LOGO");
+        //  alert(txtPicture.val());
+
+        txtPicture.blur(function () {
+            thumb.attr('src', txtPicture.val());
+        });
+
+
+        var thumb = jQuery("img#imgthumb");
+        var txtPicture = jQuery("#SITE_LOGO");
+        var act = jQuery("#choosefile");
+        var ok = jQuery.ColorLife.doUpload(act, thumb,'/Uploads/images', txtPicture);
+
+        var btnRemove = jQuery("#removefile");
+        btnRemove.click(function () {
+            jQuery.ColorLife.removeUpload(txtPicture.val());
+            // Xoa file moi up len
+            txtPicture.val('/Content/Images/noimage.png');
+            thumb.attr('src', '/Content/Images/noimage.png');
+        });
+    });
+</script>

@@ -1,0 +1,72 @@
+﻿<!--
+    FileName: Import.cshtml
+    Project Name: DLUProject
+Date Created: 14/11/2014 2:49:19 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+@{
+    ViewBag.Title = "Import từ file Excel";
+}
+<div class="subnav admin-views-subnav">
+    <div class="container-fluid">
+        <ul class="nav nav-pills">
+            <li><a href="@Url.Action("Index")">Pages</a></li>
+            <li class="active"><a href="#">Import</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="container-fluid">
+@using (Html.BeginForm("ImportExcel", "Pages", FormMethod.Post, htmlAttributes: new { @id = "create", @class = "form-horizontal form-bordered form-validate", @role = "form", @enctype = "multipart/form-data", }))
+    {
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            @ViewBag.Title
+            <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+        <button class="btn btn-success btn-header pull-right" type="submit"><i class="fa fa-save"></i>Lưu</button>
+    </div>
+    
+        <div class="editor admin-editor">
+
+            <div id="overlay-editor">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-error" })
+
+                <div class="row clearfix">
+                    <div class="col-md-9">
+                        <div class="well">
+                            <div class="form-horizontal clearfix">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Chọn file</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" id="importexcelfile" name="importexcelfile" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="btn-wrapper clearfix">
+                    <div class="pull-right">
+                         
+                        <a href="@Url.Action("Index")" class="btn btn-default ng-binding"><i class="fa fa-ban"></i>Hủy</a>
+                        <button type="submit" class="btn btn-success ng-binding"><i class="fa fa-save"></i> Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

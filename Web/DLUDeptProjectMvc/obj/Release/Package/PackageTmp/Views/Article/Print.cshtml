@@ -1,0 +1,154 @@
+﻿@model DLUProject.Domain.Content
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.Name</title>
+    <style type="text/css">
+        .title-cate {
+            border-bottom: dotted 1px;
+            margin-top: 10px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+        }
+
+            .title-cate a {
+                font-family: Tahoma;
+                color: #990000;
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+        .news-time {
+            font-family: Tahoma;
+            color: #808080;
+            font-size: 11px;
+        }
+
+        .news-brief {
+            font-size: 14px;
+            color: #808080;
+        }
+
+        .news-show {
+            margin-top: 40px;
+            font-family: Arial;
+            font-size: 12px;
+            text-align: justify;
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #007f48;
+            margin-bottom: 15px;
+        }
+
+        .news-img {
+            -moz-border-radius: 3px;
+            width: 120px;
+            border: solid 1px #999900;
+            padding: 3px;
+        }
+
+        .tincu {
+            margin-top: 40px;
+            margin-left: 20px;
+        }
+
+        .tincu-header {
+            color: #0080c0;
+            font-weight: bold;
+            font-size: 15px;
+            padding-top: 5px;
+            padding-left: 15px;
+            border-top: solid 1px #c0c0c0;
+            border-bottom: solid 2px #009900;
+            height: 20px;
+            width: 500px;
+            background: -moz-linear-gradient(bottom, #f2f2f2, #c0c0c0 );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c0c0c0', endColorstr='#f2f2f2');
+        }
+
+        .tincu-list {
+            width: 515px;
+            border-bottom: solid 1px #c0c0c0;
+        }
+
+        .tincu-ul {
+            font-family: Arial;
+            font-size: 11px;
+            padding-top: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            list-style: circle;
+            margin-left: 50px;
+            color: #003399;
+        }
+
+            .tincu-ul a {
+                color: #003399;
+            }
+
+        .clsmore {
+            font-weight: none;
+            font-size: 11px;
+            color: #999999;
+        }
+
+        .news-tags span {
+            font-family: arial;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .news-tags a {
+            font-family: arial;
+            font-size: 14px;
+            font-weight: bold;
+            color: #408080;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <div id="" class="">
+            <input type="button" value="In bài viết này" onclick="print()">&nbsp;&nbsp; <input type="button" value="Đóng cửa sổ" onclick="window.close()">
+        </div>
+        <div style="text-align:left">
+            <img src="/content/images/logo.png"  />
+        </div>
+
+        <div class="news-show">
+            <div class="news-title">@Model.Name</div>
+            <table width='100%' cellpadding="9">
+                <tr>
+                    <td align='right' class="clsmore">
+                        @Model.Author @Model.Source
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td valign="top" class="news-brief">
+                        @Model.Description
+                    </td>
+                </tr>
+            </table>
+
+            <p>
+                @Html.Raw(Model.FullText)
+            </p>
+            <br>
+
+        </div>
+    </div>
+</body>
+</html>
