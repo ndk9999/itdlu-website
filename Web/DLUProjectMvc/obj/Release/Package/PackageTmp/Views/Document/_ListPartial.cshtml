@@ -1,0 +1,41 @@
+﻿@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Document>
+@using ColorLife.Core.Mvc
+<div class="conten_cate">
+    @foreach (var item in Model)
+    {
+        <div class="media">
+             <div class="media-body">
+                <h4 class="media-heading">
+                    @Html.ActionLink(item.Name, "Single", "Document", new { id = item.DocumentID, slug = item.Alias }, htmlAttributes: new { @class = "home-title-a" })
+
+                </h4>
+                
+                
+                <br />
+                @item.Description
+            </div>
+          
+            <hr />
+        </div>
+    }
+
+
+    @Html.AjaxPager(
+                         Model, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true,
+                    ShowFirstLast = false,
+                    NextPageText = "&rarr;",
+                    PrevPageText = "&larr;"
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+
+
+    Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+</div>

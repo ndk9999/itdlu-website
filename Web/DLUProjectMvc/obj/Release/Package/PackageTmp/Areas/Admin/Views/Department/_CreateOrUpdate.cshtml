@@ -1,0 +1,143 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 20/11/2014 4:26:07 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Domain.Department
+
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+        @Html.HiddenFor(model => model.DepartmentID)
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ParentID, "Danh mục cha", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.ParentID, new SelectList(ViewBag.Departments, "DepartmentID", "Breadcrumb"), htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Tên", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Tên", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ShortName, "Tên ngắn", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.ShortName, htmlAttributes: new { @class = "form-control", placeholder = "Tên ngắn" })
+                                @Html.ValidationMessageFor(model => model.ShortName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Alias, "Alias", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Alias, htmlAttributes: new { @class = "form-control", placeholder = "Alias" })
+                                @Html.ValidationMessageFor(model => model.Alias)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, "Mô tả", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", placeholder = "Mô tả" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HeadOffice, "Văn phòng", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.HeadOffice, htmlAttributes: new { @class = "form-control", placeholder = "Văn phòng" })
+                                @Html.ValidationMessageFor(model => model.HeadOffice)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Dean, "Trưởng khoa", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Dean, htmlAttributes: new { @class = "form-control", placeholder = "Trưởng khoa" })
+                                @Html.ValidationMessageFor(model => model.Dean)
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", placeholder = "Email" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, "Điện thoại", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Phone, htmlAttributes: new { @class = "form-control", placeholder = "Điện thoại" })
+                                @Html.ValidationMessageFor(model => model.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Fax, "Fax", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Fax, htmlAttributes: new { @class = "form-control", placeholder = "Fax" })
+                                @Html.ValidationMessageFor(model => model.Fax)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Website, "Website", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Website, htmlAttributes: new { @class = "form-control", placeholder = "Website" })
+                                @Html.ValidationMessageFor(model => model.Website)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DateStarted, "Ngày thành lập", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.DateStarted, htmlAttributes: new { @class = "form-control datepicker", placeholder = "Ngày thành lập" })
+                                @Html.ValidationMessageFor(model => model.DateStarted)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SortOrder, "Sắp xếp", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.SortOrder, htmlAttributes: new { @class = "spinner", placeholder = "SortOrder", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.SortOrder)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsPublished, "Hiển thị", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.IsPublished, htmlAttributes: new { @class = "checkbox" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp;
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+
+    </div>
+</div>
+

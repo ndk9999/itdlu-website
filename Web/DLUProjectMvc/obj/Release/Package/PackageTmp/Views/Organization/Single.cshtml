@@ -1,0 +1,61 @@
+﻿@model DLUProject.Model.SingleOrganizationModel
+@{
+
+}
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+            @Html.ActionLink("Tổ chức", "Index","Organization", null,null) / @ViewBag.Title
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h2>  @Model.Item.Name</h2>
+                    <b>Văn phòng: @Model.Item.Address</b><br />
+
+                    <b>Điện thoại: </b> <a href="tel:@Model.Item.Phone">@Model.Item.Phone</a><br />
+                    <b>Email: @Model.Item.Email</b><br />
+                    <b>Website</b>: <a href="@Model.Item.Website" target="_blank">@Model.Item.Website</a>
+                </div>
+
+
+                
+                    @foreach (var item in Model.ListStaff)
+                    {
+                        <div class="media">
+                            <a href="#" class="media-right">
+                                <img src="@item.Staff.Image" class="img-thumbnail" title="@item.Staff.FullName2" width="82" >
+                            </a>
+                            <div class="media-body" style="padding-left:5px">
+                                <h4 class="media-heading">                                    
+                                    @item.Staff.FullName2
+                                </h4>
+                                 @item.Staff.Position<br />
+                                <i class="fa fa-envelope"></i> @item.Staff.Email <br />
+                                <i class="fa fa-file-word-o"></i> <a href="#">Lý lịch Khoa học</a>
+                            </div>
+
+
+                        </div>
+                    }
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.Partial("_WidgetOfficePartial")
+            <div class="widget">
+               
+                <h4 class="title-thongbao ">THÔNG BÁO</h4>
+
+                <div class="divthongbao">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

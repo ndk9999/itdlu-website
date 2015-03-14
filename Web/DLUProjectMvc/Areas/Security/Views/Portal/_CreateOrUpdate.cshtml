@@ -1,0 +1,101 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 21/11/2014 10:48:00 AM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Domain.Portal
+
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+        @Html.HiddenFor(model => model.PortalID)
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Tên", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Tên", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Url, "Url", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Url, htmlAttributes: new { @class = "form-control", placeholder = "Url" })
+                                @Html.ValidationMessageFor(model => model.Url)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Host, "Host", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Host, htmlAttributes: new { @class = "form-control", placeholder = "Host" })
+                                @Html.ValidationMessageFor(model => model.Host)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LogoUrl, "Logo", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.LogoUrl, htmlAttributes: new { @class = "form-control", placeholder = "Logo" })
+                                    <span class="input-group-btn">
+                                        <a href="/Admin/FileManager?returnId=LogoUrl" class='btn btn-sm btn-inverse chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                    </span>
+                                    
+                                    @Html.ValidationMessageFor(model => model.LogoUrl)
+                                </div></div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SSLEnable, "Sử dụng SSL", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.SSLEnable)
+                                @Html.ValidationMessageFor(model => model.SSLEnable)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SecureUrl, "Https Url", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.SecureUrl, htmlAttributes: new { @class = "form-control", placeholder = "Https Url" })
+                                @Html.ValidationMessageFor(model => model.SecureUrl)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsDefault, "Mặc định", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.IsDefault)
+                                @Html.ValidationMessageFor(model => model.IsDefault)
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp;
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+
+    </div>
+</div>
+

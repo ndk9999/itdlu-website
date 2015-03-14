@@ -1,0 +1,109 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 26/11/2014 10:56:15 AM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Domain.ProductStored
+
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+        @Html.HiddenFor(model=>model.CustomerID)
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix">
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductID, "ProductID", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.ProductID, htmlAttributes: new { @class = "spinner", placeholder = "ProductID", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.ProductID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CustomerID, "Khách hàng", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.CustomerID, new SelectList(ViewBag.Customers, "CustomerID", "FullName"), htmlAttributes: new { @class = "form-control", placeholder = "ProductID", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.CustomerID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StoreID, "Kho", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.StoreID, new SelectList(ViewBag.Stores,"StoreID","Name"), htmlAttributes: new { @class = "form-control", placeholder = "StoreID", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.StoreID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SalerID, "Nhân viên Sale", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.SalerID,new SelectList(ViewBag.Accounts,"AccountID","FullName") , htmlAttributes: new { @class = "form-control", placeholder = "SalerID", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.SalerID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Quantity, "Số lượng", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Quantity, htmlAttributes: new { @class = "spinner", placeholder = "Quantity", data_rule_number = "true" })
+                                @Html.ValidationMessageFor(model => model.Quantity)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DateAdded, "Ngày gửi", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.DateAdded, htmlAttributes: new { @class = "form-control datepicker", placeholder = "DateAdded" })
+                                @Html.ValidationMessageFor(model => model.DateAdded)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DateEnded, "Ngày kết thúc", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.DateEnded, htmlAttributes: new { @class = "form-control datepicker", placeholder = "DateEnded" })
+                                @Html.ValidationMessageFor(model => model.DateEnded)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Status, "Trạng thái", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.Status,Enum.GetNames(typeof(DLUProject.Domain.ProductStatusEnum)).Select(e => new SelectListItem { Text = e }), htmlAttributes: new { @class = "form-control", placeholder = "Status" })
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsDeleted, "Xóa khỏi kho", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.IsDeleted)
+                                @Html.ValidationMessageFor(model => model.IsDeleted)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp;
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+
+    </div>
+</div>
+
+

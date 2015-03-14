@@ -1,0 +1,115 @@
+﻿<!--
+    FileName: _ListPartial.cshtml
+    Project Name: DLUProject
+Date Created: 26/11/2014 10:56:15 AM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.ProductStored>
+@using ColorLife.Core.Mvc
+
+<table id="ProductStored" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+    <thead>
+        <tr class='thefilter'>
+            <th>
+                <input type="checkbox" name="check_all" id="check_all" title="Chọn / Bỏ chọn" rel="tooltip">
+            </th>
+
+
+            <th class="table-item-title">Sản phẩm</th>
+            <th class="table-item-title">Khách hàng</th>
+            <th class="table-item-title">Kho</th>
+            <th class="table-item-title">Nhân viên Sale</th>
+            <th class="table-item-title">Số lượng</th>
+            <th class="table-item-title">Ngày tháng</th>
+            <th class="table-item-title">Còn lại</th>
+            <th class="table-item-title">Trạng thái</th>
+            <th class="table-item-title">Đã xóa</th>
+
+
+            <th class="table-item-title" style="width: 100px"><i class="fa fa-cogs"></i></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="@item.ID" data-ispublish="@item.ID">
+                <td class="with-checkbox">
+                    <input type="checkbox" name="check" class="check" value="@item.ID">
+                </td>
+
+                <td class="table-item-title">@item.Product.Name</td>
+                <td class="table-item-title">@item.Customer.FullName</td>
+                <td class="table-item-title">@item.Store.Name</td>
+                <td class="table-item-title">@item.Saler.FullName</td>
+                <td class="table-item-title">@item.Quantity</td>
+                <td class="table-item-title">
+                    @item.DateAdded.ToString("dd/MM/yyyy") <br />
+                    @item.DateEnded.ToString("dd/MM/yyyy")
+                </td>
+                <td>@item.NumOfDateLeft (ngày)</td>
+                <td class="table-item-title">@item.Status</td>
+                <td class="table-item-title">
+
+                    <span id="ispublished" class="published-@item.IsDeleted.ToString()" rel="tooltip" title="Đã xóa"></span>
+                </td>
+
+                <td class="td-actions ">
+                    <div class="hidden-phone visible-desktop action-buttons">
+
+                        @Html.EditLink(item.ID)
+
+
+                        @Html.DeleteLink(item.ID)
+
+                    </div>
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline position-relative">
+                            <button data-position="auto" data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
+                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                <li>
+                                    @Html.EditLink(item.ID)
+                                </li>
+                                <li>
+                                    @Html.DeleteLink(item.ID)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+            Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+        </div>
+    </div><div class="col-xs-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+            @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿<!--
+    FileName: _ListPartial.cshtml
+    Project Name: DLUProject
+Date Created: 17/12/2014 2:57:34 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Video>
+@using ColorLife.Core.Mvc
+
+<table id="Video" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+    <thead>
+        <tr class='thefilter'>
+            <th>
+                <input type="checkbox" name="check_all" id="check_all" title="Chọn / Bỏ chọn" rel="tooltip">
+            </th>
+            <th class="table-item-title"><i class="fa fa-picture-o"></i></th>
+            <th class="table-item-title">GalleryID</th>
+            <th class="table-item-title">DataSource</th>
+            <th class="table-item-title">Name</th>
+            <th class="table-item-title">Video Url</th>
+
+            <th class="table-item-title">Caption</th>
+            <th class="table-item-title">Description</th>
+
+
+            <th class="table-item-title" style="width: 100px"><i class="fa fa-cogs"></i></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="@item.VideoID" data-ispublish="@item.VideoID">
+                <td class="with-checkbox">
+                    <input type="checkbox" name="check" class="check" value="@item.VideoID">
+                </td>
+                <td class="table-item-title"><img src="@item.Image" width="48" /></td>
+                <td class="table-item-title">@item.GalleryID</td>
+                <td class="table-item-title">@item.DataSource</td>
+                <td class="table-item-title">@item.Name</td>
+                    <td class="table-item-title">@item.VideoUrl</td>
+
+                    <td class="table-item-title">@item.Caption</td>
+                    <td class="table-item-title">@item.Description</td>
+
+                    <td class="td-actions ">
+                        <div class="hidden-phone visible-desktop action-buttons">
+
+                            @Html.EditLink(item.VideoID)
+
+
+                            @Html.DeleteLink(item.VideoID)
+
+                        </div>
+                        <div class="hidden-md hidden-lg">
+                            <div class="inline position-relative">
+                                <button data-position="auto" data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
+                                    <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                    <li>
+                                        @Html.EditLink(item.VideoID)
+                                    </li>
+                                    <li>
+                                        @Html.DeleteLink(item.VideoID)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+            Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+        </div>
+    </div><div class="col-xs-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+            @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                    PageIndexParameterName = "page",
+                    ShowDisabledPagerItems = false,
+                    AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "dvAjaxData",
+                    LoadingElementId = "Loader"
+                })
+        </div>
+    </div>
+</div>

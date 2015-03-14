@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DLUProject.Domain.GallerySlider>
+<section id="slider">
+    <!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+
+                    @{var i = 0; int j = 0;}
+                    <ol class="carousel-indicators">
+                        @foreach (var item in Model)
+                        {
+                            var s = (i==0)? "active":"";
+                            <li data-target="#slider-carousel" data-slide-to="@i" class="@s"></li>
+                            i++;
+                        }
+                    </ol>
+                     
+                    <div class="carousel-inner">
+                        @foreach (var item in Model)
+                        {
+                            var s = (j == 0) ? "active" : "";
+                            <div class="item @s">
+                                <div class="col-sm-6">
+                                    <h1><span>KHO</span>-KÝ GỬI ĐÀ LẠT</h1>
+                                    <h2>@item.Name</h2>
+                                    <p>@item.Description</p>
+                                    @if (!string.IsNullOrEmpty(item.Url))
+                                    {
+                                        <a href="@item.Url" class="btn btn-default get">Mua ngay</a>
+                                    }                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="@item.ImageUrl" class="girl img-responsive" alt="" />
+                                    <img src="/Uploads/images/home/pricing.png" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            j++;
+                        }
+                       
+                        
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->

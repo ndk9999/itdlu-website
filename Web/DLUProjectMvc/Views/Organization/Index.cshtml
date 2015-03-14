@@ -1,0 +1,98 @@
+﻿@model IEnumerable<DLUProject.Domain.Department>
+@{
+    ViewBag.Title = "Tổ chức Hành chính";
+}
+ <section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    @ViewBag.Title
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="widget">
+                <div class="listorg">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        @foreach (var item in Model.Where(c => c.ParentID == 0))
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne_@item.DepartmentID">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne_@item.DepartmentID" aria-expanded="true" aria-controls="collapseOne_@item.DepartmentID">
+                                            @item.Name
+                                        </a>
+                                        <span class="badge pull-right no">
+                                            @Model.Where(c => c.ParentID == item.DepartmentID).Count()
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne_@item.DepartmentID" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne_@item.DepartmentID">
+                                    <div class="panel-body">
+
+                                        <ul class="nav nav-pills nav-stacked">
+                                            @{
+                            int i = 0;
+                                            }
+                                            @foreach (var item2 in Model.Where(c => c.ParentID == item.DepartmentID))
+                                            {
+                                                i++;
+                                                <li><a href="javascript:void(0)" class="singlePopup" style="width:50%; float:left" onclick="return $.ColorLife.jsonStaff_openModal('@item2.DepartmentID')">@i. @item2.Name</a></li>
+                                            }
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.Partial("_WidgetOfficePartial")
+            <div class="widget">
+               
+                <div class="divthongbao">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Large modal -->
+
+
+<div id="myOrgModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <img src="/content/images/small-logo.png" style="float:left; margin-right:20px" />
+               <div class="title"></div>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <a class="btn btn-primary detail">Chi tiết</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".panel-collapse").first().addClass('in');
+           
+        });
+    </script>
+}

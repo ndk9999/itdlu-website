@@ -1,0 +1,102 @@
+﻿@model DLUProjectMvc.ViewModels.ContentCategoryViewModel
+           @using ColorLife.Core.Helper
+@{
+
+}
+<link href="~/Content/dlu/colorbox.css" rel="stylesheet" />
+<section>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    TIN TỨC &amp; SỰ KIỆN
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="title-cate">
+                <ol class="breadcrumb" style="background:none; margin:0">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li>@Html.ActionLink("Tin tức", "Index", "Article")</li>
+                    <li class="active">@Model.Item.Name</li>
+                </ol>
+
+            </div>
+            <div id="dvAjaxData">
+                @{Html.RenderPartial("_ListPartial", Model);}
+            </div>
+        </div>
+       
+            <div class="col-md-4">
+             
+                <h4 class="title-thongbao ">THÔNG BÁO</h4>
+
+                <div class="divthongbao">
+                </div>
+                <div style="margin-top: 40px;">&nbsp;</div>
+                <div class="widget">
+
+                    <div class="mytabsx">
+                        <ul class="tabs">
+                            <li data-tab="tab-21" class="tab-link">Tin mới đăng</li>
+                            <li data-tab="tab-9" class="tab-link">Tin xem nhiều</li>
+                           
+                        </ul>
+                        <div class="tab-content" id="tab-21">
+                            @foreach (var item in Model.ListTopNew)
+                            {
+
+                                <div class="media">
+                                    <a class="media-left" href="#">
+                                        <img src="@item.Image" alt="@item.Name" width="120">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)</h5>
+                                        @item.Description.TruncateString(50)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="tab-content" id="tab-9">
+                           @foreach (var item in Model.ListTopViews)
+                           {
+
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <img src="@item.Image" alt="@item.Name" width="48px">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading">@Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID }, null)</h5>
+
+                                </div>
+                            </div>
+                           }
+                        </div>
+                         
+                         
+                    </div>
+
+                     
+                </div>
+                @Html.Partial("_SidebarPartial")
+
+            </div>
+        
+    </div>
+
+</section>
+
+@section scripts{
+    <script src="~/Scripts/dlu/jquery.timeago.js"></script>
+    <script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $(".group1").colorbox({ rel: 'group1' });
+
+                
+            });
+    </script>
+}

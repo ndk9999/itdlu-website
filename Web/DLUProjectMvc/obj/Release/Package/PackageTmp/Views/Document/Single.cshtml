@@ -1,0 +1,150 @@
+﻿@model DLUProjectMvc.ViewModels.SingleDocumentViewModel
+@using ColorLife.Core.Helper
+@using DLUProjectFramework.Infrastructure
+@{
+
+}
+<div class="padding5">
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <div class="title">
+                        VĂN BẢN
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="title-cate">
+                    <ol class="breadcrumb" style="background:none; margin:0">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li>@Html.ActionLink("Văn bản", "Index", "Document")</li>
+                        <li>@Html.ActionLink(Model.Item.Category.Name, "Category", "Document", new { id = Model.Item.CategoryID, slug = Model.Item.Category.Alias }, null)</li>
+                        <li class="active">@Model.Item.Name</li>
+                    </ol>
+
+                </div>
+
+                <div class="conten_cate">
+
+                    <div class="td-news-title">
+                        @Model.Item.Name
+
+                    </div>
+
+                    <hr>
+                    <div class="td_short_news">
+                        <ul class="dl-horizontal">
+                            <dt>Số/ký hiệu</dt>
+                            <dd>@Model.Item.DocumentNo</dd>
+                            <dt>Loại văn bản</dt>
+                            <dd>@Model.Item.DocType.Name</dd>
+                            <dt>Lĩnh vực</dt>
+                            <dd>@Model.Item.Category.Name</dd>
+                            <dt>Ngày Ban hành</dt>
+                            <dd>@Model.Item.DatePublished.ToString("dd/MM/yyyy")</dd>
+                            <dt>Ngày Hiệu lực</dt>
+                            <dd>@Model.Item.DateEffected.ToString("dd/MM/yyyy")</dd>
+                            <dt>Ngày hết Hiệu lực</dt>
+                            <dd>@if (Model.Item.DateEnded != DateTime.MinValue) {<span>@Model.Item.DateEnded.ToString("dd/MM/yyyy")</span> } else { <span>Không xác định</span>}</dd>
+                            <dt>Ngày đưa tin</dt>
+                            <dd>@Model.Item.DateCreated.ToString("dd/MM/yyyy")</dd>
+                        </ul>
+                    </div>
+
+
+
+                    <div style="border-top:solid 1px #ccc; margin-top:10px; margin-bottom:10px; width:100px"></div>
+                    <div class="pull-left">
+                        @if (Model.Item.CountFileAttachment > 0)
+                    {
+                            <button id="btnDownload" class="btn btn-default btn-sm">
+                                <b><i class="fa fa-download"></i> Tải về @Model.Item.CountFileAttachment file đính kèm</b>
+                            </button><br />
+    <div class="row">
+        @foreach (var item in Model.ListFiles)
+        {
+            <div class="col-md-3">
+                <div class="show-image">
+                    @Html.IconMyFile(item.FileUrl)
+                    <div class="mask">
+                        <b>
+                            @Html.ActionLink(item.Name, "Download", "Notice", new { id = item.FileId }, htmlAttributes: null)
+                        </b>
+                        <br />
+                        @item.Size
+                    </div>
+                    <div class="mybutton">
+                        <a href="#"><i class="fa fa-search  fa-2x"></i></a>
+                        <a href="@Url.Action("Download", "Notice", new { id = item.FileId })"><i class="fa fa-download  fa-2x"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+                        
+                    }
+                    </div>
+
+                </div>
+
+
+
+                <!--Tin mới hơn-->
+                <div class="col-md-12">
+                    <div class="tincu" style="margin-top:30px">
+                        <h4>
+                            Các văn bản khác
+                        </h4>
+
+                        <ol>
+
+                            @foreach (var item in Model.ListRelated)
+                        {
+                                <li>
+
+                                    <h5 class="media-heading">
+                                        @Html.ActionLink(item.Name, "Single", "Document", new { id = item.DocumentID }, null)
+                                        <small><i class="fa fa-calendar"></i> @item.DateCreated.ToString("dd/MM/yyyy hh:mm:ss tt")</small>
+                                    </h5>
+
+                                </li>
+
+
+                        }
+
+                        </ol>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+
+
+
+                <div class="widget">
+                    <div class="panel panel-primary mypanel  pull-right">
+                        <div class="panel-heading">
+                            <i class="fa fa-file-word-o"></i>  VĂN BẢN GẦN ĐÂY
+                        </div>
+                        <div class="panel-body">
+                            <div class="divvanbanmoinhat"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                @Html.Partial("_SidebarPartial")
+
+            </div>
+        </div>
+    </section>
+</div>
+@section scripts{
+}

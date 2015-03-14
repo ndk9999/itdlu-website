@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="AwesomeAngularMVCApp" ng-controller="LandingPageController">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title ng-bind="helloAngular"></title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</head>
+<body>
+
+    @{
+
+        @Html.Partial("Widget/_WidgetContainer");
+    }
+
+    <div>
+        @ViewBag.ID
+
+        <input type="text" ng-model="helloAngular" />
+        <h1>{{helloAngular}}</h1>
+        <h1>{{models.helloAngular}}</h1>
+
+        <ul>
+            <li><a href="/#/routeOne">Route One</a></li>
+            <li><a href="/#/routeTwo">Route Two</a></li>
+            <li><a href="/#/routeThree">Route Three</a></li>
+        </ul>
+
+        <div ng-view></div>
+    </div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    @Scripts.Render("~/bundles/AwesomeAngularMVCApp")
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿<!--
+    FileName: _CreateOrUpdate.cshtml
+    Project Name: DLUProject
+Date Created: 6/11/2014 10:54:03 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License:
+
+-->
+@model DLUProject.Domain.Systems
+
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+        @Html.HiddenFor(model => model.SystemID)
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Tên hệ thống", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", placeholder = "Tên hệ thống", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Url, "Url", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.Url, htmlAttributes: new { @class = "form-control", placeholder = "Url", @required = "required", data_rule_required = "true", data_rule_minlength = "2" })
+                                @Html.ValidationMessageFor(model => model.Url)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, "Mô tả", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", placeholder = "Mô tả" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Image, "Hình ảnh", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.Image, htmlAttributes: new { @class = "form-control", placeholder = "Image" })
+
+                                    <span class="input-group-btn">
+                                        <a href="#/Admin/FileManager?returnId=Image" data-target="#modal-icon" data-toggle="modal" class='btn btn-sm btn-inverse 1chooseImage'><i class="fa fa-link"></i> Chọn ảnh</a>
+                                    </span>
+                                    @Html.ValidationMessageFor(model => model.Image)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="imgthumb">
+                                    <img id="imgthumb" src="@Model.Image" class="img-responsive" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsEnabled, "Cho phép", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-4">
+                                @Html.CheckBoxFor(model => model.IsEnabled)
+                                @Html.ValidationMessageFor(model => model.IsEnabled)
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp;
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-icon">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 id="myLargeModalLabel" class="modal-title">Icons</h4>
+            </div>
+            <div class="modal-body">
+                <div id="datafileicon" style="float:left; width:100%"></div>
+                &nbsp;
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ColorLifeData.jsonGetAllFileIconMenu();
+    });
+</script>

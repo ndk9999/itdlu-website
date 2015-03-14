@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    <div> 
+        <p>
+            @foreach (var item in ViewBag.Func)
+            {
+
+                @item.Name  <span>@item.WorkGroup.Url</span><span>@item.Url</span><br />
+            }
+        </p>
+        <p>
+            @foreach (var item in ViewBag.Group)
+            {
+                @item.Name<span></span>
+            }
+        </p>
+        <p>
+            @ViewBag.Name
+        </p>
+        @ViewBag.OK
+    </div>
+</body>
+</html>

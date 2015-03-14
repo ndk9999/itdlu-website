@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Quên mật khẩu";
+    Layout = "~/Areas/Shared/_LayoutLogin2.cshtml";
+}
+@model DLUProject.Model.LoginModel
+
+<h3>Quên mật khẩu</h3>
+
+<div class="panel panel-primary account clearfix">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="ng-binding" data-toggle="collapse" href="#collapseSeven">Thông tin đăng nhập</a>
+        </h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl },
+                                                                FormMethod.Post, htmlAttributes: new
+                                                            {
+                                                                @id = "admin_login",
+                                                                @class = "form-signin form-validate"
+                                                            }))
+        {
+            @Html.AntiForgeryToken()
+            <label class="error">@Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })</label>
+            <div class="account-content">
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new
+               {
+                   @placeholder = "Email",
+                   @class = "form-control input-lg ",
+                   data_rule_required = "true",
+                   data_rule_email = "true",
+                   @rel = "tooltip",
+                   @title = "Nhập email hoặc tên đăng nhập.",
+                   @required = "required"
+               })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                 
+
+                
+                <div class="btn-wrapper text-center">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnLogin" id="btnLogin">
+                        Gửi email
+                    </button>
+                    <hr>
+                   
+
+                    <a href="@Url.Action("Index","Login")" class="text-muted" rel="tooltip" title="Nhấn vào đây để đăng nhập">Đăng nhập? </a>
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+
+
+
+

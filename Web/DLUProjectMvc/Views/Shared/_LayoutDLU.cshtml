@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>@ViewBag.Title - @SettingOption.Get("SITE_NAME")</title>
+    @Styles.Render("~/Content/css")
+
+    <link href="~/Content/dlu/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/content/dlu/menubar.css">
+
+    <link rel="stylesheet" type="text/css" href="~/content/dlu/jkmegamenu.css" />
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript" src="~/Scripts/pace.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/dlu/jkmegamenu.js"></script>
+    <script src="~/Scripts/dlu/jquery.pages.js"></script>
+    <script src="~/Scripts/dlu/responsive-nav.min.js"></script>
+    <script src="~/Scripts/dlu/jquery.nicescroll.js"></script>
+
+    <script src="~/Scripts/dlu/jquery.bxslider.min.js"></script>
+
+    <script src="~/Scripts/dlu/colorlife.src.js"></script>
+    <script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/dlu/main.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="mycontainer">
+
+
+            <section>
+                <div class="row">
+                    <div class="headerTop">
+
+                        <div class="col-md-4">
+
+                            <img src="/content/images/logo.png" border="0" class="SITE_LOGO" />
+
+                        </div>
+                        <div class="col-md-8">
+                            <nav>
+                                <div class="sub-menu hidden-sm hidden-xs" id="menutop">
+                                </div>
+                            </nav>
+                            <div class="row">
+                                <!-- GOOGLE SEARCH -->
+                                <div class="diveng  hidden-sm hidden-xs">
+                                    <div class="pull-right">
+                                        <a href="#">&nbsp;English</a>
+                                    </div>
+                                </div>
+                            </div><div class="row">
+                                <div class="mysearch">
+                                    <div class="pull-right">
+                                        Tìm kiếm&nbsp;&nbsp;
+                                        <input type="text" name="q" id="se" class="google" size="25">
+                                        <input type="submit" id="searchsubmit" class="submit" name="sa" value="GO">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div id="primary_nav_wrap">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @RenderBody()
+
+            <section>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="banner_980x60">
+                            <div class="width_common block_news_980 box_category">
+                                <div class="title_news_block_980 width_common">
+                                    &nbsp;
+                                    <div class="pull-right">
+                                        <div class="go_head">
+                                            <a style="" class="fancybox.iframe" id="aSetHomePage" href="http://vnexpress.net/sethomepage/firefox-us.html">
+                                                <i class="fa fa-home"></i>&nbsp;</span>Đặt DLU làm trang chủ
+                                            </a>
+                                            <a onclick="setHomepageIE();" id="aSetHomePageIE" href="javascript:;" style="display: none;"><span class="icon_responsive ico_respone_01">&nbsp;</span>Đặt VnExpress làm trang chủ</a>
+                                            <a href="#" id="scroll_to_top">
+
+                                                <i class="fa fa-angle-up"></i>
+                                                Về đầu trang
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="footer">
+
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+
+
+
+                                        <div class="inCounter">
+                                            <img src="/content/images/small-logo.png" border="0" class="img-responsive" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-8">
+
+                                        <label class="tdtilebq">Bản quyền thuộc về <span class="SITE_NAME"></span></label>
+                                        <br />
+                                        <span class="tdtilebq SITE_ADDRESS"></span>
+                                        <br />
+                                        <span class="tdtilebq">Chịu trách nhiệm: Ông Nguyễn Văn A</span>
+                                        <br />
+                                        <span class="tdtilebq">
+                                            Powered by <a href="http://it.dlu.edu.vn/" target='_blank' style='text-decoration:none ; color : #006699'>Khoa Công nghệ Thông tin - ĐHĐL</a>
+                                        </span>
+                                        <br />
+                                        Website đang trong quá trình thử nghiệm
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 hidden-xs">
+                                        <div class="divmenu" id="Footer1">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+    <div class="scroll-to-top" id="toTop"><i class="fa fa-angle-up"></i></div>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

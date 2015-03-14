@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload file trong ASP.NET MVC</title>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var max_fields = 10; //maximum input boxes allowed
+            var wrapper = $(".myinput"); //Fields wrapper
+            var add_button = $(".btnAddNew"); //Add button ID
+
+            var x = 0; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div>   <input type="file" name="uploadFile['+x+']" /><a href="#" class="btnRemove">Xóa</a></div>'); //add input box
+                }
+            });
+
+            $(wrapper).on("click", ".btnRemove", function (e) { //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Upload file trong ASP.NET MVC</h2>
+        <div style="color:red">
+            @Html.Raw(TempData["Msg"])
+        </div>
+        <fieldset>
+            <legend>Upload file</legend>
+            @using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <label>Chọn file: </label>
+                <br />
+                <input type="file" name="uploadFile" required /><br />
+
+                <input type="submit" value="Upload" />
+
+            }
+        </fieldset>
+        <hr />
+        <h3>Upload nhiều file trong ASP.NET MVC</h3>
+        <fieldset>
+            <legend>Upload multi file</legend>
+            @using (Html.BeginForm("UploadMulti", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <label>Chọn file: </label><br />
+                <a class="btnAddNew" href="#">Thêm</a>
+                <br />
+                <div id="myinput" class="myinput">
+                    <input type="file" name="uploadFile[0]" required /><br />
+                </div>
+                <br />
+                <input type="submit" value="Upload" />
+
+            }
+        </fieldset>
+        http://tuanitpro.com
+    </div>
+</body>
+</html>

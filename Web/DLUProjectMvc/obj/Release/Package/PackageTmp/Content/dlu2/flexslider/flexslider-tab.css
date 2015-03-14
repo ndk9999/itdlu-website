@@ -1,0 +1,73 @@
+/** SLIDER
+-------------------------------------------- **/	
+	#sliderTab {background-color: rgba(3,0,0,0.7); margin-top:10px; overflow:hidden;}
+	
+	#sliderTab .slider_content { float:left; width: 60%; position:relative; margin:0; height:340px;}
+	#sliderTab.tabs-left .slider_content{ float:right; }
+	#sliderTab .slider_content span { margin-right:10px;}
+	#sliderTab .slider_content .slider-post-meta { 
+		font-size:11px; text-transform:uppercase; margin-bottom:10px; display:inline-block; 
+		border-bottom: 3px solid #e74c3c; padding-bottom:5px;
+	}
+	#sliderTab .slider_content .slider-post-meta a { color: #fff;}
+	#sliderTab .slider_content ul.slides li { position:relative; }
+	#sliderTab .slider_content img { display:block; }
+	#sliderTab .slider_content .slider_title { 
+		position:absolute; width:100%; left:0; bottom:0; padding:0 10px; color: #fff; font-weight:700;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; z-index:99;
+		background: rgba(3,0,0,0.7);
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
+
+	}
+	
+	#sliderTab .slider_content .slider_title .post_meta{ color:#fff;} 
+	#sliderTab .slider_content .slider_title h2 { padding:0; margin:0; }
+	#sliderTab .slider_content .slider_title h2 a{ color: #fff; text-decoration:none; }
+	#sliderTab .slider_content .slider_title h2 a:hover{ color: #ddd; }
+	
+	/* Direction nav */
+	#sliderTab .flex-direction-nav { position:absolute; top:50%; width:100%; height:0px; opacity: 1; z-index:99}
+	#sliderTab .flex-direction-nav a { position:absolute; top:0; width:38px; height:48px; margin-top:-24px; line-height:50px; display:block;  text-align:center; color: #fff;  -moz-transition: all .3s ease; -webkit-transition: all .3s ease; -o-transition: all .3s ease;  -moz-opacity: 0; opacity: 0; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0); border:1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.3);}
+	#sliderTab .flex-direction-nav a i.fa { font-size:30px; width:36px; line-height:45px;}
+	#sliderTab .flexslider:hover .flex-next:hover, 
+	#sliderTab .flexslider:hover .flex-prev:hover {opacity: 0.8;}
+	#sliderTab .flex-direction-nav .flex-prev { left:40px;}
+	#sliderTab .flex-direction-nav .flex-next { right:40px;}
+	
+	#sliderTab .slider_content:hover .flex-direction-nav a.flex-next { right:20px; -moz-opacity: 1; opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);}
+	#sliderTab .slider_content:hover .flex-direction-nav a.flex-prev { left:20px; -moz-opacity: 1; opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);}
+
+	
+	/* Slider tabs */
+	#sliderTab .slider_tabs { float:right; width: 40%; }
+	#sliderTab.tabs-left .slider_tabs { float:left; }
+	#sliderTab .slider_tabs .tabss { margin:0; padding:0; list-style:none; position:relative; }
+	#sliderTab .slider_tabs .tabss > li { position:relative; height:60px;  }
+	
+	#sliderTab .slider_tabs .tabss .tab_content{ overflow:hidden;}
+	#sliderTab .slider_tabs .tabss li.flex-active .tab_content { color: #fff;}
+	#sliderTab .slider_tabs .tabss li.flex-active .tab_content a { color: #fff; background-color:#111; }
+	#sliderTab .slider_tabs .tabss a { color:#aaa; font-size:13px; border-bottom:1px solid #111; display:block; padding:15px 20px;}
+	#sliderTab .slider_tabs .tabss a:hover { color: #fff; text-decoration:none}
+	
+	#sliderTab .slider_tabs .tabss a .small_meta{ padding-left:5px; font-size:11px; color:#999;} 
+
+    #main-slider-control-nav li{
+               
+    }
+      #main-slider-control-nav li a{
+          
+      }
+    #main-slider-control-nav li img{
+        border:solid 1px #ccc;
+        float:left;
+        text-align:left;
+      margin-right:5px;
+      margin-bottom:5px;
+    }
+    

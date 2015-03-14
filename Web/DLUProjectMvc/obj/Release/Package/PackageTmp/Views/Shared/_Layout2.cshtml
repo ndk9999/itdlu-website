@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @SettingOption.Get("SITE_NAME")</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/dlu2/style.css" rel="stylesheet" />
+    <link href="~/Content/dlu2/jquery.bxslider.css" rel="stylesheet" />
+    <link href="~/Content/dlu2/colorbox.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="bgtop"></div>
+            <div class="row">
+                <div class="col-md-7">
+                    
+                        <div class="media logo">
+                            <a href="@SettingOption.Get("SITE_URL")" class="pull-left">
+                                <img width="96" alt="." src="" class="media-object SITE_LOGO">
+                            </a>
+                            <div class=" logo-text">
+                                <h3 class="SITE_NAME"></h3>
+                                <h4>DA LAT UNIVERSITY</h4>
+                            </div>
+                        </div>
+
+                    
+                </div>
+                <div class="col-md-5">
+                    <nav>
+                        <div class="menu-top hidden-sm hidden-xs">
+
+                        </div>
+                    </nav>
+                    <div class="diveng  hidden-sm hidden-xs">
+                        <div class="pull-right">
+                            <a href="#">&nbsp;English</a>
+                        </div>
+                    </div>
+                    <div class="mysearch">
+
+                        <div class="row">
+
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Nhập từ khóa cần tìm...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">Tìm kiếm</button>
+                                    </span>
+                                </div><!-- /input-group -->                                
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="mainmenu">
+                        <nav>
+                            <div id="primary_nav_wrap">
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+</header>
+        <section class="body-content">
+            @RenderBody()
+        </section>
+        
+        <footer>
+            <section>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="banner_980x60">
+                            <div class="width_common block_news_980 box_category">
+                                <div class="title_news_block_980 width_common">
+                                    &nbsp;
+                                    <div class="pull-right">
+                                        <div class="go_head">
+                                            <a style="" class="fancybox.iframe" id="aSetHomePage" href="#">
+                                                <i class="fa fa-home"></i>&nbsp;Đặt DLU làm trang chủ
+                                            </a>
+                                            <a onclick="setHomepageIE();" id="aSetHomePageIE" href="javascript:;" style="display: none;"><span class="icon_responsive ico_respone_01">&nbsp;</span>Đặt VnExpress làm trang chủ</a>
+                                            <a href="#" id="scroll_to_top">
+
+                                                <i class="fa fa-angle-up"></i>
+                                                Về đầu trang
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="footer">
+
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                         
+                                        <div class="inCounter">
+                                            Lượt truy cập:<br />123456789
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-8">
+                                        <div class="copyright-text">
+                                            <label class="tdtilebq">Bản quyền thuộc về Trường Đại học Đà Lạt</label>
+                                            <br />
+                                            <span class="tdtilebq SITE_ADDRESS">01 Phù Đổng Thiên Vương, Tp. Đà Lạt, Lâm Đồng</span>
+                                            <br />
+                                            <span class="tdtilebq SITE_PHONE">
+                                                ĐT: 063. 3822246 - Fax: 063. 3823380
+                                            </span>
+                                            <br />
+                                            Email: <span class="tdtilebq SITE_EMAIL"> E-mail: info@dlu.edu.vn</span>
+                                            - Website: <span class="tdtilebq SITE_URL"> E-mail: info@dlu.edu.vn</span>
+                                            <br />
+                                            <span class="tdtilebq">
+                                                Powered by <a href="http://it.dlu.edu.vn/" target='_blank' style='text-decoration:none ; color : #006699'>Khoa Công nghệ Thông tin - ĐHĐL</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-4 hidden-xs">
+                                        <div class="divmenu" id="Footer1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </footer>
+
+    </div>
+
+    <div class="scroll-to-top" id="toTop"><i class="fa fa-angle-up"></i></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript" src="~/Scripts/pace.min.js"></script>
+
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/jquery.colorbox-min.js"></script>
+    <script src="~/Scripts/dlu2/jquery.bxslider.min.js"></script>
+    <script src="~/Scripts/dlu2/colorlife.src.js"></script>
+    
+    <script src="~/Scripts/dlu2/responsive-nav.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/dlu2/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,4 @@
+﻿xcopy "$(ProjectDir)Areas\Admin\Views\*.*" "$(SolutionDir)Web\TTYTLamHaProjectMvc\Areas\Admin\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Security\Views\*.*" "$(SolutionDir)Web\TTYTLamHaProjectMvc\Areas\Security\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Admin\Views\*.*" "$(SolutionDir)Web\ColorStoreProjectMvc\Areas\Admin\Views" /Y /I /E
+xcopy "$(ProjectDir)Areas\Security\Views\*.*" "$(SolutionDir)Web\ColorStoreProjectMvc\Areas\Security\Views" /Y /I /E

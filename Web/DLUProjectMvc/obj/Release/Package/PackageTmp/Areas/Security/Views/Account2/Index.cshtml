@@ -1,0 +1,146 @@
+﻿@model DLUProjectMvc.Areas.Security.Models.AccountListModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <h1>
+        Security
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Account
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+<table width="100%">
+    <tr>
+        <td class="adminTitle">
+            Tìm:
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.SearchCategoryName)
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" id="btnSearch" class="k-button" value="Submit" />
+        </td>
+    </tr>
+</table>
+<div class="row">
+
+    <div class="col-xs-12">
+
+        <div id="categories-grid"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#categories-grid").kendoGrid({
+                    dataSource: {
+                        type: "json",
+                        transport: {
+                            read: {
+                                url: "@Html.Raw(Url.Action("List", "Account"))",
+                                type: "POST",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            data: "Data",
+                            total: "Total",
+                            errors: "Errors"
+                        },
+                        error: function (e) {
+                            display_kendoui_grid_error(e);
+                            // Cancel the changes
+                            this.cancelChanges();
+                        },
+                        pageSize: 20,
+                        serverPaging: true,
+                        serverFiltering: true,
+                        serverSorting: true
+                    },
+                  
+                    groupable: true,
+                    sortable: true,
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true,
+                        buttonCount: 5
+                    },
+                    editable: {
+                        confirmation: false,
+                        mode: "inline"
+                    },
+                    scrollable: false,
+                    columns: [{
+                        field: "AccountID",
+                        title: "ID"
+                    }, {
+                        field: "Email",
+                        title: "Email"
+                    }, {
+                        field: "FirstName",
+                        title: "FirstName"
+                    }, {
+                        field: "LastName",
+                        title: "LastName"
+                    }, {
+                        field: "IsApproved",
+                        title: "IsApproved"
+                    }, {
+                        field: "IsLockedOut",
+                        title: "IsLockedOut"
+                    }, {
+                        field: "DateCreated",
+                        title: "DateCreated",
+                        type: "date"
+                    }, {
+                        field: "LastLoginDate",
+                        title: "LastLoginDate",
+                        type: "date"
+                    }, {
+                        field: "AccountID",
+                        title: "#",
+                        width: 100,
+                        template: '<a href="Comments?filterByBlogPostId=#=AccountID#">edit</a>'
+                    }, {
+                        field: "Id",
+                        title: "id",
+                        width: 100,
+                        template: '<a href="Edit/#=Email#">Edit</a>'
+                    }]
+                });
+            });
+        </script>
+        <script type="text/javascript">
+    $(document).ready(function () {
+        //search button
+        $('#btnSearch').click(function () {
+            //search
+            var grid = $('#categories-grid').data('kendoGrid');
+            grid.dataSource.page(1); //new search. Set page size to 1
+            grid.dataSource.read();
+            return false;
+        });
+
+        $("#Html.FieldIdFor(model => model.SearchCategoryName)").keydown(function (event) {
+            if (event.keyCode == 13) {
+                $("#btnSearch").click();
+                return false;
+            }
+        });
+    });
+
+    function additionalData() {
+        return {
+            SearchCategoryName: $('#Html.FieldIdFor(model => model.SearchCategoryName)').val()
+        };
+    }
+        </script>
+
+
+
+
+
+    </div>
+</div>

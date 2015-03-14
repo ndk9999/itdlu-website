@@ -1,0 +1,19 @@
+﻿@model  DLUProjectFramework.Widget.IWidget
+
+<div class="widget">
+    <div class="@Model.ClassName">
+
+        <div class="header">
+            @Model.HeaderText
+        </div>
+        <div class="body">
+
+            @Html.Partial(string.Concat(new[] { "Widget",
+              "/", @Model.SubWidget.WidgetName }), @Model.SubWidget)
+
+        </div>
+        <div class="footer">
+            @Model.FooterText
+        </div>
+    </div>
+</div>

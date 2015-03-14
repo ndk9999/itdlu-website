@@ -1,0 +1,89 @@
+﻿@model DLUProject.Model.MenuPopupModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Menu</title>
+
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/jquery-2.1.1.min.js")" type="text/javascript"></script>
+     
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function getQueryString  (key) {
+            key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + key + "=([^&#]*)", 'ig');
+            var qs = regex.exec(window.location.href);
+            if (qs == null)
+                return '';
+            else
+                return qs[1];
+        }
+        function  getParentWin  () {
+            var w = opener || parent;
+            return w != window ? w : null;
+        }
+        function  isEnter (event) {
+            return ((event.which && event.which == 13) || (event.keyCode && event.keyCode == 13));
+        }
+
+        function insertUrl(url) {
+            var returnOpenerId =  getQueryString('returnId');
+            var win = getParentWin();                
+            if (returnOpenerId != null && returnOpenerId != '') {
+                win.document.getElementById(returnOpenerId).value = url;
+                self.close();
+                win.$.colorbox.close();
+            }
+ 
+            else if (navigator.appName.indexOf('Microsoft') != -1) {
+                window.returnValue = url;
+                self.close();
+                win.$.colorbox.close();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Trang</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Danh mục</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <ul>
+                    @foreach (var item in Model.ListPage)
+                    {
+                        <li><a href="#" onclick="return insertUrl('@item.Alias')">@item.Name</a></li>
+                    }
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <ul>
+                    @foreach (var item in Model.ListCategory)
+                    {
+                        <li><a href="#" onclick="return insertUrl('@item.Alias')">@item.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div>
+
+    </div>
+</body>
+</html>

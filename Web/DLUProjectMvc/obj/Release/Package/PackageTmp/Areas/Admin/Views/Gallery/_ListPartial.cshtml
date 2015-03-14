@@ -1,0 +1,128 @@
+﻿<!--
+	FileName: _ListPartial.cshtml
+	Project Name: DLUProject
+Date Created: 28/11/2014 2:03:13 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+
+ 
+
+@model ColorLife.Core.Mvc.PagedList<DLUProject.Domain.Gallery>
+    @using ColorLife.Core.Mvc
+
+    <table id="Gallery" class="table table-hover table-nomargin dataTable table-bordered tablesorter">
+    <thead>
+        <tr class='thefilter'>
+            <th>
+                <input type="checkbox" name="check_all" id="check_all" title="Chọn / Bỏ chọn" rel="tooltip">
+            </th>
+            <th class="table-item-title"><i class="fa fa-picture-o"></i></th>
+            <th class="table-item-title">Tên</th>
+            <th class="table-item-title">Thể loại</th>
+            <th class="table-item-title">Kiểu</th>
+
+
+            <th class="table-item-title">Mô tả</th>
+            <th class="table-item-title">Sắp xếp</th>
+
+
+            <th class="table-item-title">Ngày</th>
+
+
+
+            <th class="table-item-title" style="width: 100px"><i class="fa fa-cogs"></i></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="@item.GalleryID" data-ispublish="@item.GalleryID">
+                <td class="with-checkbox">
+                    <input type="checkbox" name="check" class="check" value="@item.GalleryID">
+                </td>
+                <td class="table-item-title"><img src="@item.Image" width="48" /></td>
+                <td class="table-item-title">@item.Name</td>
+                <td class="table-item-title">@item.Category.Name</td>
+                <td class="table-item-title">
+                    @item.GalleryType<br />
+                    @item.DataSource
+            </td>
+
+
+                <td class="table-item-title">@item.Description</td>
+                <td class="table-item-title">
+                    @item.SortOrder
+                    <span class="sort-up" rel="tooltip" title="Sắp xếp tăng" onclick="return $.ColorLifeData.jsonSortOrderData(this, 1)"></span>
+                    <span class="sort-down" rel="tooltip" title="Sắp xếp giảm" onclick="return $.ColorLifeData.jsonSortOrderData(this, -1)"></span>
+                    <span id="ispublished" class="published-@item.IsPublished.ToString() " rel="tooltip" title="Trạng thái Kích hoạt" onclick="$.ColorLifeData.jsonIsPublishedData(this)"></span>
+                </td>
+
+
+                <td class="table-item-title">@item.DateCreated.ToString("dd/MM/yyyy")</td>
+
+
+                <td class="td-actions ">
+                    <div class="hidden-phone visible-desktop action-buttons">
+
+                        @Html.EditLink(item.GalleryID)
+
+
+                        @Html.DeleteLink(item.GalleryID)
+
+                    </div>
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline position-relative">
+                            <button data-position="auto" data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
+                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                <li>
+                                    @Html.EditLink(item.GalleryID)
+                                </li>
+                                <li>
+                                    @Html.DeleteLink(item.GalleryID)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">
+                Hiển thị @Model.StartRecordIndex đến @Model.EndRecordIndex của @Model.TotalItemCount bản tin
+            </div>
+        </div><div class="col-xs-6">
+            <div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+                @Html.AjaxPager(
+                Model, new PagerOptions()
+                {
+                PageIndexParameterName = "page",
+                ShowDisabledPagerItems = false,
+                AlwaysShowFirstLastPageNumber = true
+                },
+                new AjaxOptions
+                {
+                UpdateTargetId = "dvAjaxData",
+                LoadingElementId = "Loader"
+                })
+            </div>
+        </div>
+    </div>
+
+

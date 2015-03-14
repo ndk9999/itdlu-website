@@ -1,0 +1,75 @@
+﻿@model DLUProject.Model.LoginModel
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Areas/Shared/_LayoutLogin2.cshtml";
+}
+<h3>Đăng nhập</h3>
+
+<div class="panel panel-primary account clearfix">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+             Thông tin đăng nhập 
+        </h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl },
+                                                                FormMethod.Post, htmlAttributes: new
+                                                            {
+                                                                @id = "admin_login",
+                                                                @class = "form-signin form-validate"
+                                                            }))
+        {
+            @Html.AntiForgeryToken()
+            <label class="error">@Html.ValidationSummary(true,"", htmlAttributes: new {@class="alert alert-danger" })</label>
+            <div class="account-content">
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new
+               {
+                   @placeholder = "Email / Tên đăng nhập",
+                   @class = "form-control input-lg ",
+                   data_rule_required = "true",
+                   data_rule_email = "true",
+                   @rel = "tooltip",
+                   @title = "Nhập email hoặc tên đăng nhập.",
+                   @required = "required"
+               })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="form-group">
+
+                    @Html.PasswordFor(model => model.Password, htmlAttributes: new
+                                                           {
+                                                               @placeholder = "Mật khẩu",
+                                                               @class = "form-control input-lg",
+                                                               data_rule_required = "true",
+                                                               @rel = "tooltip",
+                                                               @title = "Nhập mật khẩu sai quá 10 lần sẽ bị khóa tài khoản."
+                                                           })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <div class="form-group">
+                    <input id="chk" type="checkbox" name="chk">
+                    <label class="inline" for="chk" rel="tooltip" title="" data-original-title="Ghi nhớ tôi">Ghi nhớ tôi</label>
+                </div>
+                <div class="btn-wrapper text-center">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnLogin" id="btnLogin">
+                        Đăng nhập
+                    </button>
+                    <hr>
+                    <i class="fa fa-key"></i>
+                   
+                    <a href="@Url.Action("Recovery","Login")" class="text-muted" rel="tooltip" title="Nhấn vào đây để khôi phục mật khẩu">Quên mật khẩu? </a>
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+ 
+
+
+
+

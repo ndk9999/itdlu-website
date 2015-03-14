@@ -1,0 +1,87 @@
+﻿@model DLUProjectMvc.Areas.Security.Models.AccountListModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <h1>
+        Dashboard
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            overview &amp; stats
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    
+    <div class="col-xs-12">
+
+        
+            
+        <div id="categories-grid"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#categories-grid").kendoGrid({
+                    dataSource: {
+                        type: "json",
+                        transport: {
+                            read: {
+                                url: "@Html.Raw(Url.Action("List", "Blog"))",
+                                type: "POST",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            data: "Data",
+                            total: "Total",
+                            errors: "Errors"
+                        },
+                        error: function(e) {
+                            display_kendoui_grid_error(e);
+                            // Cancel the changes
+                            this.cancelChanges();
+                        },
+                        pageSize: 20,
+                        serverPaging: true,
+                        serverFiltering: true,
+                        serverSorting: true
+                    },
+                    filterable: true,
+                    sortable: true,
+                  
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true,
+                        buttonCount: 5
+                    },
+                    editable: {
+                        confirmation: false,
+                        mode: "inline"
+                    },
+                    scrollable: false,
+                    columns: [{
+                        field: "FristName",
+                        title: "1"
+                    }, {
+                        field: "LastName",
+                        title: "2"
+                    }, {
+                        field: "Email",
+                        title: "2",
+                        width: 100,
+                        template: '<a href="Comments?filterByBlogPostId=#=Email#">edit</a>'
+                    },  {
+                        field: "Id",
+                        title: "id",
+                        width: 100,
+                        template: '<a href="Edit/#=Email#">Edit</a>'
+                    }]
+                });
+            });
+        </script>
+
+
+
+</div>
+</div>

@@ -1,0 +1,62 @@
+﻿<!--
+	FileName: _CreateOrUpdate.cshtml
+	Project Name: DLUProject
+Date Created: 30/11/2014 2:35:17 PM
+Description: Auto-generated
+Version: 1.0.0.0
+Author:	Lê Thanh Tuấn - Khoa CNTT
+Author Email: tuanitpro@gmail.com
+Author Mobile: 0976060432
+Author URI: http://tuanitpro.com
+License: 
+
+-->
+
+@model DLUProject.Domain.DocFileAttachment
+ 
+
+<div class="editor admin-editor">
+
+    <div id="overlay-editor">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="form-horizontal clearfix"> 
+					<div class="form-group">
+@Html.LabelFor(model => model.DocumentID, "DocumentID", htmlAttributes: new { @class = "col-sm-2 control-label" })
+<div class="col-sm-4">
+  @Html.TextBoxFor(model => model.DocumentID, htmlAttributes: new { @class = "spinner", placeholder = "DocumentID", data_rule_number = "true" })
+@Html.ValidationMessageFor(model => model.DocumentID)
+</div>
+</div>
+<div class="form-group">
+@Html.LabelFor(model => model.FileID, "FileID", htmlAttributes: new { @class = "col-sm-2 control-label" })
+<div class="col-sm-4">
+  @Html.TextBoxFor(model => model.FileID, htmlAttributes: new { @class = "spinner", placeholder = "FileID", data_rule_number = "true" })
+@Html.ValidationMessageFor(model => model.FileID)
+</div>
+</div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+         <div class="form-actions">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+            &nbsp; &nbsp; 
+            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+                <i class="fa fa-undo"></i>
+                Hủy
+            </a>
+        </div>
+
+    </div>
+</div>
+
+

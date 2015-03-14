@@ -1,0 +1,200 @@
+﻿@model DLUProjectMvc.ViewModels.ContentHomePageViewModel
+@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div class="padding5">
+    <section>
+        <div class="row">
+            <div class="col-md-8 pull-left">
+                <div id="myslider" class="myslider"> </div>
+            </div>
+            <div class="col-md-4 pull-right">
+                <div class="server-action-menu">
+                    <div class="metro-tile metro-tile-small metro-tile-store">
+                        <a href="#">
+                            <i class="fa fa-share-alt fa-5x"></i>
+                            <br />
+                            Các ứng dụng trực tuyến
+                        </a>
+                    </div>
+                    <div class="metro-tile metro-tile-small metro-tile-music">
+                        <i class="fa fa-graduation-cap fa-5x"></i>
+                        <br />
+                        Tuyển sinh
+                    </div>
+                    <div class="metro-tile metro-tile-small metro-tile-xbox2">
+                        <i class="fa fa-file fa-5x"></i>
+                        <br />
+                        Nghiên cứu Khoa học
+                    </div>
+                    <div class="metro-tile metro-tile-small metro-tile-google">
+                        <i class="fa fa-book fa-5x"></i>
+                        <br />
+                        Tạp chí Khoa học
+                    </div>
+                    <div class="metro-tile metro-tile-small metro-tile-facebook">
+                        <i class="fa fa-university fa-5x"></i>
+                        <br />
+                        Thông tin giảng viên
+                    </div>
+                    <div class="metro-tile metro-tile-small metro-tile-custom">
+                        <i class="fa fa-users fa-5x"></i>
+                        <br />
+                        Thông tin Sinh viên
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row ">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-7">
+
+                        <h4 class="title-tintuc">
+                            @Html.ActionLink("TIN TỨC - SỰ KIỆN", "Index", "Content")
+                        </h4>
+
+                        <div class="news-content">
+
+                            <div class="block-hotnews">
+                                @foreach (var item in Model.ListContent.Take(1))
+                                {
+                                <a href="@Url.Action("Single", "Article", new { id = item.ContentID,slug=item.Alias })">
+                                    <h3 class="media-heading">@item.Name</h3>
+
+                                    <img src="@item.Image" />
+
+                                    @Html.Raw(item.Description)
+
+                                </a>
+                                }
+
+                            </div>
+                            <div class="listnews">
+                                <ul>
+
+
+                                    @foreach (var item in Model.ListContent.Skip(1))
+                                    {
+                                    <li>
+                                        <a href="@Url.Action("Single", "Article", new { id = item.ContentID,slug=item.Alias })">
+                                            <img src="@item.Image" />
+
+                                        </a>
+                                        @Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID, slug = item.Alias }, htmlAttributes: null)
+                                    </li>
+
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title-thongbao ">@Html.ActionLink("THÔNG BÁO", "Index", "Notice")</h4>
+
+
+                        <div class="divthongbao">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary mypanel">
+                    <div class="panel-heading">
+                        <i class="fa fa-home"></i>    Các đơn vị trực thuộc
+                    </div>
+                    <div class="panel-body" style="padding:0">
+                        <div class="mytabs">
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="widget">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.MenuSingle(137,true  )                 
+            </div>
+            <div class="col-md-6">
+                @Html.MenuSingle(138, true)
+                
+            </div>
+        </div>
+    </section>
+    <section class="widget">
+        <div class="row">
+            <div class="col-md-4">
+
+                <h4 class="title-photo">   HÌNH ẢNH</h4>
+
+                <div class="list-myimage" id="list-myimage">
+
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <h4 class="title-video">VIDEO</h4>
+                <div class="embed-responsive embed-responsive-16by9" id="video-item">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/@SettingOption.Get("SITE_YOUTUBE")?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="list-myvideo-home listvideo-home">
+
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary mypanel">
+                    <div class="panel-heading">
+                        <i class="fa fa-newspaper-o"></i> Góc báo chí
+
+                    </div>
+                    <div class="panel-body" style="padding:0">
+                        <div id="gocbaochi" class="gocbaochi" data-id="10">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner_980x60">
+                <div class="width_common block_news_980 box_category">
+                    <div class="title_news_block_980 width_common">
+                        Đối tác của Đại học Đà Lạt
+                        <div class="pull-right">
+                            <a class="btn_control_tv_slider prev_slider" href="javascript:;" id="slider-prev"></a>
+                            <a class="btn_control_tv_slider next_slider" href="javascript:;" id="slider-next"></a>
+                        </div>
+                    </div>
+                    <div class="content_news_980 width_common">
+                        <div class="lits_news_980 " id="logodoitac">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+}

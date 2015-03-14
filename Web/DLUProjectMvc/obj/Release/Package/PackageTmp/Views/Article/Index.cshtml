@@ -1,0 +1,173 @@
+﻿@model DLUProjectMvc.ViewModels.ContentHomePageViewModel
+@using ColorLife.Core.Helper
+@{
+    ViewBag.Title = "Tin tức & Sự kiện";
+}
+<link href="~/Content/dlu2/flexslider/flexslider-tab.css" rel="stylesheet" />
+<link href="~/Content/dlu2/flexslider/flexslider-alt.css" rel="stylesheet" />
+<link href="~/Content/dlu2/colorbox.css" rel="stylesheet" />
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <div class="title">
+                    TIN TỨC &amp; SỰ KIỆN
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 hidden-sm hidden-xs">
+
+            <div id="sliderTab">
+                <div id="mainFlexslider" class="slider_content flexslider">
+                    <ul class="slides">
+                        @foreach (var item in Model.ContentSliders)
+                        {
+                            <li>
+                                <article>
+                                    <div class="slider_title">
+                                        @item.Description
+                                </div>
+                                <a href="@Url.Action("Single", "Article", new { id = item.ContentID,slug=item.Alias })" class="home-title-a">
+                                    <img src="@item.Image" height="340" alt="slider">
+                                </a>
+                            </article>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                <div class="slider_tabs">
+                    <ul class="tabss" id="main-slider-control-nav">
+                        @foreach (var item in Model.ContentSliders)
+                        {
+                            <li>
+                                <a href="#" class="home-title-a">
+                                    <img width="48" alt="@item.Name" src="@item.Image" />@item.Name.TruncateString(50)
+                                </a>
+
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            
+                <h4 class="title-video">VIDEO</h4>
+
+
+            <div class="embed-responsive embed-responsive-16by9" id="video-item">
+                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/@SettingOption.Get("SITE_YOUTUBE")?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="list-myvideo-home listvideo-home">
+
+            </div>
+
+
+
+               
+          
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner-ngang">
+                <img src="~/Content/dlu/Images/bannerdlu.jpg" class="img-responsive" width="100%" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="listnew-home">
+                @foreach (var item1 in Model.Categories)
+                {
+                    <div class="col-md-6 item">
+                        <div class="title">
+                            @Html.ActionLink(item1.Name, "Category", "Article", new { id = item1.CategoryID, slug = item1.Alias }, htmlAttributes: new { @class = "" })
+                        </div>
+
+
+                        @foreach (var item in Model.ListContent.Where(c => c.CategoryID.Equals(item1.CategoryID)).Take(2))
+                        {
+                            <div class="media">
+                                <a href="@Url.Action("Single", "Article", new { id = item.ContentID})" class="media-left ">
+                                    <img width="100" class="thumbnail1" alt="@item.Name" src="@item.Image">
+                                </a> <div class="media-body">
+                                    <h4 class="media-heading">
+                                        @Html.ActionLink(item.Name, "Single", "Article", new { id = item.ContentID,slug=item.Alias }, htmlAttributes: new { @class = "home-title-a" })
+                                    </h4>
+                                </div>
+                            </div>
+                        }
+                        <ul>
+                            @foreach (var item2 in Model.ListContent.Where(c => c.CategoryID.Equals(item1.CategoryID)).Skip(2).Take(3))
+                            {
+                                <li>
+                                    @Html.ActionLink(item2.Name, "Single", "Article", new { id = item2.ContentID,slug=item2.Alias }, htmlAttributes: new { @class = "" })
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+
+
+            <div class="widget">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="bannerlink">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget">
+                <h4 class="title-thongbao ">THÔNG BÁO</h4>
+
+                <div class="divthongbao">
+                </div>
+                </div>
+                <div class="widget">
+                    <div id="list-hinhanhhoatdong">
+
+                    </div>
+
+
+                </div>
+                <div class="widget">
+                    <div id="list-doitacdhdl"></div>
+
+
+                </div>
+            </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Content/dlu/flexslider/jquery.flexslider-min.js"></script>
+
+ 
+<script src="~/Scripts/dlu/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#mainFlexslider').flexslider({
+                animation: "fade",
+                prevText: '<i class="fa fa-angle-left icon-large"></i>',
+                nextText: '<i class="fa fa-angle-right icon-large"></i>',
+                manualControls: "#main-slider-control-nav li"
+            });
+        });
+       
+    </script>
+}

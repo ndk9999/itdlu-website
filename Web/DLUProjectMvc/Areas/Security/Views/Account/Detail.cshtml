@@ -1,0 +1,349 @@
+﻿@model DLUProject.Domain.Account
+@{
+
+}
+
+<div class="page-content-area">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="clearfix" style="display:none">
+                <div class="alert alert-success no-margin">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+
+                    <i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
+                    Click on the image below or on profile fields to edit them ...
+                </div>
+
+
+            </div>
+            @Html.Partial("_Notification")
+
+
+            <div id="user-profile-2" class="user-profile">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs padding-18">
+                        <li class="active">
+                            <a data-toggle="tab" href="#home">
+                                <i class="green ace-icon fa fa-user bigger-120"></i>
+                                Thông tin cá nhân
+                            </a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#feed">
+                                <i class="orange ace-icon fa fa-rss bigger-120"></i>
+                                Mật khẩu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#group">
+                                <i class="blue  ace-icon fa fa-users bigger-120"></i>
+                                Nhóm Tài khoản
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content no-border padding-24">
+                        <div id="home" class="tab-pane in active">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 center">
+                                    <span class="profile-picture">
+                                        <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="@Url.Content("~/content/images/photologin.png")" />
+                                    </span>
+
+                                    <div class="space space-4"></div>
+
+                                    <a href="#" class="btn btn-sm btn-block btn-success" style="display:none">
+                                        <i class="ace-icon fa fa-plus-circle bigger-120"></i>
+                                        <span class="bigger-110">Add as a friend</span>
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-block btn-primary" style="display:none">
+                                        <i class="ace-icon fa fa-envelope-o bigger-110"></i>
+                                        <span class="bigger-110">Send a message</span>
+                                    </a>
+                                </div><!-- /.col -->
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <h4 class="blue">
+                                        <span class="middle">@Model.FullName</span>
+
+                                        <span class="label label-purple arrowed-in-right">
+                                            <i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+                                            @if (Model.IsApproved)
+                                            {<b>Đã duyệt</b>}
+                                            else
+                                            {<b>Chưa duyệt</b>}
+                                        </span>
+                                    </h4>
+                                    @using (Html.BeginForm("Detail", "Account", FormMethod.Post, htmlAttributes: new { @class = "form-validate" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        @Html.HiddenFor(model => model.AccountID)
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">Duyệt Tài khoản</div>
+
+                                            <div class="profile-info-value">
+
+                                                @Html.CheckBoxFor(model => model.IsApproved)
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">Họ và tên lót</div>
+
+                                            <div class="profile-info-value">
+
+                                                @Html.TextBoxFor(model => model.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">Tên</div>
+
+                                            <div class="profile-info-value">
+
+                                                @Html.TextBoxFor(model => model.LastName)
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-user-info">
+
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Email </div>
+
+                                                <div class="profile-info-value">
+                                                    <i class="fa fa-envelope light-orange bigger-110"></i>
+                                                    <span>@Model.Email</span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">Khóa Tài khoản</div>
+
+                                                <div class="profile-info-value">
+
+                                                    @Html.CheckBoxFor(model => model.IsLockedOut)
+                                                </div>
+                                            </div>
+
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Ngày khởi tạo </div>
+
+                                                <div class="profile-info-value">
+                                                    <span>@Model.DateCreated.ToString("dd/MM/yyyy")</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> Lần đăng nhập cuối </div>
+
+                                                <div class="profile-info-value">
+                                                    <span>@Model.LastLoginDate.ToString("dd/MM/yyyy")</span>
+                                                </div>
+                                            </div>
+
+
+                                            <button class="btn btn-sm btn-danger" type="submit">
+                                                Lưu thay đổi
+                                                <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                            </button>
+
+                                        </div>
+                                    }
+                                    <div class="hr hr-8 dotted"></div>
+
+                                    <div class="profile-user-info" style="display:none">
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> Website </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#" target="_blank">www.alexdoe.com</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
+                                            </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#">Find me on Facebook</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name">
+                                                <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
+                                            </div>
+
+                                            <div class="profile-info-value">
+                                                <a href="#">Follow me on Twitter</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+
+                            <div class="space-20"></div>
+
+
+                        </div><!-- /#home -->
+
+                        <div id="feed" class="tab-pane">
+                            <div class="profile-feed row">
+                                <div class="col-sm-6">
+                                    <div class="widget-box">
+                                        <div class="widget-header">
+                                            <h4 class="widget-title">Thay đổi Mật khẩu</h4>
+                                        </div>
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <div class="widget-body">
+                                                    <div class="widget-main">
+                                                        @using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post, htmlAttributes: new { @class = "form-validate" }))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+                                                            @Html.ValidationSummary(true)
+                                                            @Html.HiddenFor(model => model.AccountID)
+
+                                                            <label for="PasswordNew">Mật khẩu mới</label>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12">
+                                                                    @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "form-control col-md-12", placeholder = "Mật khẩu", @required = "required", data_rule_required = "true", })
+                                                                    @Html.ValidationMessageFor(model => model.Password)
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions center">
+                                                                <button class="btn btn-sm btn-success" type="submit">
+                                                                    Đổi mật khẩu
+                                                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                                </button>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /#feed -->
+                        <div id="group" class="tab-pane">
+                            <div class="profile-feed row">
+                                <div class="col-sm-6">
+                                    <div class="widget-box">
+                                        <div class="widget-header">
+                                            <h4 class="widget-title">Nhóm Tài khoản</h4>
+                                        </div>
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <div class="widget-body">
+                                                    <div class="widget-main">
+                                                        @if (ViewBag.AccountInGroup != null)
+                                                        {
+                                                            var myCheck = "";
+                                                            foreach (var item in ViewBag.AccountGroups)
+                                                            {
+                                                                foreach (var item2 in ViewBag.AccountInGroup)
+                                                                {
+                                                                    if (item.GroupID == item2.GroupID)
+                                                                    {
+                                                                        myCheck = "checked";
+                                                                        break;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        myCheck = "";
+                                                                    }
+                                                                }
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" class="ace" value="@item.GroupID" name="groupIds" @myCheck onclick="return selectOnlyCheck(@Model.AccountID,@item.GroupID)" />
+                                                                        <span class="lbl">@item.Name </span>
+                                                                    </label>
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /#friends -->
+                        <!-- /#pictures -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content-area -->
+
+
+<script type="text/javascript">
+    function selectOnlyCheck(idg, idf) {
+        $.ColorLifeData.jsonAddAccountToGroup(idg, idf);
+    }
+    jQuery(document).ready(function () {
+        
+        /*
+            var thumb = jQuery("img#imgthumb");
+            var txtPicture = jQuery("#Avatar");
+
+            txtPicture.blur(function () {
+                thumb.attr('src', txtPicture.val());
+            });
+
+            var thumb = jQuery("img#imgthumb");
+            var txtPicture = jQuery("#Avatar");
+            var act = jQuery("#choosefile");
+            jQuery.ColorLife.doUpload(act, thumb, txtPicture);
+
+            var btnRemove = jQuery("#removefile");
+            btnRemove.click(function () {
+                jQuery.ColorLife.removeUpload(txtPicture.val());
+                // Xoa file moi up len
+                txtPicture.val('/Content/Images/noimage.png');
+                thumb.attr('src', '/Content/Images/noimage.png');
+            });
+
+            jQuery.ColorLife.jsonProvince_ToSelectListByCountryID();
+
+            var userName = jQuery("#UserName");
+            userName.blur(function () {
+                jQuery.ColorLife.jsonUserGetByUserName(userName.val());
+            });
+            var email = jQuery("#Email");
+            email.blur(function () {
+                jQuery.ColorLife.jsonUserGetByEmail(email.val());
+            });
+            var btnChange = jQuery("#btnChange");
+            btnChange.click(function () {
+
+                var id = jQuery("#Email").val();
+                var passwordNew = jQuery("#PasswordNew").val();
+
+
+                jQuery.ColorLife.jsonUserResetPassword(id, passwordNew);
+                return false;
+
+            });
+            */
+    });
+</script>

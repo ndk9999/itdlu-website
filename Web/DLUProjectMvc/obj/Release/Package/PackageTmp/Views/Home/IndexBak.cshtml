@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<section>
+    <div class="row">
+       
+        <div class="col-md-8">
+
+            <div class="mid-right" id="myslider"> </div>
+
+        </div>
+        <div class="col-md-4">
+             @Html.Partial("_WidgetOfficePartial")
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dept-title">
+                CÁC PHÒNG BAN TRƯỜNG ĐH ĐÀ LẠT
+            </div>
+           
+            <div class="dept-menu">
+                 
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-8">
+            
+            
+
+            <div id="newshome"></div>
+
+
+        </div>
+        <div class="col-md-4">
+
+            
+
+            <div class="divthongbao">
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</section>
+
+<section class="widget">
+    <div class="row">
+        <div class="col-md-4">
+             
+            <h4 class="title-photo">   HÌNH ẢNH</h4>
+           
+                <div class="list-myimage" id="list-myimage">
+
+                </div>
+            
+
+        </div>
+        <div class="col-md-4">
+            <h4 class="title-video">VIDEO</h4>
+            <div class="embed-responsive embed-responsive-16by9" id="video-item">
+                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/@SettingOption.Get("SITE_YOUTUBE")?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="list-myvideo-home listvideo-home">
+
+            </div>
+
+             
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info mypanel">
+                <div class="panel-heading">
+                    <b><i class="fa fa-newspaper-o"></i> Góc báo chí</b>
+                    
+                </div>
+                <div class="panel-body">
+                    <div id="gocbaochi" class="gocbaochi" data-id="10">
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner_980x60">
+                <div class="width_common block_news_980 box_category">
+                    <div class="title_news_block_980 width_common">
+                        Đối tác của Đại học Đà Lạt
+                        <div class="pull-right">
+                            <a class="btn_control_tv_slider prev_slider" href="javascript:;" id="slider-prev"></a>
+                            <a class="btn_control_tv_slider next_slider" href="javascript:;" id="slider-next"></a>
+                        </div>
+                    </div>
+                    <div class="content_news_980 width_common">
+                        <div class="lits_news_980 " id="logodoitac">
+                             
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+ 
+@section scripts{
+ 
+}

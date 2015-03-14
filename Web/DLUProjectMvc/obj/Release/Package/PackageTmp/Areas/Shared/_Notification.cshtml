@@ -1,0 +1,11 @@
+﻿@if (TempData["Notification"] != null)
+{
+    var data = TempData["Notification"] as DLUProjectFramework.Mvc.Notification;
+    var css = data.Fail ? "success" : "danger";
+    var icon = data.Fail ? "ace-icon fa fa-check" : "ace-icon fa fa-exclamation-circle";
+    <div class="alert alert-@css">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong><i class="@icon"></i>Thông báo!</strong>
+        @Html.Raw(data.Message)
+    </div>
+}

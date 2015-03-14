@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @SettingOption.Get("SITE_NAME")</title>
+  
+        @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/dlu/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/dlu/dept.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="mainbody">
+            <div class="col-md-12  hidden-xs hidden-xs">
+                <h1>
+                    <div class="media">
+                        <a href="#" class="pull-left">
+                            <img width="96" alt="." src="http://ktx.dlu.edu.vn//Images/logo-dhdl.png" class="media-object">
+                        </a>
+                        <div class="media-body">
+                            <h3>TRƯỜNG ĐẠI HỌC ĐÀ LẠT</h3>
+                            <h4>KHU NỘI TRÚ</h4>
+                        </div>
+                    </div>
+
+                </h1>
+            </div>
+            <div class="col-md-12">
+                <div class="navbar-xs">
+                    <div class="navbar-primary">
+                        <nav class="navbar navbar-default" role="navigation">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                    <span class="navbar-brand hidden-md hidden-lg">
+                                        <a href="/" class="btn btn-xs btn-default"><i class="fa fa-home"></i></a>
+                                        KHU NỘI TRÚ ĐHĐL
+                                    </span>
+                                </div>
+                                <div class="collapse navbar-collapse navbar-ex1-collapse ng-scope" data-ng-controller="NavController">
+                                    <span class="navbar-brand hide"></span>
+
+
+                                    <ul class="nav navbar-nav">
+                                        <li id="m-home">
+
+                                            <a href="/"><i class="fa fa-home"></i>Trang chủ</a>
+                                        </li>
+                                        <li class=''><a href="http://ktx.dlu.edu.vn/ktx/default.aspx?tab=gioithieu&id=1" title='Giới thiệu'><span>Giới thiệu</span></a><ul class='dropdown-menu'></ul></li>
+                                        <li class=''><a href="http://ktx.dlu.edu.vn/ktx/default.aspx?tab=tintuc" title='Tin tức - Hoạt động'><span>Tin tức - Hoạt động</span></a><ul class='dropdown-menu'></ul></li>
+                                        <li class=''><a href="http://ktx.dlu.edu.vn/ktx/sinhvien/default.aspx?tab=ttsinhvien" title='Sinh viên'><span>Sinh viên</span></a><ul class='dropdown-menu'></ul></li>
+                                        <li class=''><a href="http://ktx.dlu.edu.vn/ktx/default.aspx?tab=lienhe&id=2" title='Liên hệ'><span>Liên hệ</span></a><ul class='dropdown-menu'></ul></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="col-md-3">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                        <span id="lblTitle">KHU NỘI TRÚ ĐH ĐÀ LẠT</span>
+                    </div>
+                    <div class="panel-body">
+                        <p><img class="img-responsive" src="../../../Uploads/Images/201184111033968KTX.jpg" alt="" /> <a href="Default.aspx?tab=gioithieu&amp;id=1">Khu Nội tr&uacute; l&agrave; cơ sở thuộc quyền quản l&yacute; của trường c&oacute; chức năng phục vụ v&agrave; quản l&yacute; to&agrave;n diện ... </a></p>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                        <span id="lblTitle"></span>
+                    </div>
+                    <div class="panel-body">
+                        <blockquote>K&yacute; t&uacute;c x&aacute; kh&ocirc;ng chỉ l&agrave; nơi ở m&agrave; c&ograve;n l&agrave; nơi tự r&egrave;n luyện của sinh vi&ecirc;n</blockquote>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                        <span id="lblTitle">SINH VIÊN CẦN BIẾT</span>
+                    </div>
+                    <div class="panel-body">
+                        <p>Quy định nội quy tại đ&acirc;y</p>
+                    </div>
+                </div>
+
+
+                <div class="panel hidden-xs hidden-sm">
+                    <img src=/Uploads/images/chienthang.jpg class="img-responsive" alt=Chiến thắng />
+
+                </div>
+
+
+            </div>
+
+            <div class="col-md-9">
+
+                <div id="carousel-example-generic" class="carousel slide hidden-xs hidden-sm" data-ride="carousel">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to=0></li>
+                        <li data-target="#carousel-example-generic" data-slide-to=0></li>
+                        <li data-target="#carousel-example-generic" data-slide-to=0></li>
+                        <li data-target="#carousel-example-generic" data-slide-to=0></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src=/Uploads/Images/5729891.jpg alt=Hình ảnh 01>
+                            <div class="carousel-caption">
+                                <p>Mô tả ảnh 01</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src=/Uploads/images/dalat.jpg alt=Hồ xuân hương>
+                            <div class="carousel-caption">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src=/Uploads/images/dalat-golf-1.jpg alt=Sân golf>
+                            <div class="carousel-caption">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src=/Uploads/images/ho-than-tho-2.jpg alt=Hồ xuân hương 2>
+                            <div class="carousel-caption">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indicators -->
+                    <!-- Wrapper for slides -->
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-chevron-left"></i></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="page-header">
+                            <h3>
+                                Tin tức - Hoạt động<small>
+                                    Khu nội trú Đại học Đà Lạt
+                                </small>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="home-box">
+
+                                    <img src="/Uploads/images/201411315629357.jpg" class="img-responsive" />
+                                    <h5><a href="Default.aspx?tab=cttintuc&IDTinTuc=14">Đoàn nghệ thuật sinh viên Trường Đại học Đà Lạt tham gia Hội thi “Tiếng hát sinh viên toàn quốc” lần thứ XIII tại Tp. Hồ Chí Minh</a></h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="panel-title">TIN NỔI BẬT</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="home-box2">
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=14">
+                                            <img class="media-object img-responsive" src="/Uploads/images/201411315629357.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=14" rel="tooltip" title="Đoàn nghệ thuật sinh viên Trường Đại học Đà Lạt tham gia Hội thi “Tiếng hát sinh viên toàn quốc” lần thứ XIII tại Tp. Hồ Chí Minh">Đoàn nghệ thuật sinh viên Trường Đại học Đà Lạt tham gia Hội thi “Tiếng hát sinh viên toàn quốc” lần thứ XIII tại Tp. Hồ Chí Minh </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=13">
+                                            <img class="media-object img-responsive" src="/Uploads/images/201411384816295.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=13" rel="tooltip" title="Hiệu trưởng Nguyễn Đức Hòa tiếp ngài Jeon Dae Ju - Đại sứ Hàn Quốc tại Việt Nam">Hiệu trưởng Nguyễn Đức Hòa tiếp ngài Jeon Dae Ju - Đại sứ Hàn Quốc tại Việt Nam </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=12">
+                                            <img class="media-object img-responsive" src="/Uploads/images/2014102975738953.JPG" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=12" rel="tooltip" title="Trường Đại học Đà Lạt tổ chức Lễ khai giảng năm học 2014-2015">Trường Đại học Đà Lạt tổ chức Lễ khai giảng năm học 2014-2015 </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=11">
+                                            <img class="media-object img-responsive" src="/Uploads/images/20141028103412375.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=11" rel="tooltip" title="Trường Đại học Đà Lạt giảng dạy về Biến đổi khí hậu cho sinh viên.">Trường Đại học Đà Lạt giảng dạy về Biến đổi khí hậu cho sinh viên. </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=10">
+                                            <img class="media-object img-responsive" src="/Uploads/images/2014103082338687.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=10" rel="tooltip" title="Khoa Công nghệ Thông tin tổ chức Lễ Khai giảng năm học mới 2014 – 2015">Khoa Công nghệ Thông tin tổ chức Lễ Khai giảng năm học mới 2014 – 2015 </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=9">
+                                            <img class="media-object img-responsive" src="/Uploads/images/2014102715234312.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=9" rel="tooltip" title="Lễ khai mạc Giải bóng bàn “Người giáo viên nhân dân” tranh Giải “Báo Giáo dục và Thời đại” lần thứ XII năm 2014">Lễ khai mạc Giải bóng bàn “Người giáo viên nhân dân” tranh Giải “Báo Giáo dục và Thời đại” lần thứ XII năm 2014 </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=8">
+                                            <img class="media-object img-responsive" src="/Uploads/images/2014102410252709.png" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=8" rel="tooltip" title="Chương trình Tập huấn về “Quản lý bao gói thuốc bảo vệ thực vật sau sử dụng”">Chương trình Tập huấn về “Quản lý bao gói thuốc bảo vệ thực vật sau sử dụng” </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=7">
+                                            <img class="media-object img-responsive" src="/Uploads/images/noimage.png" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=7" rel="tooltip" title="Trường Đại học Đà Lạt tổ chức Hội nghị sơ kết công tác an ninh quý III và kế hoạch công tác an ninh quý IV năm 2014 với Công an tỉnh Lâm Đồng.">Trường Đại học Đà Lạt tổ chức Hội nghị sơ kết công tác an ninh quý III và kế hoạch công tác an ninh quý IV năm 2014 với Công an tỉnh Lâm Đồng. </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=6">
+                                            <img class="media-object img-responsive" src="/Uploads/images/noimage.png" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=6" rel="tooltip" title=" Chỉ tiêu và mức nhận hồ sơ xét tuyển ĐẠI HỌC 2014"> Chỉ tiêu và mức nhận hồ sơ xét tuyển ĐẠI HỌC 2014 </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=5">
+                                            <img class="media-object img-responsive" src="/Uploads/Images/ktx-dhdl.JPG" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=5" rel="tooltip" title="Khu nội trú sinh viên Đại học Đà Lạt">Khu nội trú sinh viên Đại học Đà Lạt </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=4">
+                                            <img class="media-object img-responsive" src="/Uploads/Images/201326144953844image001.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=4" rel="tooltip" title="Khu nội trú sinh viên Đại học Đà Lạt tổ chức đón Tết cho sinh viên ở lại">Khu nội trú sinh viên Đại học Đà Lạt tổ chức đón Tết cho sinh viên ở lại </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=3">
+                                            <img class="media-object img-responsive" src="/Uploads/Images/201184111033968KTX.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=3" rel="tooltip" title="SỐNG KHỎE KTX">SỐNG KHỎE KTX </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=2">
+                                            <img class="media-object img-responsive" src="/Uploads/Images/hoc-vo.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=2" rel="tooltip" title="Vào ký túc xá đi... spa">Vào ký túc xá đi... spa </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <a class="pull-left" href="Default.aspx?tab=cttintuc&IDTinTuc=1">
+                                            <img class="media-object img-responsive" src="/Uploads/Images/tienghatnoitru.jpg" alt="..." width="48">
+                                        </a>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                <a href="Default.aspx?tab=cttintuc&IDTinTuc=1" rel="tooltip" title=" Hội thi tiếng hát sinh viên Khu nội trú năm 2013"> Hội thi tiếng hát sinh viên Khu nội trú năm 2013 </a>
+                                            </h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="page-header">
+                    <h3>
+                        Thông báo<small>
+                            Khu nội trú Đại học Đà Lạt
+                        </small>
+                    </h3>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=28" rel="tooltip" title="Thông báo v/v nghiệm thu đề tài NCKH cấp cơ sở năm 2014 (lần 2)">Thông báo v/v nghiệm thu đề tài NCKH cấp cơ sở năm 2014 (lần 2) </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 10:40:22 PM" rel="tooltip" title="11/11/2014 10:40:22 PM">11/11/2014 10:40:22 PM</time>
+                            |   <i class="fa fa-eye"></i>(73) người đã xem
+                        </small>
+                        <br />
+                        Thông báo v/v nghiệm thu đề tài NCKH cấp cơ sở năm 2014 (lần 2)
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=28">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=27" rel="tooltip" title="Kế hoạch làm việc với đoàn công tác của Bộ Giáo dục và Đào tạo">Kế hoạch làm việc với đoàn công tác của Bộ Giáo dục và Đào tạo </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 10:37:09 PM" rel="tooltip" title="11/11/2014 10:37:09 PM">11/11/2014 10:37:09 PM</time>
+                            |   <i class="fa fa-eye"></i>(67) người đã xem
+                        </small>
+                        <br />
+                        Kế hoạch làm việc với đoàn công tác của Bộ Giáo dục và Đào tạo
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=27">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=26" rel="tooltip" title="Thông báo v/v thực hiện nâng bậc lương thường xuyên, phụ cấp thâm niên vượt khung và nâng bậc lương trước thời hạn đối với cán bộ, viên chức và người lao động năm 2014">Thông báo v/v thực hiện nâng bậc lương thường xuyên, phụ cấp thâm niên vượt khung và nâng bậc lương trước thời hạn đối với cán bộ, viên chức và người lao động năm 2014 </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 10:29:03 PM" rel="tooltip" title="11/11/2014 10:29:03 PM">11/11/2014 10:29:03 PM</time>
+                            |   <i class="fa fa-eye"></i>(76) người đã xem
+                        </small>
+                        <br />
+                        Thông báo v/v thực hiện nâng bậc lương thường xuyên, phụ cấp thâm niên vượt khung và nâng bậc lương trước thời hạn đối với cán bộ, viên chức và người lao động năm 2014
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=26">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=25" rel="tooltip" title="Hướng dẫn về công tác quy hoạch cán bộ lãnh đạo, quản lý các đơn vị trực thuộc Trường Đại học Đà Lạt">Hướng dẫn về công tác quy hoạch cán bộ lãnh đạo, quản lý các đơn vị trực thuộc Trường Đại học Đà Lạt </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 10:24:41 PM" rel="tooltip" title="11/11/2014 10:24:41 PM">11/11/2014 10:24:41 PM</time>
+                            |   <i class="fa fa-eye"></i>(59) người đã xem
+                        </small>
+                        <br />
+                        Hướng dẫn về công tác quy hoạch cán bộ lãnh đạo, quản lý các đơn vị trực thuộc Trường Đại học Đà Lạt
+
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=25">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=24" rel="tooltip" title="Thông báo v/v Kế hoạch Cấp ủy tham dự và giám sát Hội nghị Quy hoạch của các đơn vị">Thông báo v/v Kế hoạch Cấp ủy tham dự và giám sát Hội nghị Quy hoạch của các đơn vị </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 10:20:31 PM" rel="tooltip" title="11/11/2014 10:20:31 PM">11/11/2014 10:20:31 PM</time>
+                            |   <i class="fa fa-eye"></i>(48) người đã xem
+                        </small>
+                        <br />
+                        Thông báo v/v Kế hoạch Cấp ủy tham dự và giám sát Hội nghị Quy hoạch của các đơn vị
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=24">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=23" rel="tooltip" title="Kế hoạch phối hợp tổ chức giải Esport Năm Du lịch quốc gia 2014 Tây Nguyên - Đà Lạt">Kế hoạch phối hợp tổ chức giải Esport Năm Du lịch quốc gia 2014 Tây Nguyên - Đà Lạt </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 9:44:22 PM" rel="tooltip" title="11/11/2014 9:44:22 PM">11/11/2014 9:44:22 PM</time>
+                            |   <i class="fa fa-eye"></i>(58) người đã xem
+                        </small>
+                        <br />
+                        Kế hoạch phối hợp tổ chức giải Esport Năm Du lịch quốc gia 2014 Tây Nguyên - Đà Lạt
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=23">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=22" rel="tooltip" title="Hội đồng chức danh Giáo sư cơ sở Trường Đại học Đà Lạt thông báo đến các ứng viên về việc báo cáo tổng quan kết quả nghiên cứu khoa học, công nghệ">Hội đồng chức danh Giáo sư cơ sở Trường Đại học Đà Lạt thông báo đến các ứng viên về việc báo cáo tổng quan kết quả nghiên cứu khoa học, công nghệ </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 9:41:21 PM" rel="tooltip" title="11/11/2014 9:41:21 PM">11/11/2014 9:41:21 PM</time>
+                            |   <i class="fa fa-eye"></i>(71) người đã xem
+                        </small>
+                        <br />
+                        Hội đồng chức danh Giáo sư cơ sở Trường Đại học Đà Lạt thông báo đến các ứng viên về việc báo cáo tổng quan kết quả nghiên cứu khoa học, công nghệ
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=22">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=21" rel="tooltip" title="Thông báo về việc một số học phần không được mở trong học kỳ I năm học 2014 - 2015">Thông báo về việc một số học phần không được mở trong học kỳ I năm học 2014 - 2015 </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị Trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 9:35:53 PM" rel="tooltip" title="11/11/2014 9:35:53 PM">11/11/2014 9:35:53 PM</time>
+                            |   <i class="fa fa-eye"></i>(66) người đã xem
+                        </small>
+                        <br />
+                        Thông báo về việc một số học phần không được mở trong học kỳ I năm học 2014 - 2015
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=21">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=20" rel="tooltip" title="Kế hoạch tổ chức Lễ khai giảng năm học 2014 - 2015, Lễ tốt nghiệp và trao bằng Thạc sĩ khóa 19">Kế hoạch tổ chức Lễ khai giảng năm học 2014 - 2015, Lễ tốt nghiệp và trao bằng Thạc sĩ khóa 19 </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đơn vị: Trường</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 6:09:52 PM" rel="tooltip" title="11/11/2014 6:09:52 PM">11/11/2014 6:09:52 PM</time>
+                            |   <i class="fa fa-eye"></i>(81) người đã xem
+                        </small>
+                        <br />
+
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=20">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="media thumbnail">
+
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="Default.aspx?tab=ctthongbao&IDThongBao=19" rel="tooltip" title="Thông báo v/v mở lớp " bồi dưỡng nhận thức về đảng" cho đoàn viên sinh viên năm 2014">Thông báo v/v mở lớp "Bồi dưỡng nhận thức về Đảng" cho Đoàn viên sinh viên năm 2014 </a><span class="pull-right"></span></h4>
+                        <small>
+                            bởi <b>Đảng ủy trường Đại Học Đà Lạt</b>
+                            <i class="fa fa-calendar"></i>
+
+                            <time class="timeago" datetime="11/11/2014 6:07:00 PM" rel="tooltip" title="11/11/2014 6:07:00 PM">11/11/2014 6:07:00 PM</time>
+                            |   <i class="fa fa-eye"></i>(63) người đã xem
+                        </small>
+                        <br />
+
+                        <span class="pull-right">
+                            <a href="Default.aspx?tab=ctthongbao&IDThongBao=19">Xem chi tiết</a>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-12 hidden-xs hidden-sm">
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+
+
+
+
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+
+
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+
+
+            </div>
+
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#m-home").addClass("active");
+                });
+            </script>
+
+
+
+
+
+
+            <div class="col-md-12">
+                <footer>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        Bản quyền thuộc về BAN QUẢN LÝ KHU NỘI TRÚ<br />
+                        Trường  Đại học Đà Lạt<br />
+                        Địa chỉ: Phù Đổng Thiên Vương - Phường 8 - TP Đà Lạt.<br />
+                        Email: ktx@dlu.edu.vn    Tel:  0633 552 681
+                        <br />
+                    </div>
+                    <div class="pull-right col-xs-12 col-sm-12 col-md-6 hidden-sm hidden-xs " style="padding-left:90px">
+                        Phát triển bởi ITDLU
+                        <br />
+                        Khoa CNTT- Trường Đại Học Đà Lạt<br />
+                        Đc: 01 – Phù Đổng Thiên Vương - Phường 8 - TP Đà Lạt
+                        <br />
+                        Email: it@dlu.edu.vn -  Điện thoại:  (063) 3552540
+                        <br />
+
+
+
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="gotop" id="toTop">
+            <a href="#"></a>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

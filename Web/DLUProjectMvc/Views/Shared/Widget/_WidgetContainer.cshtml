@@ -1,0 +1,8 @@
+﻿@model  DLUProjectFramework.Widget.IWidget
+
+@foreach (DLUProjectFramework.Widget.IWidget wm in ViewBag.Widgets)
+{
+
+    // @Html.Partial(string.Concat(new[] { "Widget", "/", "_Widget" }), wm)
+    @Html.Partial(string.Concat(new[] { "Widget", "/", wm.WidgetName }), wm)
+}

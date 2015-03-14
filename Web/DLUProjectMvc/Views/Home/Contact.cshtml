@@ -1,0 +1,98 @@
+﻿@model DLUProject.Model.ContactModel
+@{
+    ViewBag.Title = "Liên hệ";
+}
+<section>
+    
+        <div class="col-sm-12">
+
+            <div id="googleMap" class="contact-map">
+            </div>
+             
+        </div>
+
+   
+</section>
+
+<section>
+
+
+    <div class="col-sm-8">
+
+
+        <div class="contact-form">
+            <h3 class="title text-center">Liên hệ</h3>
+            <div class="alert alert-danger statusfail" style="display:none">
+                <i class="fa fa-exclamation-triangle"></i><p>Có lỗi xảy ra, vui lòng thử lại!</p>
+            </div>
+            <div class="alert alert-success status" style="display:none">
+                <i class="fa fa-info"></i><p>Cảm ơn bạn đã liên hệ với chúng tôi!</p>
+            </div>
+
+            @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions
+                    {
+                        OnSuccess = "ctOnSuccess",
+                        OnFailure = "ctOnFailure",
+                        OnBegin = "ctOnBegin",
+                        HttpMethod = "POST",
+                        LoadingElementId = "ctLoading"
+
+                    },
+                        htmlAttributes: new { @id = "main-contact-form", @class = "contact-form row", @name = "contact-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.ContactID)
+                @Html.HiddenFor(model => model.DateCreated)
+                @Html.HiddenFor(model => model.IsRead)
+                 
+                <div class="form-group col-md-6">
+                    @Html.TextBoxFor(model => model.FullName, htmlAttributes: new { @class = "form-control", required = "required", placeholder = "Họ tên" })
+                    @Html.ValidationMessageFor(model => model.FullName)
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", required = "required", placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.TextBoxFor(model => model.Subject, htmlAttributes: new { @class = "form-control", required = "required", placeholder = "Tiêu đề" })
+                    @Html.ValidationMessageFor(model => model.Subject)
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.TextAreaFor(model => model.Body, htmlAttributes: new { @class = "form-control", required = "required", @id = "message", placeholder = "Nội dung liên hệ", @rows = "8" })
+                    @Html.ValidationMessageFor(model => model.Body)
+
+                </div>
+                <div class="form-group col-md-12">
+                    <div id="ctLoading" style="color:#fe980f;display:none" class="pull-left">
+                        <i class="fa fa-spinner fa-spin"></i> Đang gửi....
+                    </div>
+                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Gửi">
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="contact-info">
+            <h3 class="title text-center SITE_NAME">Trường ĐH Đà Lạt</h3>
+            <address>
+
+                <p class="SITE_ADDRESS"></p>
+
+                <p>Điện thoại:<span class="SITE_PHONE"></span> <span class="SITE_FAX">  Fax:  </span></p>
+
+                <p>Email: <span class="SITE_EMAIL"></span></p>
+                <p>Website: <span class="SITE_URL"></span></p>
+            </address>
+
+        </div>
+    </div>
+</section><!--/#contact-page-->
+@section scripts{
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAIXsmwcTOX2-gD19NuWAlewDciq0n4Z0w&sensor=false"></script>
+   
+   <script type="text/javascript" src="~/Scripts/dlu/gmaps.js"></script>
+    <script type="text/javascript" src="~/Scripts/dlu/contact.js"></script>
+}

@@ -1,0 +1,45 @@
+﻿@model DLUProject.Model.SingleOrganizationModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SinglePopup</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>  @Model.Item.Name</h2>
+            <b>Văn phòng: @Model.Item.Address</b><br />
+
+            <b>Điện thoại: </b> <a href="tel:@Model.Item.Phone">@Model.Item.Phone</a><br />
+            <b>Email: @Model.Item.Email</b><br />
+            <b>Website</b>: <a href="@Model.Item.Website">@Model.Item.Website</a>
+        </div>
+        
+            @foreach (var item in Model.ListStaff)
+            {
+                
+                    <div class="media">
+                        <a href="#" class="media-right">
+                            <img src="@item.Staff.Image" class="img-thumbnail" title="@item.Staff.FullName2" width="82">
+                        </a>
+                        <div class="media-body" style="padding-left:5px">
+                            <h4 class="media-heading">
+                                @item.Staff.FullName2
+                            </h4>
+                            @item.Staff.Position<br />
+                            <i class="fa fa-envelope"></i> @item.Staff.Email
+                        </div>
+                    </div>
+                 
+            }
+        
+    </div>
+</body>
+</html>
