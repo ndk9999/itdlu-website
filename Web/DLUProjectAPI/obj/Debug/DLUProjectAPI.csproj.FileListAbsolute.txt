@@ -60,7 +60,6 @@ E:\PROJECT\DLU\DLUProject\Web\DLUProjectAPI\bin\AutoMapper.pdb
 E:\PROJECT\DLU\DLUProject\Web\DLUProjectAPI\bin\HtmlAgilityPack.pdb
 E:\PROJECT\DLU\DLUProject\Web\DLUProjectAPI\bin\HtmlAgilityPack.xml
 E:\PROJECT\DLU\DLUProject\Web\DLUProjectAPI\bin\AutoMapper.Net4.dll
-E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\AutoMapper.Net4.dll
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\DLUProjectAPI.dll.config
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\DLUProjectAPI.dll
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\DLUProjectAPI.pdb
@@ -122,3 +121,4 @@ E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\EPPlus.xml
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\obj\Debug\DLUProjectAPI.csprojResolveAssemblyReference.cache
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\obj\Debug\DLUProjectAPI.dll
 E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\obj\Debug\DLUProjectAPI.pdb
+E:\PROJECT\DLU\e10adc3949ba59abbe56e057f20f883e\Web\DLUProjectAPI\bin\AutoMapper.Net4.dll

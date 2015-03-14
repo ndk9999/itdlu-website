@@ -24,7 +24,7 @@ License:
                 <li class="">
                     <a href="#profile" data-toggle="tab" aria-expanded="false">File đính kèm</a>
                 </li>
-                
+
             </ul>
         </div>
     </div>
@@ -48,7 +48,7 @@ License:
                                         <div class="col-sm-10">
                                             @Html.CheckBoxFor(model => model.IsPin) <span>Thông báo quan trọng</span>
                                             <span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="Lựa chọn này sẽ cho phép thông báo luôn xuất hiện trên cùng danh sách.">?</span>
-                                          
+
                                         </div>
                                     </div>
 
@@ -70,14 +70,14 @@ License:
                                         @Html.LabelFor(model => model.CategoryID, "Danh mục", htmlAttributes: new { @class = "col-sm-2 control-label" })
                                         <div class="col-sm-10">
                                             @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Categories, "CategoryID", "Breadcrumb"), "-- Chọn Danh mục--", htmlAttributes: new { @class = "form-control", @required = "required", data_rule_required = "true" })
-                                            @Html.ValidationMessageFor(model => model.CategoryID,"Dữ liệu bắt buộc nhập")
+                                            @Html.ValidationMessageFor(model => model.CategoryID, "Dữ liệu bắt buộc nhập")
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.DepartmentID, "Phòng ban", htmlAttributes: new { @class = "col-sm-2 control-label" })
                                         <div class="col-sm-10">
-                                            @Html.DropDownListFor(model => model.DepartmentID, new SelectList(ViewBag.Departments, "DepartmentID", "Breadcrumb"),"-- Chọn phòng ban --", htmlAttributes: new { @class = "form-control", @required = "required", data_rule_required = "true" })
-                                            @Html.ValidationMessageFor(model => model.DepartmentID,"Dữ liệu bắt buộc nhập")
+                                            @Html.DropDownListFor(model => model.DepartmentID, new SelectList(ViewBag.Departments, "DepartmentID", "Breadcrumb"), "-- Chọn phòng ban --", htmlAttributes: new { @class = "form-control", @required = "required", data_rule_required = "true" })
+                                            @Html.ValidationMessageFor(model => model.DepartmentID, "Dữ liệu bắt buộc nhập")
                                         </div>
                                     </div>
 
@@ -105,7 +105,7 @@ License:
                                         </div>
                                     </div>
 
-                                  
+
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Hits, "Lượt xem", htmlAttributes: new { @class = "col-sm-2 control-label" })
                                         <div class="col-sm-8">
@@ -219,15 +219,22 @@ License:
 </div>
 
 
- 
-       
-        <div class="form-actions">
-            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
-            &nbsp; &nbsp;
-            <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
-                <i class="fa fa-undo"></i>
-                Hủy
-            </a>
-        </div>
 
- 
+
+<div class="form-actions">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Lưu lại</button>
+    &nbsp; &nbsp;
+    <a href="@Url.Action("Index")" class="btn btn-sm" rel="tooltip" title="Quay lại">
+        <i class="fa fa-undo"></i>
+        Hủy
+    </a>
+</div>
+
+
+<script type="text/javascript">
+    $("#AttachFile").on("click", ".btnRemove", function (e) {
+        //  e.preventDefault();
+        $(this).parent().remove();
+    })
+
+</script>

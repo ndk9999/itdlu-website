@@ -75,11 +75,16 @@ FileID = c.FileID,
             return _objectProxy.Get(expression);
         }
         public int Insert(DocFileAttachment entity)
-		{			 
-			
-             int kq =  _objectProxy.Insert(entity);            			
-			 DataCache.RemoveCache(cacheKey);
-			 return kq;
+		{
+
+            var exists = _objectProxy.Table.FirstOrDefault(x => x.DocumentID.Equals(entity.DocumentID) && x.FileID.Equals(entity.FileID));
+            if (exists == null)
+            {
+                int kq = _objectProxy.Insert(entity);
+                DataCache.RemoveCache(cacheKey);
+                return kq;
+            }
+            return -1;
 		}	
 		public int Insert2(DocFileAttachment entity)
 		{		

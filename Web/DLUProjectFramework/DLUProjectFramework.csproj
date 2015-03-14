@@ -131,6 +131,7 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="Infrastructure\AdminMenuExtensionsHelper.cs" />
     <Compile Include="Infrastructure\CustomerActionFilterAttribute.cs" />
+    <Compile Include="Infrastructure\FileIconHelper.cs" />
     <Compile Include="Infrastructure\GetSinglePage.cs" />
     <Compile Include="Infrastructure\MyFileFolderHelper.cs" />
     <Compile Include="Infrastructure\SettingOption.cs" />

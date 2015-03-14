@@ -216,6 +216,23 @@ namespace ColorLife.Core.Helper
             string matchString = Regex.Match(content, "<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase).Groups[1].Value;
             return matchString;
         }
+        public static string GetYoutubeID(this string url)
+        {
+            string Youtube = @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)";
+            string Vimeo = @"vimeo\.com/(?:.*#|.*/videos/)?([0-9]+)";
+
+            Match youtubeMatch = Regex.Match(url, Youtube);
+            // Match vimeoMatch = VimeoVideoRegex.Match(url);
+
+            string id = string.Empty;
+
+            if (youtubeMatch.Success)
+                id = youtubeMatch.Groups[1].Value;
+
+            // if (vimeoMatch.Success)
+            // id = vimeoMatch.Groups[1].Value;
+            return id;
+        }
         public static bool IsValidXml(this string xmlString)
         {
             Regex tagsWithData = new Regex("<\\w+>[^<]+</\\w+>");

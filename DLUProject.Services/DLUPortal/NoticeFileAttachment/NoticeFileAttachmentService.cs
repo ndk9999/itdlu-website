@@ -77,10 +77,14 @@ namespace DLUProject.Services
         }
         public int Insert(NoticeFileAttachment entity)
         {
-
-            int kq = _objectProxy.Insert(entity);
-            DataCache.RemoveCache(cacheKey);
-            return kq;
+            var exists = _objectProxy.Table.FirstOrDefault(x => x.NoticeID.Equals(entity.NoticeID) && x.FileID.Equals(entity.FileID));
+            if (exists == null)
+            {
+                int kq = _objectProxy.Insert(entity);
+                DataCache.RemoveCache(cacheKey);
+                return kq;
+            }
+            return -1;
         }
         public int Insert2(NoticeFileAttachment entity)
         {
