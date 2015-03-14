@@ -452,7 +452,18 @@ namespace DLUProjectAPI.Controllers
         [HttpGet]
         public JsonResponse<Video> GetVideoHomePage(int id)
         {
-            var list = _videoService.All().Take(id).ToList();
+            var list = _videoService.All().Take(id).Select(c => new Video
+            {
+                Caption = c.Caption,
+                DataSource = c.DataSource,
+                Description = c.Description,
+                GalleryID = c.GalleryID,
+                Image = c.Image,
+                Name = c.Name,
+                VideoID = c.VideoID,
+                VideoUrl = c.VideoUrl.GetYoutubeID()
+
+            }).ToList();
             return new JsonResponse<Video> { Success = false, ListData = list };
         }
         [HttpGet]
@@ -558,7 +569,7 @@ namespace DLUProjectAPI.Controllers
                     {
 
 
-                        sb.AppendLine("<li><a href=\"" + item.Website + "\" target='_blank'>" + item2.Name + "</a></li>");
+                        sb.AppendLine("<li><a href=\"" + item.Website + "\" >" + item2.Name + "</a></li>");
 
 
                     } sb.AppendLine("</ol>");
